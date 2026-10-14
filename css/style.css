@@ -85,15 +85,26 @@ h1, h2, h3, h4, .font-display {
   transition: opacity 300ms ease;
 }
 
-.york-media-box video {
-  opacity: 1 !important;
-  z-index: 2;
-  display: block !important;
-}
-
 .york-media-box img {
+  opacity: 1;
   z-index: 1;
   display: block !important;
+  transition: opacity 350ms ease;
+}
+
+.york-media-box video {
+  opacity: 0;
+  z-index: 2;
+  display: block !important;
+  transition: opacity 350ms ease;
+}
+
+.york-media-box.video-ready video {
+  opacity: 1;
+}
+
+.york-media-box.video-ready img {
+  opacity: 0;
 }
 
 /* Mobile & tablets: el video se mantiene central y nítido */

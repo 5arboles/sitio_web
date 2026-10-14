@@ -131,9 +131,17 @@
       <div class="york-hero-stage">
         
         <!-- Video Layer fijado a la derecha -->
-        <div class="york-media-box">
+        <div class="york-media-box" id="york-media-box">
           <img id="york-poster" class="york-poster" src="assets/york-poster.jpg" alt="YORK Inverter Air Conditioner" />
-          <video id="york-video" src="assets/york-scrub.mp4" playsinline muted preload="auto" class="york-video"></video>
+          <video id="york-video" 
+                 playsinline 
+                 webkit-playsinline 
+                 muted 
+                 autoplay 
+                 preload="auto" 
+                 class="york-video">
+            <source src="assets/york-scrub.mp4" type="video/mp4">
+          </video>
         </div>
 
         <!-- Fullscreen HUD overlay (4 fases coordinadas con scroll) -->
@@ -598,35 +606,94 @@
   </footer>
 
   <!-- =========================================================================
-       CONTROLADOR DE VIDEO SCRUBBING & NARRATIVA A 60 FPS
+       CONTROLADOR DE VIDEO SCRUBBING & NARRATIVA A 60 FPS (COMPATIBLE IPHONE / IOS)
        ========================================================================= -->
   <script>
     (function () {
       const section = document.getElementById('tecnologia-inverter');
+      const mediaBox = document.getElementById('york-media-box');
       const video = document.getElementById('york-video');
       const poster = document.getElementById('york-poster');
       const cards = document.querySelectorAll('.york-step-card');
 
       if (!section || !video) return;
 
-      // Configuraciones esenciales de video
+      // Configuraciones obligatorias para Safari iOS / WebKit
       video.muted = true;
+      video.defaultMuted = true;
       video.playsInline = true;
       video.setAttribute('muted', '');
       video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
 
-      function showVideo() {
-        video.style.opacity = '1';
-        if (poster) {
-          poster.style.opacity = '0';
+      function markVideoReady() {
+        if (mediaBox) {
+          mediaBox.classList.add('video-ready');
+        } else {
+          video.style.opacity = '1';
+          if (poster) poster.style.opacity = '0';
         }
       }
 
-      video.addEventListener('loadedmetadata', showVideo, { once: true });
-      video.addEventListener('canplay', showVideo, { once: true });
-      video.addEventListener('seeked', showVideo);
-      if (video.readyState >= 1) {
-        showVideo();
+      // En iOS Safari el decodificador de hardware permanece dormido hasta que se invoca play()
+      let isPrimed = false;
+      function primeVideo() {
+        if (isPrimed) return;
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            isPrimed = true;
+            video.pause();
+            markVideoReady();
+          }).catch(() => {
+            // Si el modo ahorro de batería en iPhone bloquea autoplay, se activa al primer touch
+          });
+        }
+      }
+
+      // Eventos de buffer / renderizado
+      video.addEventListener('loadeddata', markVideoReady, { once: true });
+      video.addEventListener('canplay', markVideoReady, { once: true });
+      video.addEventListener('playing', markVideoReady, { once: true });
+
+      // Disparar intento de priming inmediato
+      primeVideo();
+
+      // Desbloqueo garantizado con cualquier interacción táctil o scroll en iPhone
+      const unlockEvents = ['touchstart', 'touchmove', 'scroll', 'click'];
+      function onFirstUserGesture() {
+        primeVideo();
+        unlockEvents.forEach(evt => window.removeEventListener(evt, onFirstUserGesture));
+      }
+      unlockEvents.forEach(evt => window.addEventListener(evt, onFirstUserGesture, { passive: true, once: true }));
+
+      // Gestión de seeking con cola (evita sobrecargar el decodificador de iOS Safari)
+      let isSeeking = false;
+      let pendingTargetTime = null;
+
+      video.addEventListener('seeking', () => {
+        isSeeking = true;
+      });
+
+      video.addEventListener('seeked', () => {
+        isSeeking = false;
+        markVideoReady();
+        if (pendingTargetTime !== null) {
+          const nextTime = pendingTargetTime;
+          pendingTargetTime = null;
+          performSeek(nextTime);
+        }
+      });
+
+      function performSeek(time) {
+        if (isSeeking) {
+          pendingTargetTime = time;
+          return;
+        }
+        try {
+          video.currentTime = time;
+        } catch (e) {}
       }
 
       // Variables de interpolación (lerp)
@@ -634,7 +701,7 @@
       let currentProgress = 0;
       let isTicking = false;
 
-      // Umbrales de cada una de las 4 fases (con solapamiento suave)
+      // Umbrales de cada una de las 4 fases
       const stages = [
         { from: 0.00, to: 0.28 },
         { from: 0.24, to: 0.52 },
@@ -662,17 +729,17 @@
         if (video.duration && !isNaN(video.duration)) {
           const targetTime = currentProgress * video.duration;
           if (Math.abs(video.currentTime - targetTime) > 0.02) {
-            try {
-              video.currentTime = targetTime;
-            } catch (e) {}
+            performSeek(targetTime);
           }
+        } else if (!isPrimed) {
+          primeVideo();
         }
 
         // Transición de las 4 tarjetas narrativas (animación de salida hacia arriba)
         cards.forEach((card, idx) => {
           const st = stages[idx];
           let opacity = 0;
-          let translateY = 28; // En reposo antes de activarse (esperando abajo)
+          let translateY = 28;
 
           if (currentProgress >= st.from && currentProgress <= st.to) {
             const span = st.to - st.from;
