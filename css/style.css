@@ -97,12 +97,30 @@ h1, h2, h3, h4, .font-display {
 }
 
 /* Mobile & tablets: el video se mantiene central y nítido */
+/* Mobile & tablets: el video se mantiene central, y en celulares ocupa el 105% de pantalla */
 @media (max-width: 1023px) {
   .york-media-box video,
   .york-media-box img {
-    max-width: 96% !important;
-    max-height: 70vh !important;
+    max-width: 100% !important;
+    max-height: 60vh !important;
     object-position: center center !important;
+  }
+}
+
+/* Mobile (<= 768px): el video ocupa el 105% de la pantalla para máxima visibilidad sin que nada lo tape */
+@media (max-width: 768px) {
+  .york-media-box {
+    overflow: visible;
+  }
+  .york-media-box video,
+  .york-media-box img {
+    width: 105% !important;
+    max-width: 105% !important;
+    height: auto !important;
+    max-height: 44vh !important;
+    transform: scale(1.05);
+    object-fit: contain !important;
+    object-position: center 38% !important;
   }
 }
 
@@ -125,13 +143,19 @@ h1, h2, h3, h4, .font-display {
   height: 100%;
   max-width: 88rem; /* 1408px */
   margin: 0 auto;
-  padding: 8.5rem 1.5rem 2rem 1.5rem;
+  padding: 8.75rem 1.15rem 1.75rem 1.15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   pointer-events: none;
   z-index: 20;
   box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .york-stage-container {
+    padding: 8.5rem 2rem 2rem 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -150,7 +174,7 @@ h1, h2, h3, h4, .font-display {
   grid-template-rows: 1fr;
 }
 
-/* Cada tarjeta cubre la pantalla distribuyendo arriba (título/texto) y abajo (accesorios) */
+/* Cada tarjeta cubre la pantalla distribuyendo arriba (título/badge), centro (video libre) y abajo (descripción y accesorios) */
 .york-step-card {
   grid-area: 1 / 1 / 2 / 2;
   width: 100%;
@@ -172,108 +196,127 @@ h1, h2, h3, h4, .font-display {
   opacity: 0;
 }
 
-/* Región superior: Distribución con Título a la izquierda y Badge a la derecha */
-.york-step-top {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  pointer-events: auto;
-  gap: 0.75rem;
-}
-
+/* En Desktop (>= 768px):
+   - Fila 1: Título a la izquierda, Badge a la derecha
+   - Fila 2: Texto descriptivo en la columna izquierda
+   - Fila 3: Espacio central libre para el modelo 3D
+   - Fila 4: Accesorios en esquinas inferiores
+*/
 @media (min-width: 768px) {
+  .york-step-card {
+    display: grid;
+    grid-template-columns: minmax(320px, 480px) 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "top top"
+      "desc ."
+      ". ."
+      "bottom bottom";
+  }
+
   .york-step-top {
-    flex-direction: row;
+    grid-area: top;
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  .york-desc-box {
+    grid-area: desc;
+    max-width: 480px;
+    margin-top: 0.75rem;
+  }
+
+  .york-step-bottom {
+    grid-area: bottom;
   }
 }
 
-.york-step-text-col {
-  max-width: 480px;
-  width: 100%;
-}
-
 @media (min-width: 1280px) {
-  .york-step-text-col {
+  .york-step-card {
+    grid-template-columns: minmax(360px, 520px) 1fr;
+  }
+  .york-desc-box {
     max-width: 520px;
   }
 }
 
-/* Columna / contenedor de Badge alineado a la derecha */
-.york-step-badge-col {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-  .york-step-text-col {
-    order: 1;
+/* En Mobile (<= 767px):
+   - Fila 1 (arriba): Título a la izquierda y Cápsula arriba a la derecha alineada
+   - Fila 2 (centro): espacio libre (1fr) donde se ve el video al 105% SIN QUE NADA LO TAPE
+   - Fila 3 (abajo del video): york-desc-box posicionado por debajo del video
+   - Fila 4 (pie): accesorios inferiores achicados y transparentes con puntitos
+*/
+@media (max-width: 767px) {
+  .york-step-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+      "top"
+      "."
+      "desc"
+      "bottom";
+    row-gap: 0.85rem; /* Da aire entre los bloques en vez de quedar todo apretado */
   }
-  .york-step-badge-col {
-    order: 2;
+
+  .york-step-top {
+    grid-area: top;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.65rem;
+    width: 100%;
+    margin-top: 0.35rem; /* Margina y baja los títulos de arriba */
+    pointer-events: auto;
   }
-}
 
-/* Caja de texto descriptiva translúcida compacta debajo del título */
-.york-desc-box {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 35, 75, 0.09);
-  border-radius: 0.875rem;
-  padding: 0.95rem 1.25rem;
-  box-shadow: 0 8px 24px -6px rgba(0, 35, 75, 0.05);
-  margin-top: 0.85rem;
-  pointer-events: auto;
-}
-
-@media (max-width: 1023px) {
   .york-desc-box {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    grid-area: desc;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0.2rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 35, 75, 0.08);
+    border-radius: 0.625rem;
+    padding: 0.6rem 0.85rem;
+    box-shadow: none;
   }
-}
 
-/* Región inferior: accesorios en las esquinas inferiores */
-.york-step-bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.5rem;
-  width: 100%;
-  pointer-events: none;
-}
+  .york-desc-box p {
+    font-size: 0.73rem !important;
+    line-height: 1.38 !important;
+  }
 
-.york-bottom-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  pointer-events: auto;
-  max-width: 60%;
-}
-
-.york-bottom-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  pointer-events: auto;
-}
-
-@media (max-width: 768px) {
   .york-step-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    grid-area: bottom;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    width: 100%;
+    padding-top: 0.2rem;
+    pointer-events: auto;
   }
-  .york-bottom-left,
+
+  .york-bottom-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    max-width: 72%;
+    flex-wrap: wrap;
+  }
+
   .york-bottom-right {
-    align-items: flex-start;
-    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.35rem;
   }
 }
 
@@ -288,12 +331,19 @@ h1, h2, h3, h4, .font-display {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--thermair-blue);
-  background: rgba(240, 244, 250, 0.85);
+  background: rgba(240, 244, 250, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   border: 1px solid rgba(16, 57, 107, 0.12);
+}
+
+.york-badge-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background-color: var(--thermair-red);
 }
 
 /* Margen superior del badge para despejarlo del navbar */
@@ -306,33 +356,26 @@ h1, h2, h3, h4, .font-display {
   margin-top: 0.5rem;
 }
 
-.york-badge-dot {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 9999px;
-  background-color: var(--thermair-red);
-}
-
-/* Cápsulas / Chips inferiores (en las esquinas abajo) */
+/* Cápsulas / Chips inferiores (en las esquinas abajo) - Más transparentes y sutiles */
 .york-capsule {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.4rem 0.75rem;
-  background: rgba(255, 255, 255, 0.85);
+  padding: 0.35rem 0.7rem;
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 35, 75, 0.1);
-  border-radius: 0.625rem;
-  font-size: 0.75rem;
+  border: 1px solid rgba(0, 35, 75, 0.09);
+  border-radius: 0.5rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--thermair-navy);
-  box-shadow: 0 2px 6px rgba(0, 35, 75, 0.04);
+  box-shadow: 0 1px 4px rgba(0, 35, 75, 0.03);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .york-capsule:hover {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(255, 255, 255, 0.95);
   transform: translateY(-1px);
 }
 
@@ -340,36 +383,121 @@ h1, h2, h3, h4, .font-display {
 .york-step-indicator {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
-  max-width: 240px;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
 }
 
 .york-step-pill {
   height: 4px;
   border-radius: 2px;
-  background: rgba(0, 35, 75, 0.15);
-  width: 28px;
+  background: rgba(0, 35, 75, 0.18);
+  width: 24px;
   transition: background-color 0.3s ease, width 0.3s ease;
 }
 
 .york-step-pill.active {
   background: var(--thermair-red);
-  width: 44px;
+  width: 36px;
 }
 
 /* Badge de scroll o interacción en esquina derecha */
 .york-scroll-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.85rem;
-  background: rgba(255, 255, 255, 0.85);
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 35, 75, 0.1);
+  border: 1px solid rgba(0, 35, 75, 0.09);
   border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(0, 35, 75, 0.04);
+  box-shadow: 0 1px 4px rgba(0, 35, 75, 0.03);
+}
+
+/* Adaptación Mobile (<= 768px): cápsulas achicadas, más transparentes y puntitos */
+@media (max-width: 768px) {
+  .york-badge {
+    font-size: 0.62rem;
+    padding: 0.2rem 0.48rem;
+    gap: 0.25rem;
+    background: rgba(240, 244, 250, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(16, 57, 107, 0.09);
+    white-space: nowrap;
+    margin-top: 0.15rem;
+  }
+
+  .york-badge-dot {
+    width: 0.35rem;
+    height: 0.35rem;
+  }
+
+  .york-step-badge-col .york-badge {
+    margin-top: 0.15rem;
+  }
+
+  .york-title {
+    margin-top: 0.35rem;
+    font-size: 1.18rem !important;
+    line-height: 1.28 !important;
+  }
+
+  .york-capsule {
+    font-size: 0.64rem;
+    padding: 0.18rem 0.42rem;
+    gap: 0.2rem;
+    border-radius: 0.375rem;
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 35, 75, 0.07);
+    box-shadow: none;
+  }
+
+  .york-capsule .material-symbols-outlined {
+    font-size: 13px !important;
+  }
+
+  .york-step-indicator {
+    margin-top: 0;
+    gap: 0.3rem;
+  }
+
+  /* Puntitos en lugar de barras largas */
+  .york-step-pill {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: rgba(0, 35, 75, 0.22);
+  }
+
+  .york-step-pill.active {
+    width: 14px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--thermair-red);
+  }
+
+  /* Eliminar texto FASE 01/04 en celular */
+  .york-phase-text {
+    display: none !important;
+  }
+
+  .york-scroll-badge {
+    padding: 0.18rem 0.42rem;
+    font-size: 0.62rem;
+    gap: 0.2rem;
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 35, 75, 0.07);
+    box-shadow: none;
+  }
+
+  .york-scroll-badge span {
+    font-size: 0.62rem !important;
+  }
 }
 
 /* Micro animations */
