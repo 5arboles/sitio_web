@@ -117,7 +117,7 @@ h1, h2, h3, h4, .font-display {
   }
 }
 
-/* Contenedor overlay global: ocupa la pantalla respetando márgenes */
+/* Contenedor overlay global: ocupa la pantalla respetando márgenes y holgura de navbar */
 .york-stage-container {
   position: absolute;
   inset: 0;
@@ -125,7 +125,7 @@ h1, h2, h3, h4, .font-display {
   height: 100%;
   max-width: 88rem; /* 1408px */
   margin: 0 auto;
-  padding: 5.75rem 1.5rem 2rem 1.5rem;
+  padding: 8.5rem 1.5rem 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -136,7 +136,7 @@ h1, h2, h3, h4, .font-display {
 
 @media (min-width: 1024px) {
   .york-stage-container {
-    padding: 6.25rem 3rem 2.25rem 3rem;
+    padding: 8.75rem 3rem 2.25rem 3rem;
   }
 }
 
@@ -172,15 +172,49 @@ h1, h2, h3, h4, .font-display {
   opacity: 0;
 }
 
-/* Región superior: Badge + Título + Bloque de descripción debajo */
+/* Región superior: Distribución con Título a la izquierda y Badge a la derecha */
 .york-step-top {
-  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   pointer-events: auto;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .york-step-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+.york-step-text-col {
+  max-width: 480px;
+  width: 100%;
 }
 
 @media (min-width: 1280px) {
-  .york-step-top {
+  .york-step-text-col {
     max-width: 520px;
+  }
+}
+
+/* Columna / contenedor de Badge alineado a la derecha */
+.york-step-badge-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .york-step-text-col {
+    order: 1;
+  }
+  .york-step-badge-col {
+    order: 2;
   }
 }
 
@@ -243,7 +277,7 @@ h1, h2, h3, h4, .font-display {
   }
 }
 
-/* Badges and Tags superiores (por afuera del fondo blanco) */
+/* Badges and Tags superiores (a la derecha) */
 .york-badge {
   display: inline-flex;
   align-items: center;
@@ -260,6 +294,16 @@ h1, h2, h3, h4, .font-display {
   padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   border: 1px solid rgba(16, 57, 107, 0.12);
+}
+
+/* Margen superior del badge para despejarlo del navbar */
+.york-step-badge-col .york-badge {
+  margin-top: 0.5rem;
+}
+
+/* Margen superior del título para holgura respecto al navbar */
+.york-title {
+  margin-top: 0.5rem;
 }
 
 .york-badge-dot {
