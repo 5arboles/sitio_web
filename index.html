@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Thermair | Ingeniería en Climatización &amp; Tecnología Inverter</title>
+  <meta name="description" content="Soluciones integrales de ingeniería termomecánica, tecnología Inverter y electricidad corporativa. Normas IRAM y AEA, matrículas COPITEC." />
+
+  <!-- Google Fonts: Montserrat & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00234b',
+            'primary-container': '#10396b',
+            secondary: '#bc000c',
+            'secondary-hover': '#e3211f',
+            surface: '#ffffff',
+            'surface-subtle': '#f8faff',
+            'surface-card': '#f0f4fa',
+            ink: '#111c2d',
+            'ink-muted': '#475569',
+          },
+          fontFamily: {
+            headline: ['Space Grotesk', 'sans-serif'],
+            body: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Layout CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-white font-body text-ink antialiased">
+
+  <!-- =========================================================================
+       HEADER INSTITUCIONAL
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-primary/10 transition-all">
+    <!-- Top banner de normativas técnicas -->
+    <div class="bg-primary text-white py-1.5 px-4 sm:px-8 border-b border-white/10 text-xs">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-1 font-headline">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5 opacity-90">
+            <span class="material-symbols-outlined text-[15px] text-blue-300">verified</span>
+            IRAM 2444 / AEA 90364
+          </span>
+          <span class="hidden sm:inline-block opacity-40">|</span>
+          <span class="hidden sm:flex items-center gap-1.5 opacity-90">
+            <span class="material-symbols-outlined text-[15px] text-blue-300">engineering</span>
+            COPITEC MATRICULADO
+          </span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="tel:08108888437" class="flex items-center gap-1.5 hover:text-red-300 transition-colors font-medium">
+            <span class="material-symbols-outlined text-[15px] text-red-400">support_agent</span>
+            Guardia 24/7: 0810-888-THERM
+          </a>
+          <span class="hidden md:inline-block opacity-40">|</span>
+          <span class="hidden md:flex items-center gap-1 opacity-80">
+            <span class="material-symbols-outlined text-[15px] text-blue-300">location_on</span>
+            Pilar &amp; CABA
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación principal -->
+    <div class="max-w-7xl mx-auto h-20 px-4 sm:px-8 flex items-center justify-between gap-4">
+      <!-- Marca Thermair (Solo Logo Oficial sin texto repetido) -->
+      <a href="index.html" class="flex items-center focus:outline-none">
+        <img alt="Thermair Logo" class="h-10 sm:h-12 w-auto object-contain" src="assets/thermair-logo.png" />
+      </a>
+
+      <!-- Menú desktop -->
+      <nav class="hidden lg:flex items-center gap-1 font-headline text-sm font-semibold text-ink-muted">
+        <a href="alianzas.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Profesionales</a>
+        <a href="electricidad.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Electricidad</a>
+        <a href="climatizacion.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Climatización</a>
+        <a href="mantenimiento.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
+      </nav>
+
+      <!-- Botón CTA y Menú Móvil -->
+      <div class="flex items-center gap-3">
+        <a href="#contacto-tecnico" class="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-hover text-white px-5 py-2.5 rounded-xl font-headline text-sm font-semibold shadow-sm hover:shadow transition-all">
+          <span class="material-symbols-outlined text-[18px]">call</span>
+          <span>Asesoramiento Técnico</span>
+        </a>
+        <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-subtle transition-colors focus:outline-none" aria-label="Abrir menú" onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden');">
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú desplegable para móviles -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-primary/10 px-6 py-4 space-y-2 shadow-lg transition-all font-headline">
+      <div class="space-y-1">
+        <a href="alianzas.html" class="block px-4 py-2.5 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Profesionales</a>
+        <a href="electricidad.html" class="block px-4 py-2.5 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Electricidad</a>
+        <a href="climatizacion.html" class="block px-4 py-2.5 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Climatización</a>
+        <a href="mantenimiento.html" class="block px-4 py-2.5 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
+      </div>
+      <div class="pt-3 border-t border-primary/10">
+        <a href="#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="flex items-center justify-center gap-2 w-full bg-secondary text-white px-4 py-3 rounded-xl font-semibold hover:bg-secondary-hover transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">call</span>
+          <span>Asesoramiento Técnico</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       ACTO 1: SCROLL-DRIVEN HERO SECTION (Despiece 3D Split YORK Inverter)
+       ========================================================================= -->
+  <main id="top">
+    <!-- Pinned scrub container: 4 viewports de scroll -->
+    <section id="tecnologia-inverter" class="relative bg-white">
+      <div class="york-hero-stage">
+        
+        <!-- Video Layer fijado a la derecha -->
+        <div class="york-media-box">
+          <img id="york-poster" class="york-poster" src="assets/york-poster.jpg" alt="YORK Inverter Air Conditioner" />
+          <video id="york-video" src="assets/york-scrub.mp4" playsinline muted preload="auto" class="york-video"></video>
+        </div>
+
+        <!-- Fullscreen HUD overlay (4 fases coordinadas con scroll) -->
+        <div class="york-stage-container">
+          <div class="york-step-grid">
+            
+            <!-- FASE 1: Unidad compacta / Presentación (0% a 25% de scroll) -->
+            <div class="york-step-card" data-step="0">
+              <!-- Zona Superior: Badge + Título + Bloque descriptivo debajo -->
+              <div class="york-step-top">
+                <div class="york-badge">
+                  <span class="york-badge-dot"></span>
+                  <span>Ingeniería &amp; Clima // VRF &amp; Inverter</span>
+                </div>
+                <h1 class="font-headline font-bold text-2xl sm:text-3xl lg:text-[34px] text-primary mt-2.5 leading-tight tracking-tight">
+                  Climatización de Alta Eficiencia
+                </h1>
+                <div class="york-desc-box">
+                  <p class="text-ink-muted text-xs sm:text-sm leading-relaxed">
+                    Soluciones termomecánicas de precisión implementadas por <strong>Thermair</strong> bajo normativas <strong>IRAM 2444</strong>. Máximo confort con equipos YORK Inverter seleccionados para edificios corporativos y plantas de alta exigencia.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Zona Inferior: Accesorios en las esquinas inferiores -->
+              <div class="york-step-bottom">
+                <!-- Esquina inferior izquierda: Chips técnicos e indicador de fase -->
+                <div class="york-bottom-left">
+                  <div class="flex flex-wrap gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+                      Matrícula COPITEC
+                    </span>
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-emerald-600">bolt</span>
+                      Eficiencia A++
+                    </span>
+                  </div>
+                  <div class="york-step-indicator">
+                    <span class="york-step-pill active"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="text-[10px] font-bold text-primary/60 font-headline ml-1 tracking-wider">FASE 01/04</span>
+                  </div>
+                </div>
+
+                <!-- Esquina inferior derecha: Badge acústico y scroll cue -->
+                <div class="york-bottom-right">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-blue-600">volume_down</span>
+                      Ultra Silencioso 19 dB
+                    </span>
+                    <div class="york-scroll-badge">
+                      <span class="material-symbols-outlined text-secondary animate-scroll-arrow text-base">south</span>
+                      <span class="text-xs font-semibold text-primary font-headline">Deslizá para explorar</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 2: Apertura de chasis y flujo de aire (25% a 50% de scroll) -->
+            <div class="york-step-card" data-step="1">
+              <div class="york-step-top">
+                <div class="york-badge">
+                  <span class="york-badge-dot"></span>
+                  <span>Aerodinámica &amp; Calidad de Aire (IAQ)</span>
+                </div>
+                <h2 class="font-headline font-bold text-2xl sm:text-3xl lg:text-[34px] text-primary mt-2.5 leading-tight tracking-tight">
+                  Flujo Dinámico y Filtración Avanzada
+                </h2>
+                <div class="york-desc-box">
+                  <p class="text-ink-muted text-xs sm:text-sm leading-relaxed">
+                    Despiece frontal de deflectores motorizados y turbina tangencial. Distribución homogénea del caudal térmico sin ráfagas directas ni zonas muertas, complementada con mallas de retención de micropartículas.
+                  </p>
+                </div>
+              </div>
+
+              <div class="york-step-bottom">
+                <div class="york-bottom-left">
+                  <div class="flex flex-wrap gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-primary">air</span>
+                      19 dB(A) Nivel Acústico
+                    </span>
+                  </div>
+                  <div class="york-step-indicator">
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill active"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="text-[10px] font-bold text-primary/60 font-headline ml-1 tracking-wider">FASE 02/04</span>
+                  </div>
+                </div>
+
+                <div class="york-bottom-right">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-blue-600">filter_alt</span>
+                      Filtros Micro-Mesh Lavables
+                    </span>
+                    <div class="york-scroll-badge">
+                      <span class="material-symbols-outlined text-secondary animate-scroll-arrow text-base">south</span>
+                      <span class="text-xs font-semibold text-primary font-headline">Despiece serpentín</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 3: Despiece del Serpentín de Cobre (50% a 75% de scroll) -->
+            <div class="york-step-card" data-step="2">
+              <div class="york-step-top">
+                <div class="york-badge">
+                  <span class="york-badge-dot"></span>
+                  <span>Termodinámica de Alta Presión</span>
+                </div>
+                <h2 class="font-headline font-bold text-2xl sm:text-3xl lg:text-[34px] text-primary mt-2.5 leading-tight tracking-tight">
+                  Batería Térmica en Cobre Ranurado
+                </h2>
+                <div class="york-desc-box">
+                  <p class="text-ink-muted text-xs sm:text-sm leading-relaxed">
+                    Intercambiador térmico de tubos de cobre desoxigenado de alta pureza con ranurado helicoidal interno. Multiplica la tasa de intercambio térmico por m² y garantiza máxima resistencia a la corrosión ambiental.
+                  </p>
+                </div>
+              </div>
+
+              <div class="york-step-bottom">
+                <div class="york-bottom-left">
+                  <div class="flex flex-wrap gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-secondary">shield</span>
+                      100% Cobre Frigorífico
+                    </span>
+                  </div>
+                  <div class="york-step-indicator">
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill active"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="text-[10px] font-bold text-primary/60 font-headline ml-1 tracking-wider">FASE 03/04</span>
+                  </div>
+                </div>
+
+                <div class="york-bottom-right">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-blue-600">thermostat</span>
+                      Aletas Blue Fin
+                    </span>
+                    <div class="york-scroll-badge">
+                      <span class="material-symbols-outlined text-secondary animate-scroll-arrow text-base">south</span>
+                      <span class="text-xs font-semibold text-primary font-headline">Despiece microprocesador</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 4: Electrónica Inverter y Microcontrolador (75% a 100% de scroll) -->
+            <div class="york-step-card" data-step="3">
+              <div class="york-step-top">
+                <div class="york-badge">
+                  <span class="york-badge-dot"></span>
+                  <span>Laboratorio Electrónico &amp; Control</span>
+                </div>
+                <h2 class="font-headline font-bold text-2xl sm:text-3xl lg:text-[34px] text-primary mt-2.5 leading-tight tracking-tight">
+                  Microprocesador DC Inverter Inteligente
+                </h2>
+                <div class="york-desc-box">
+                  <p class="text-ink-muted text-xs sm:text-sm leading-relaxed">
+                    Modulación de onda sinusoidal PAM/PWM que ajusta continuamente la velocidad del compresor a la carga térmica exacta. Ahorro de hasta el 60% de energía eléctrica y compatibilidad con sistemas BMS corporativos.
+                  </p>
+                </div>
+              </div>
+
+              <div class="york-step-bottom">
+                <div class="york-bottom-left">
+                  <div class="flex flex-wrap gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-emerald-600">energy_savings_leaf</span>
+                      Hasta 60% Ahorro
+                    </span>
+                  </div>
+                  <div class="york-step-indicator">
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill"></span>
+                    <span class="york-step-pill active"></span>
+                    <span class="text-[10px] font-bold text-primary/60 font-headline ml-1 tracking-wider">FASE 04/04</span>
+                  </div>
+                </div>
+
+                <div class="york-bottom-right">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="york-capsule">
+                      <span class="material-symbols-outlined text-[15px] text-secondary">memory</span>
+                      Laboratorio Propio
+                    </span>
+                    <a href="#servicios" class="york-scroll-badge hover:bg-white transition-colors pointer-events-auto">
+                      <span class="material-symbols-outlined text-secondary text-base">expand_circle_down</span>
+                      <span class="text-xs font-semibold text-primary font-headline">Ver Servicios</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECCIÓN 2: PILARES Y SERVICIOS INTEGRALES THERMAIR
+         ========================================================================= -->
+    <section id="servicios" class="py-24 bg-surface-subtle border-t border-primary/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="max-w-3xl mb-16">
+          <div class="york-badge mb-3">
+            <span class="york-badge-dot"></span>
+            <span>Servicios de Ingeniería</span>
+          </div>
+          <h2 class="font-headline font-bold text-3xl sm:text-5xl text-primary leading-tight">
+            Infraestructura Termomecánica y Eléctrica Corporativa
+          </h2>
+          <p class="text-ink-muted text-base mt-4 leading-relaxed">
+            Brindamos acompañamiento técnico completo desde el anteproyecto de cálculo y planos CAD/BIM hasta el montaje, puesta en marcha y mantenimiento homologado.
+          </p>
+        </div>
+
+        <!-- Grid de 3 Pilares -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pilar 1: Climatización -->
+          <div class="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-3xl">ac_unit</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-primary mb-3">Climatización VRF &amp; Centrales</h3>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Ingeniería para sistemas VRV/VRF, Rooftops, Unidades Manejadoras de Aire (UMA) y conductos de ventilación según norma IRAM 2444.
+              </p>
+            </div>
+            <ul class="mt-6 pt-6 border-t border-primary/5 space-y-2 text-xs font-medium text-ink-muted">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span> Cálculo de balance térmico por zona</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span> Optimización de consumo energético</li>
+            </ul>
+          </div>
+
+          <!-- Pilar 2: Electricidad -->
+          <div class="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-3xl">bolt</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-primary mb-3">Media Tensión &amp; Potencia</h3>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Subestaciones transformadoras, tableros generales TGBT, corrección de factor de potencia y protocolos de seguridad eléctrica bajo norma AEA 90364.
+              </p>
+            </div>
+            <ul class="mt-6 pt-6 border-t border-primary/5 space-y-2 text-xs font-medium text-ink-muted">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> Medición de puesta a tierra (PAT)</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> Termografía infrarroja certificada</li>
+            </ul>
+          </div>
+
+          <!-- Pilar 3: Mantenimiento -->
+          <div class="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-3xl">home_repair_service</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-primary mb-3">Mantenimiento Activo 24/7</h3>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Abonos preventivos y predictivos con cobertura de guardia técnica ininterrumpida. Laboratorio propio para reparación de plaquetas electrónicas Inverter.
+              </p>
+            </div>
+            <ul class="mt-6 pt-6 border-t border-primary/5 space-y-2 text-xs font-medium text-ink-muted">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> Guardia para emergencias críticas</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> Informes termomecánicos periódicos</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECCIÓN 3: CIFRAS TÉCNICAS CLAVE (KPIs & Trayectoria)
+         ========================================================================= -->
+    <section id="trayectoria" class="py-20 bg-primary text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <div class="border-l border-white/20 pl-6">
+            <span class="font-headline font-bold text-5xl text-blue-200 tracking-tight block">+20</span>
+            <span class="font-headline font-semibold text-lg text-white mt-2 block">Años de Trayectoria</span>
+            <p class="text-white/70 text-xs mt-1 leading-relaxed">Liderazgo continuo en climatización termomecánica e ingeniería eléctrica en Argentina.</p>
+          </div>
+
+          <div class="border-l border-white/20 pl-6">
+            <span class="font-headline font-bold text-5xl text-red-400 tracking-tight block">+1500</span>
+            <span class="font-headline font-semibold text-lg text-white mt-2 block">Proyectos Completados</span>
+            <p class="text-white/70 text-xs mt-1 leading-relaxed">Obras industriales, plantas logísticas y desarrollos corporativos ejecutados con éxito.</p>
+          </div>
+
+          <div class="border-l border-white/20 pl-6">
+            <span class="font-headline font-bold text-5xl text-emerald-300 tracking-tight block">99.8%</span>
+            <span class="font-headline font-semibold text-lg text-white mt-2 block">Disponibilidad Operativa</span>
+            <p class="text-white/70 text-xs mt-1 leading-relaxed">Continuidad operativa y confiabilidad en instalaciones críticas mediante guardia 24/7.</p>
+          </div>
+
+          <div class="border-l border-white/20 pl-6">
+            <span class="font-headline font-bold text-5xl text-blue-200 tracking-tight block">100%</span>
+            <span class="font-headline font-semibold text-lg text-white mt-2 block">Matriculados Oficiales</span>
+            <p class="text-white/70 text-xs mt-1 leading-relaxed">Ingenieros y técnicos certificados bajo colegios profesionales COPITEC y COPIME.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECCIÓN 4: ASESORAMIENTO Y CONTACTO TÉCNICO
+         ========================================================================= -->
+    <section id="contacto-tecnico" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Columna Info -->
+          <div class="lg:col-span-5">
+            <div class="york-badge mb-3">
+              <span class="york-badge-dot"></span>
+              <span>Atención Técnica Corporativa</span>
+            </div>
+            <h2 class="font-headline font-bold text-3xl sm:text-4xl text-primary leading-tight">
+              Diseñemos la solución térmica de su próximo proyecto
+            </h2>
+            <p class="text-ink-muted text-sm sm:text-base mt-4 leading-relaxed">
+              Comuníquese directamente con nuestro equipo de ingenieros para recibir asesoramiento técnico personalizado, cálculo térmico inicial o cotización de equipamiento.
+            </p>
+
+            <div class="mt-8 space-y-4">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-subtle border border-primary/5">
+                <div class="w-10 h-10 rounded-lg bg-red-100 text-secondary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-xl">phone_in_talk</span>
+                </div>
+                <div>
+                  <span class="text-xs text-ink-muted font-medium block">Línea de Guardia Técnica 24/7</span>
+                  <a href="tel:08108888437" class="font-headline font-bold text-primary hover:text-secondary transition-colors text-base">0810-888-THERM (8437)</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-subtle border border-primary/5">
+                <div class="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-xl">domain</span>
+                </div>
+                <div>
+                  <span class="text-xs text-ink-muted font-medium block">Sede Central &amp; Laboratorio</span>
+                  <span class="font-headline font-semibold text-primary text-sm">Parque Empresarial Austral, Pilar &amp; CABA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Formulario -->
+          <div class="lg:col-span-7">
+            <div class="bg-surface-subtle p-8 sm:p-10 rounded-2xl border border-primary/10 shadow-sm">
+              <h3 class="font-headline font-bold text-xl text-primary mb-6">Solicitud de Contacto Técnico</h3>
+              
+              <form id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-success').classList.remove('hidden'); this.reset();" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-headline text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">Nombre y Apellido</label>
+                    <input type="text" required placeholder="Ej. Ing. Carlos Mendoza" class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                  </div>
+                  <div>
+                    <label class="block font-headline text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">Empresa u Organización</label>
+                    <input type="text" required placeholder="Ej. Estudio Arq. o Planta Industrial" class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-headline text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">Teléfono de Contacto</label>
+                    <input type="tel" required placeholder="Ej. +54 9 11 ..." class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                  </div>
+                  <div>
+                    <label class="block font-headline text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">Área de Interés</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                      <option>Climatización VRF / VRV Inverter</option>
+                      <option>Electricidad y Subestaciones Transformadoras</option>
+                      <option>Mantenimiento Predictivo / Guardia 24/7</option>
+                      <option>Ingeniería para Arquitectura y Obras</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-headline text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">Mensaje o Detalle del Proyecto</label>
+                  <textarea rows="3" placeholder="Indique metros cuadrados, capacidad estimada o requerimiento..." class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-secondary hover:bg-secondary-hover text-white py-3.5 px-6 rounded-xl font-headline font-semibold text-sm transition-all shadow-sm hover:shadow flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-lg">send</span>
+                  <span>Enviar Consulta a Ingeniería</span>
+                </button>
+              </form>
+
+              <div id="contact-success" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs flex items-center gap-2">
+                <span class="material-symbols-outlined text-emerald-600 text-base">check_circle</span>
+                <span>Consulta recibida. Un ingeniero de Thermair se pondrá en contacto en breve.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante)
+       ========================================================================= -->
+  <footer class="bg-primary text-white/80 py-12 border-t border-white/10 text-xs">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center">
+        <img alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" src="assets/thermair-logo.png" />
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-white/60">
+        <span>Normativa IRAM 2444</span>
+        <span>Normativa AEA 90364</span>
+        <span>Matrícula COPITEC</span>
+        <span>© 2026 Thermair. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       CONTROLADOR DE VIDEO SCRUBBING & NARRATIVA A 60 FPS
+       ========================================================================= -->
+  <script>
+    (function () {
+      const section = document.getElementById('tecnologia-inverter');
+      const video = document.getElementById('york-video');
+      const poster = document.getElementById('york-poster');
+      const cards = document.querySelectorAll('.york-step-card');
+
+      if (!section || !video) return;
+
+      // Configuraciones esenciales de video
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+
+      function showVideo() {
+        video.style.opacity = '1';
+        if (poster) {
+          poster.style.opacity = '0';
+        }
+      }
+
+      video.addEventListener('loadedmetadata', showVideo, { once: true });
+      video.addEventListener('canplay', showVideo, { once: true });
+      video.addEventListener('seeked', showVideo);
+      if (video.readyState >= 1) {
+        showVideo();
+      }
+
+      // Variables de interpolación (lerp)
+      let targetProgress = 0;
+      let currentProgress = 0;
+      let isTicking = false;
+
+      // Umbrales de cada una de las 4 fases (con solapamiento suave)
+      const stages = [
+        { from: 0.00, to: 0.28 },
+        { from: 0.24, to: 0.52 },
+        { from: 0.48, to: 0.76 },
+        { from: 0.72, to: 1.00 }
+      ];
+
+      function update() {
+        const rect = section.getBoundingClientRect();
+        const windowH = window.innerHeight;
+        const totalTravel = section.offsetHeight - windowH;
+
+        if (totalTravel > 0) {
+          const scrolled = -rect.top;
+          targetProgress = Math.max(0, Math.min(1, scrolled / totalTravel));
+        }
+
+        // Interpolación suave (lerp 0.22)
+        currentProgress += (targetProgress - currentProgress) * 0.22;
+        if (Math.abs(targetProgress - currentProgress) < 0.0005) {
+          currentProgress = targetProgress;
+        }
+
+        // Sincronización del fotograma del video
+        if (video.duration && !isNaN(video.duration)) {
+          const targetTime = currentProgress * video.duration;
+          if (Math.abs(video.currentTime - targetTime) > 0.02) {
+            try {
+              video.currentTime = targetTime;
+            } catch (e) {}
+          }
+        }
+
+        // Transición de las 4 tarjetas narrativas (animación de salida hacia arriba)
+        cards.forEach((card, idx) => {
+          const st = stages[idx];
+          let opacity = 0;
+          let translateY = 28; // En reposo antes de activarse (esperando abajo)
+
+          if (currentProgress >= st.from && currentProgress <= st.to) {
+            const span = st.to - st.from;
+            const local = (currentProgress - st.from) / span;
+
+            // Entrada suave desde abajo (+28px -> 0px)
+            if (local < 0.22 && idx > 0) {
+              const enterP = local / 0.22;
+              opacity = enterP;
+              translateY = (1 - enterP) * 28;
+            } 
+            // Salida hacia ARRIBA emulando el movimiento del scroll (0px -> -38px)
+            else if (local > 0.78 && idx < stages.length - 1) {
+              const exitP = (local - 0.78) / 0.22;
+              opacity = 1 - exitP;
+              translateY = -exitP * 38;
+            } 
+            // Meseta central visible
+            else {
+              opacity = 1;
+              translateY = 0;
+            }
+          } else if (idx === 0 && currentProgress < st.from) {
+            opacity = 1;
+            translateY = 0;
+          } else if (idx === stages.length - 1 && currentProgress > st.to) {
+            opacity = 1;
+            translateY = 0;
+          } else if (currentProgress < st.from) {
+            opacity = 0;
+            translateY = 28;
+          } else if (currentProgress > st.to) {
+            opacity = 0;
+            translateY = -38;
+          }
+
+          card.style.opacity = opacity.toFixed(3);
+          card.style.transform = 'translate3d(0, ' + translateY.toFixed(1) + 'px, 0)';
+          card.style.pointerEvents = opacity > 0.4 ? 'auto' : 'none';
+        });
+
+        if (Math.abs(targetProgress - currentProgress) > 0.0005) {
+          requestAnimationFrame(update);
+        } else {
+          isTicking = false;
+        }
+      }
+
+      function onScroll() {
+        if (!isTicking) {
+          isTicking = true;
+          requestAnimationFrame(update);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+
+      // Verificación inicial inmediata
+      update();
+    })();
+  </script>
+</body>
+</html>

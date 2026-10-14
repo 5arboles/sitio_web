@@ -1,0 +1,339 @@
+/* ==========================================================================
+   Thermair web-v2 custom styles & scroll scrubbing
+   ========================================================================== */
+
+:root {
+  --sc-canvas: #ffffff;
+  --sc-surface: #f8faff;
+  --sc-ink: #00234b;
+  --sc-ink-soft: #475569;
+  --sc-accent: #bc000c;
+  --sc-accent-hover: #e3211f;
+  --sc-font-display: "Space Grotesk", sans-serif;
+  --sc-font-text: "Montserrat", sans-serif;
+  --thermair-navy: #00234b;
+  --thermair-blue: #10396b;
+  --thermair-red: #bc000c;
+  --thermair-light: #f0f4fa;
+  --thermair-border: rgba(0, 35, 75, 0.08);
+}
+
+/* Base resets & typography */
+html, body {
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--sc-font-text);
+  color: var(--sc-ink);
+  background-color: var(--sc-canvas);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--sc-font-display);
+}
+
+/* --------------------------------------------------------------------------
+   Scrollytelling Hero Stage (YORK Split Inverter)
+   -------------------------------------------------------------------------- */
+#tecnologia-inverter {
+  position: relative;
+  width: 100%;
+  height: 400vh; /* 4 viewports of scroll travel */
+  background-color: #ffffff;
+}
+
+.york-hero-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background-color: #ffffff;
+  overflow: hidden;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* El video ocupa el 100% de la pantalla (centrado y fluido de borde a borde) */
+.york-media-box {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.york-media-box video,
+.york-media-box img {
+  position: absolute !important;
+  inset: 0 !important;
+  margin: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  transition: opacity 300ms ease;
+}
+
+.york-media-box video {
+  opacity: 1 !important;
+  z-index: 2;
+  display: block !important;
+}
+
+.york-media-box img {
+  z-index: 1;
+  display: block !important;
+}
+
+/* Mobile & tablets: el video se mantiene central y nítido */
+@media (max-width: 1023px) {
+  .york-media-box video,
+  .york-media-box img {
+    max-width: 96% !important;
+    max-height: 70vh !important;
+    object-position: center center !important;
+  }
+}
+
+/* Pantallas grandes (>= 1280px): video al 90% para mayor balance con los textos y accesorios */
+@media (min-width: 1280px) {
+  .york-media-box video,
+  .york-media-box img {
+    width: 90% !important;
+    height: 90% !important;
+    max-width: 90% !important;
+    max-height: 90% !important;
+  }
+}
+
+/* Contenedor overlay global: ocupa la pantalla respetando márgenes */
+.york-stage-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 88rem; /* 1408px */
+  margin: 0 auto;
+  padding: 5.75rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 20;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .york-stage-container {
+    padding: 6.25rem 3rem 2.25rem 3rem;
+  }
+}
+
+/* CSS Grid layout para solapar las fases narrativas en el mismo espacio */
+.york-step-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* Cada tarjeta cubre la pantalla distribuyendo arriba (título/texto) y abajo (accesorios) */
+.york-step-card {
+  grid-area: 1 / 1 / 2 / 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.york-step-card:not(:first-child) {
+  opacity: 0;
+}
+
+/* Región superior: Badge + Título + Bloque de descripción debajo */
+.york-step-top {
+  max-width: 480px;
+  pointer-events: auto;
+}
+
+@media (min-width: 1280px) {
+  .york-step-top {
+    max-width: 520px;
+  }
+}
+
+/* Caja de texto descriptiva translúcida compacta debajo del título */
+.york-desc-box {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 35, 75, 0.09);
+  border-radius: 0.875rem;
+  padding: 0.95rem 1.25rem;
+  box-shadow: 0 8px 24px -6px rgba(0, 35, 75, 0.05);
+  margin-top: 0.85rem;
+  pointer-events: auto;
+}
+
+@media (max-width: 1023px) {
+  .york-desc-box {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+/* Región inferior: accesorios en las esquinas inferiores */
+.york-step-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  pointer-events: none;
+}
+
+.york-bottom-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+  max-width: 60%;
+}
+
+.york-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .york-step-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .york-bottom-left,
+  .york-bottom-right {
+    align-items: flex-start;
+    max-width: 100%;
+  }
+}
+
+/* Badges and Tags superiores (por afuera del fondo blanco) */
+.york-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sc-font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--thermair-blue);
+  background: rgba(240, 244, 250, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(16, 57, 107, 0.12);
+}
+
+.york-badge-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background-color: var(--thermair-red);
+}
+
+/* Cápsulas / Chips inferiores (en las esquinas abajo) */
+.york-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 35, 75, 0.1);
+  border-radius: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--thermair-navy);
+  box-shadow: 0 2px 6px rgba(0, 35, 75, 0.04);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.york-capsule:hover {
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-1px);
+}
+
+/* Step Progress Indicator (Dots/Pills) */
+.york-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  max-width: 240px;
+}
+
+.york-step-pill {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(0, 35, 75, 0.15);
+  width: 28px;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.york-step-pill.active {
+  background: var(--thermair-red);
+  width: 44px;
+}
+
+/* Badge de scroll o interacción en esquina derecha */
+.york-scroll-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 35, 75, 0.1);
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 35, 75, 0.04);
+}
+
+/* Micro animations */
+@keyframes scPulse {
+  0%, 100% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.4; transform: translateY(5px); }
+}
+
+.animate-scroll-arrow {
+  animation: scPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
