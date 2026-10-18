@@ -1,7 +1,7 @@
 # CONTEXT.md - Thermair Corporate Website
 
-> **Última actualización:** 14 de Octubre de 2026  
-> **Estado:** Desplegado en producción en Vercel, sincronizado con GitHub. Ajustes mobile aplicados (video 105%, layout 4 filas, sin término guardia).
+> **Última actualización:** 18 de Octubre de 2026  
+> **Estado:** Desplegado en producción en Vercel, sincronizado con GitHub. Video de fondo en loop boomerang (adelante/atrás) agregado a Alianzas.
 
 ---
 
