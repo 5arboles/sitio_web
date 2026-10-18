@@ -13,10 +13,20 @@
   </div>
 </div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-420px)]"><div class="flex flex-col w-full">
 <!-- HERO PROFESIONAL: ARQUITECTURA & CONSTRUCCIÓN -->
-<section class="relative w-full overflow-hidden bg-surface pb-space-xl">
-<!-- Subtle technical grid background -->
-<div class="absolute inset-0 opacity-[0.035] pointer-events-none" style="background-image: radial-gradient(#10396b 1px, transparent 1px); background-size: 24px 24px;"></div>
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg relative z-10">
+<section class="relative w-full overflow-hidden bg-surface pb-space-xl min-h-[580px] flex items-center">
+  <!-- Video de Fondo en Ping-Pong Loop (Adelante y Atrás) -->
+  <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <img id="alianzas-poster" src="assets/alianzas-poster.jpg" alt="Instalaciones Termomecánicas Thermair" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
+    <video id="alianzas-video" playsinline webkit-playsinline muted autoplay loop preload="auto" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" poster="assets/alianzas-poster.jpg">
+      <source src="assets/alianzas-bg.mp4" type="video/mp4">
+    </video>
+    <!-- Overlays multicapa para contraste profesional y legibilidad tipográfica -->
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/95 md:via-surface/85 to-surface/40"></div>
+    <div class="absolute inset-0 bg-surface/20 backdrop-blur-[1px]"></div>
+    <!-- Subtle technical grid background -->
+    <div class="absolute inset-0 opacity-[0.035] pointer-events-none" style="background-image: radial-gradient(#10396b 1px, transparent 1px); background-size: 24px 24px;"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg relative z-10 w-full">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
 <!-- Columna Izquierda: Información Principal -->
 <div class="lg:col-span-7 space-y-space-md">
@@ -587,7 +597,57 @@
       }
     }
   })();
-</script></main>  <!-- =========================================================================
+</script>
+
+<!-- Script de Inicialización y Autoplay Silencioso para Video de Fondo (iOS / Safari Compatible) -->
+<script>
+  (function () {
+    const video = document.getElementById('alianzas-video');
+    const poster = document.getElementById('alianzas-poster');
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+
+    function revealVideo() {
+      video.classList.remove('opacity-0');
+      video.classList.add('opacity-100');
+      if (poster) {
+        poster.classList.remove('opacity-100');
+        poster.classList.add('opacity-0');
+      }
+    }
+
+    function startPlayback() {
+      const p = video.play();
+      if (p !== undefined) {
+        p.then(revealVideo).catch(() => {});
+      }
+    }
+
+    video.addEventListener('loadeddata', revealVideo, { once: true });
+    video.addEventListener('playing', revealVideo, { once: true });
+    video.addEventListener('canplay', () => {
+      startPlayback();
+    }, { once: true });
+
+    // Intento inmediato de reproducción
+    startPlayback();
+
+    // Desbloqueo garantizado con cualquier interacción táctil en iPhone/iPad
+    const unlockEvents = ['touchstart', 'touchmove', 'scroll', 'click'];
+    function onInteraction() {
+      startPlayback();
+      unlockEvents.forEach(evt => window.removeEventListener(evt, onInteraction));
+    }
+    unlockEvents.forEach(evt => window.addEventListener(evt, onInteraction, { passive: true, once: true }));
+  })();
+</script>
+</main>  <!-- =========================================================================
        FOOTER INSTITUCIONAL (Solo Logo sin texto redundante)
        ========================================================================= -->
   <footer class="bg-primary text-white/80 py-12 border-t border-white/10 text-xs">
