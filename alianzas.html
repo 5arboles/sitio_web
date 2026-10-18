@@ -11,164 +11,79 @@
       <span>Solicitar Asesoramiento</span>
     </a>
   </div>
-</div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-420px)]"><div class="flex flex-col w-full">
-<!-- HERO PROFESIONAL: ARQUITECTURA & CONSTRUCCIÓN -->
-<section class="relative w-full overflow-hidden bg-surface pb-space-xl min-h-[580px] flex items-center">
-  <!-- Video de Fondo en Ping-Pong Loop (Adelante y Atrás) -->
-  <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+</div></header><main class="w-full relative min-h-[calc(100vh-420px)]">
+  <!-- Video de Fondo Fijo en Ping-Pong Loop (Adelante y Atrás) -->
+  <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
     <img id="alianzas-poster" src="assets/alianzas-poster.jpg" alt="Instalaciones Termomecánicas Thermair" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
     <video id="alianzas-video" playsinline webkit-playsinline muted autoplay loop preload="auto" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" poster="assets/alianzas-poster.jpg">
       <source src="assets/alianzas-bg.mp4" type="video/mp4">
     </video>
-    <!-- Overlays multicapa para contraste profesional y legibilidad tipográfica -->
-    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/95 md:via-surface/85 to-surface/40"></div>
-    <div class="absolute inset-0 bg-surface/20 backdrop-blur-[1px]"></div>
-    <!-- Subtle technical grid background -->
-    <div class="absolute inset-0 opacity-[0.035] pointer-events-none" style="background-image: radial-gradient(#10396b 1px, transparent 1px); background-size: 24px 24px;"></div>
   </div>
-  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg relative z-10 w-full">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
-<!-- Columna Izquierda: Información Principal -->
-<div class="lg:col-span-7 space-y-space-md">
-<!-- Badge Técnico -->
-<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-container text-primary-container font-label-sm text-label-sm">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span>División profesional // Arquitectura &amp; Construcción</span>
-</div>
-<!-- Titular Display -->
-<h1 class="font-display text-display md:text-[54px] text-primary-container font-headline-lg tracking-tight leading-[1.08] text-balance">
+
+  <div class="flex flex-col w-full relative z-10">
+    <!-- HERO PROFESIONAL: ARQUITECTURA & CONSTRUCCIÓN -->
+    <section class="relative w-full overflow-hidden min-h-[88vh] lg:min-h-[92vh] flex flex-col justify-between pt-32 pb-12">
+      <!-- Overlay translúcido de bajo contraste para dejar ver claramente el video de fondo -->
+      <div class="absolute inset-0 bg-gradient-to-r from-surface/80 via-surface/45 to-transparent pointer-events-none"></div>
+      <div class="absolute inset-0 bg-white/20 backdrop-blur-[2px] pointer-events-none"></div>
+      <div class="absolute inset-0 opacity-[0.035] pointer-events-none" style="background-image: radial-gradient(#10396b 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+      <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin relative z-10 w-full flex-1 flex flex-col justify-between gap-8">
+        
+        <!-- ESQUINAS SUPERIORES -->
+        <div class="flex flex-wrap items-center justify-between gap-3 w-full">
+          <!-- Esquina Superior Izquierda: Badge de Asociación Profesional -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/60 text-primary-container font-label-sm text-label-sm shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            <span>Asociaciones Profesionales // Arquitectura &amp; Construcción</span>
+          </div>
+          <!-- Esquina Superior Derecha: Cálculo Certificado -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/60 text-primary-container font-label-sm text-label-sm shadow-sm">
+            <span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+            <span>Cálculo Certificado COPITEC / ASHRAE 90.1</span>
+          </div>
+        </div>
+
+        <!-- CENTRO: TÍTULO, DESCRIPCIÓN Y CTA PRINCIPAL -->
+        <div class="max-w-3xl py-6 space-y-6">
+          <h1 class="font-display text-display md:text-[56px] text-primary-container font-headline-lg tracking-tight leading-[1.08] text-balance">
             Proyección, planos y cálculo térmico
           </h1>
-<!-- Texto Introductorio -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl bg-surface-container-lowest/50 backdrop-blur-sm p-5 rounded-2xl border border-white/40 shadow-sm">
             Nos integramos a su equipo de trabajo desde el plano cero. Brindamos soporte integral a estudios de arquitectura, constructoras y directores de obra para garantizar la viabilidad técnica, la estética y la eficiencia térmica de cada proyecto.
           </p>
-<!-- Pastillas de Capacidad Técnica -->
-<div class="flex flex-wrap gap-2.5 pt-1">
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-container-low text-primary-container font-label-sm text-label-sm shadow-sm">
-<span class="material-symbols-outlined text-[16px] text-secondary">layers</span>
-<span>Compatibilidad BIM / Revit / CAD</span>
-</div>
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-container-low text-primary-container font-label-sm text-label-sm shadow-sm">
-<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
-<span>Normativas Argentina IRAM &amp; AEA</span>
-</div>
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface-container-low text-primary-container font-label-sm text-label-sm shadow-sm">
-<span class="material-symbols-outlined text-[16px] text-secondary">calculate</span>
-<span>Balance de cargas térmico-eléctricas</span>
-</div>
-</div>
-<!-- Botones CTA -->
-<div class="flex flex-wrap items-center gap-4 pt-3">
-<a class="inline-flex items-center gap-2.5 bg-secondary text-on-secondary px-6 py-3.5 rounded-xl font-label-lg text-label-lg shadow-sm hover:bg-secondary-container transition-all" href="#formulario-tecnico">
-<span>Coordinar reunión técnica</span>
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</a>
-<a class="inline-flex items-center gap-2.5 bg-surface-container-lowest text-primary-container px-6 py-3.5 rounded-xl font-label-lg text-label-lg shadow-sm hover:bg-surface-container transition-all" href="#formulario-tecnico">
-<span class="material-symbols-outlined text-[18px] text-secondary">upload_file</span>
-<span>Enviar planos para evaluación</span>
-</a>
-</div>
-<!-- Micro Metadatos Institucionales -->
-<div class="flex items-center gap-6 pt-2 text-outline font-label-sm text-label-sm">
-<span class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[15px] text-secondary">rule</span>
-              Respuesta técnica en 48hs hábiles
-            </span>
-<span class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[15px] text-primary">lock_clock</span>
-              Acuerdo de Confidencialidad (NDA)
-            </span>
-</div>
-</div>
-<!-- Columna Visual Derecha: Infografía Blueprint DWG -->
-<div class="lg:col-span-5 relative">
-<!-- Tarjeta Contenedora Blueprint -->
-<div class="relative rounded-xl overflow-hidden bg-primary-container text-on-primary p-6 shadow-xl">
-<!-- Trama Blueprint Vectorial -->
-<div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
-<!-- Header de Documento Técnico -->
-<div class="relative z-10 flex items-center justify-between pb-4 border-b border-outline-variant/20">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px] text-secondary-fixed">architecture</span>
-<span class="font-label-sm text-label-sm text-on-primary font-bold tracking-wider uppercase">DWG / MODELO REVIT MEP 2025</span>
-</div>
-<span class="px-2 py-0.5 rounded-md bg-secondary text-on-secondary font-label-sm text-[10px] tracking-wider uppercase font-semibold">REVISIÓN A</span>
-</div>
-<!-- Diagrama Esquemático Vectorial DWG / Psicrometría -->
-<div class="relative z-10 py-5">
-<svg class="w-full h-auto text-surface-dim" fill="none" stroke="currentColor" viewbox="0 0 380 200">
-<!-- Ejes estructurales de arquitectura -->
-<line stroke="#73a4ec" stroke-dasharray="3 3" stroke-width="0.8" x1="30" x2="30" y1="20" y2="180"></line>
-<line stroke="#73a4ec" stroke-dasharray="3 3" stroke-width="0.8" x1="140" x2="140" y1="20" y2="180"></line>
-<line stroke="#73a4ec" stroke-dasharray="3 3" stroke-width="0.8" x1="260" x2="260" y1="20" y2="180"></line>
-<line stroke="#73a4ec" stroke-dasharray="3 3" stroke-width="0.8" x1="360" x2="360" y1="20" y2="180"></line>
-<line stroke="#73a4ec" stroke-dasharray="3 3" stroke-width="0.8" x1="10" x2="370" y1="40" y2="40"></line>
-<line stroke="#73a4ec" stroke-dasharray="3 3" stroke-width="0.8" x1="10" x2="370" y1="120" y2="120"></line>
-<!-- Contorno de losas y tabiques -->
-<rect fill="#002449" fill-opacity="0.4" height="130" rx="4" stroke="#a7c8ff" stroke-width="1.8" width="330" x="30" y="40"></rect>
-<rect fill="none" height="100" stroke="#a7c8ff" stroke-dasharray="2 2" stroke-width="1.2" width="90" x="45" y="55"></rect>
-<rect fill="none" height="100" stroke="#a7c8ff" stroke-dasharray="2 2" stroke-width="1.2" width="90" x="155" y="55"></rect>
-<rect fill="none" height="100" stroke="#a7c8ff" stroke-dasharray="2 2" stroke-width="1.2" width="85" x="265" y="55"></rect>
-<!-- Red de Conductos Termomecánicos -->
-<path d="M 40 75 L 340 75" stroke="#ffb4aa" stroke-linecap="round" stroke-width="3"></path>
-<path d="M 90 75 L 90 120" stroke="#ffdad5" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M 200 75 L 200 120" stroke="#ffdad5" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M 305 75 L 305 120" stroke="#ffdad5" stroke-linecap="round" stroke-width="2.5"></path>
-<!-- Difusores lineales rasantes -->
-<rect fill="#e3211f" height="6" rx="1" width="30" x="75" y="120"></rect>
-<rect fill="#e3211f" height="6" rx="1" width="30" x="185" y="120"></rect>
-<rect fill="#e3211f" height="6" rx="1" width="30" x="290" y="120"></rect>
-<!-- Cuplas y nodos de refrigerante -->
-<circle cx="90" cy="75" fill="#e3211f" r="3.5"></circle>
-<circle cx="200" cy="75" fill="#e3211f" r="3.5"></circle>
-<circle cx="305" cy="75" fill="#e3211f" r="3.5"></circle>
-<!-- Cota técnica -->
-<line stroke="#ffffff" stroke-width="0.8" x1="45" x2="135" y1="162" y2="162"></line>
-<path d="M 45 160 L 45 164 M 135 160 L 135 164" stroke="#ffffff" stroke-width="0.8"></path>
-<text fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="8" text-anchor="middle" x="80" y="159">5.40 m</text>
-</svg>
-</div>
-<!-- Bloques de Datos Técnicos y Métricas -->
-<div class="relative z-10 grid grid-cols-3 gap-2.5 pt-2">
-<div class="bg-tertiary-container/80 p-3 rounded-xl">
-<span class="block font-label-sm text-[10px] text-tertiary-fixed-dim uppercase tracking-wider">Carga Térmica</span>
-<span class="font-headline-sm text-headline-sm font-bold text-on-primary">148.6 <span class="text-xs font-normal text-secondary-fixed">kW</span></span>
-<span class="block text-[11px] text-surface-variant font-body-sm mt-0.5">Balance psicrométrico</span>
-</div>
-<div class="bg-tertiary-container/80 p-3 rounded-xl">
-<span class="block font-label-sm text-[10px] text-tertiary-fixed-dim uppercase tracking-wider">Conductos</span>
-<span class="font-headline-sm text-headline-sm font-bold text-on-primary">PIR</span>
-<span class="block text-[11px] text-surface-variant font-body-sm mt-0.5">Microperforado / Acústico</span>
-</div>
-<div class="bg-tertiary-container/80 p-3 rounded-xl">
-<span class="block font-label-sm text-[10px] text-tertiary-fixed-dim uppercase tracking-wider">Montaje</span>
-<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Oculto</span>
-<span class="block text-[11px] text-surface-variant font-body-sm mt-0.5">Cielorraso suspendido</span>
-</div>
-</div>
-<!-- Footer Badge Plancheta -->
-<div class="relative z-10 flex items-center justify-between mt-4 pt-3 border-t border-outline-variant/15 text-[11px] text-surface-variant">
-<span>PROYECTO: RESIDENCIA NORDELTA L28</span>
-<span class="font-mono text-tertiary-fixed-dim">CÓD: TH-ARQ-2025-08</span>
-</div>
-</div>
-<!-- Micro tarjeta flotante: Validación matriculada -->
-<div class="hidden sm:flex absolute -bottom-5 -left-5 bg-surface-container-lowest p-3.5 rounded-xl shadow-lg items-center gap-3 z-20">
-<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined text-[20px]">verified_user</span>
-</div>
-<div>
-<p class="font-headline-sm text-[13px] font-bold text-primary-container leading-tight">Cálculo Certificado</p>
-<p class="font-body-sm text-[11px] text-outline">Matrícula COPITEC / ASHRAE 90.1</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+          <div class="pt-2">
+            <a class="inline-flex items-center gap-2.5 bg-secondary text-on-secondary px-7 py-4 rounded-xl font-label-lg text-label-lg shadow-md hover:bg-secondary-container hover:shadow-lg transition-all" href="#formulario-tecnico">
+              <span>Coordinar reunión técnica</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ESQUINAS INFERIORES -->
+        <div class="flex flex-wrap items-center justify-between gap-3 w-full pt-4 border-t border-primary/10">
+          <!-- Esquina Inferior Izquierda: Normativas -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/60 text-primary-container font-label-sm text-label-sm shadow-sm">
+            <span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+            <span>Normativas Argentina IRAM &amp; AEA</span>
+          </div>
+          <!-- Esquina Inferior Derecha: Balance & Plazo -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/60 text-primary-container font-label-sm text-label-sm shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-secondary">calculate</span>
+              <span>Balance de cargas térmico-eléctricas</span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest/85 backdrop-blur-md border border-white/60 text-primary-container font-label-sm text-label-sm shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-secondary">rule</span>
+              <span>Respuesta técnica en 48hs hábiles</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 <!-- SECCIÓN 2: INGENIERÍA DE PRECISIÓN APLICADA A LA CONSTRUCCIÓN (4 TARJETAS MODULARES) -->
-<section class="w-full bg-surface-container-low py-space-xl">
+<section class="w-full bg-surface-container-low py-space-xl relative z-10 shadow-sm">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-space-xl">
 <!-- Encabezado de Sección -->
 <div class="max-w-3xl space-y-2">
@@ -282,7 +197,7 @@
 </div>
 </section>
 <!-- SECCIÓN 3: CÓMO TRABAJAMOS EN SINERGIA CON SU ESTUDIO -->
-<section class="w-full bg-surface py-space-xl">
+<section class="w-full bg-surface py-space-xl relative z-10 shadow-sm">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
 <!-- Bloque Título y Manifiesto -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
@@ -407,11 +322,11 @@
 </div>
 </section>
 <!-- SECCIÓN 4: FORMULARIO TÉCNICO PARA ESTUDIOS Y ARQUITECTOS -->
-<section class="w-full bg-surface-container-low py-space-xl" id="formulario-tecnico">
+<section class="w-full bg-surface-container-low/65 backdrop-blur-md py-space-xl relative z-10" id="formulario-tecnico">
 <div class="max-w-5xl mx-auto px-margin-mobile md:px-margin space-y-space-lg">
 <!-- Encabezado del Formulario -->
 <div class="text-center max-w-2xl mx-auto space-y-2">
-<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Canal Exclusivo para Profesionales</span>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase bg-white/70 backdrop-blur-sm px-3 py-1 rounded-lg inline-block border border-white/40">Canal Exclusivo para Profesionales</span>
 <h2 class="font-headline-lg text-headline-lg text-primary-container tracking-tight leading-tight">
           Sumar a Thermair en su próximo proyecto
         </h2>
@@ -420,7 +335,7 @@
         </p>
 </div>
 <!-- Contenedor del Formulario Técnico -->
-<div class="bg-surface-container-lowest p-6 md:p-10 rounded-xl shadow-md">
+<div class="bg-surface-container-lowest/85 backdrop-blur-md p-6 md:p-10 rounded-2xl shadow-xl border border-white/60">
 <form class="space-y-6" onsubmit="event.preventDefault(); alert('Requerimiento técnico recibido con éxito. Un ingeniero de Thermair se contactará en menos de 24 horas.');">
 <!-- Grid de Campos Principales -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
