@@ -147,23 +147,42 @@
       transform: translateY(0) scale(0.97);
     }
 
-    /* Indicador animado y flotación suave del botón activo */
-    @keyframes activePulse {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-2px); }
+    /* Tipografía y estilos unificados para los botones del menú (Idéntica tipografía activo/inactivo) */
+    .nav-btn-link,
+    .nav-btn-active {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-size: 13.5px !important;
+      line-height: 20px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      padding: 0.5rem 0.95rem !important;
+      border-radius: 0.75rem !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
     .nav-btn-active {
       animation: activePulse 3.5s ease-in-out infinite;
       box-shadow: 0 2px 8px rgba(0, 35, 75, 0.08);
+      background-color: #e7eeff !important;
+      color: #00234b !important;
     }
     .nav-btn-active:hover {
       animation: none;
       transform: translateY(-3px) scale(1.02);
     }
 
-    /* Efecto de desplazamiento y sublineado sutil para links del menú */
     .nav-btn-link {
+      color: #43474f !important;
+      background-color: transparent;
       position: relative;
+    }
+    .nav-btn-link:hover {
+      color: #111c2d !important;
+      background-color: #f0f3ff !important;
     }
     .nav-btn-link::after {
       content: '';
@@ -199,11 +218,12 @@
     .cta-moving-btn {
       animation: ctaAutonomousMove 6s ease-in-out infinite;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-family: 'Space Grotesk', sans-serif;
     }
     .cta-moving-btn:hover {
       animation: none;
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 24px -4px rgba(188, 0, 12, 0.4);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 20px -3px rgba(188, 0, 12, 0.35);
     }
     .cta-moving-btn:hover .phone-icon {
       animation: iconRing 0.6s ease;
@@ -333,20 +353,20 @@
           </a>
         </div>
         <nav class="hidden xl:flex items-center gap-2">
-          <a class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+          <a class="menu-interactive-item nav-btn-link"
             href="alianzas.html">Profesionales</a>
           <a aria-current="page"
-            class="menu-interactive-item nav-btn-active px-4 py-2.5 rounded-xl bg-surface-container text-primary font-semibold"
+            class="menu-interactive-item nav-btn-active"
             href="electricidad.html">Electricidad</a>
-          <a class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+          <a class="menu-interactive-item nav-btn-link"
             href="climatizacion.html">Climatización</a>
-          <a class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+          <a class="menu-interactive-item nav-btn-link"
             href="mantenimiento.html">Mantenimiento</a>
         </nav>
         <div class="flex items-center gap-space-sm">
-          <a class="cta-moving-btn hidden sm:inline-flex items-center gap-2 bg-secondary text-on-secondary px-5 py-3 rounded-xl font-label-lg text-label-lg shadow-sm group"
+          <a class="cta-moving-btn hidden sm:inline-flex items-center gap-1.5 bg-secondary text-on-secondary px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider shadow-sm group"
             data-path="contacto" href="index.html#contacto-tecnico">
-            <span class="material-symbols-outlined text-[18px] phone-icon transition-transform duration-300">call</span>
+            <span class="material-symbols-outlined text-[15px] phone-icon transition-transform duration-300">call</span>
             <span>Solicitar Asesoramiento</span>
           </a>
           <button id="mobile-menu-btn" type="button"
@@ -362,18 +382,18 @@
       class="hidden xl:hidden bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 space-y-2 shadow-lg transition-all">
       <div class="space-y-1">
         <a href="alianzas.html"
-          class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Profesionales</a>
+          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Profesionales</a>
         <a href="electricidad.html"
-          class="block px-4 py-2.5 rounded-xl font-semibold bg-surface-container text-primary transition-all">Electricidad</a>
+          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs bg-surface-container text-primary transition-all">Electricidad</a>
         <a href="climatizacion.html"
-          class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Climatización</a>
+          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Climatización</a>
         <a href="mantenimiento.html"
-          class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Mantenimiento</a>
+          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Mantenimiento</a>
       </div>
       <div class="pt-3 border-t border-outline-variant/15">
-        <a href="index.html#contacto-tecnico"
-          class="cta-moving-btn flex items-center justify-center gap-2 w-full bg-secondary text-on-secondary px-4 py-3 rounded-xl font-semibold shadow-sm">
-          <span class="material-symbols-outlined text-[18px] phone-icon">call</span>
+        <a href="index.html#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+          class="cta-moving-btn flex items-center justify-center gap-1.5 w-full bg-secondary text-on-secondary px-3.5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider shadow-sm">
+          <span class="material-symbols-outlined text-[15px] phone-icon">call</span>
           <span>Solicitar Asesoramiento</span>
         </a>
       </div>
@@ -1122,18 +1142,9 @@
             `;
           });
 
-          const typeObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                obs.unobserve(entry.target);
-                startTyping(entry.target);
-              }
-            });
-          }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
-
-          typeElements.forEach(el => typeObserver.observe(el));
-
           function startTyping(container) {
+            if (container.dataset.typeStarted === 'true') return;
+            container.dataset.typeStarted = 'true';
             const fullText = container.getAttribute('data-typewrite').trim();
             const textTarget = container.querySelector('.type-text');
             const cursor = container.querySelector('.type-cursor');
@@ -1158,6 +1169,24 @@
 
             setTimeout(nextChar, 160);
           }
+
+          const typeObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                obs.unobserve(entry.target);
+                startTyping(entry.target);
+              }
+            });
+          }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+
+          typeElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              startTyping(el);
+            } else {
+              typeObserver.observe(el);
+            }
+          });
         }
 
         // 2. REVELACIÓN ESCALONADA DE PLACAS Y CÁPSULAS
