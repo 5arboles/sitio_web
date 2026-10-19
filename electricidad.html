@@ -147,89 +147,105 @@
       transform: translateY(0) scale(0.97);
     }
 
-    /* Tipografía y estilos unificados para los botones del menú (Idéntica tipografía activo/inactivo) */
-    .nav-btn-link,
-    .nav-btn-active {
+    /* =========================================================================
+       NAVBAR PROPUESTA 1: LIQUID SLIDING CAPSULE & CTA PULSE
+       ========================================================================= */
+    .p1-nav-container {
+      position: relative;
+      background: rgba(240, 243, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 4px;
+      border-radius: 1rem;
+      border: 1px solid rgba(195, 198, 208, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .menu-btn-base {
       font-family: 'Space Grotesk', sans-serif !important;
       font-size: 13.5px !important;
       line-height: 20px !important;
       font-weight: 600 !important;
       letter-spacing: 0.05em !important;
       text-transform: uppercase !important;
-      padding: 0.5rem 0.95rem !important;
+      padding: 0.45rem 0.95rem !important;
       border-radius: 0.75rem !important;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
     }
-
-    .nav-btn-active {
-      animation: activePulse 3.5s ease-in-out infinite;
-      box-shadow: 0 2px 8px rgba(0, 35, 75, 0.08);
-      background-color: #e7eeff !important;
-      color: #00234b !important;
-    }
-    .nav-btn-active:hover {
-      animation: none;
-      transform: translateY(-3px) scale(1.02);
-    }
-
-    .nav-btn-link {
-      color: #43474f !important;
-      background-color: transparent;
+    .p1-item {
       position: relative;
+      z-index: 2;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      color: #43474f !important;
     }
-    .nav-btn-link:hover {
-      color: #111c2d !important;
-      background-color: #f0f3ff !important;
+    .p1-item:hover {
+      color: #00234b !important;
+      transform: translateY(-1px);
     }
-    .nav-btn-link::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: currentColor;
-      opacity: 0.7;
-      border-radius: 99px;
-      transform: translateX(-50%);
-      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    .p1-item.active {
+      color: #00234b !important;
+      background: #ffffff !important;
+      box-shadow: 0 3px 12px rgba(0, 35, 75, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
     }
-    .nav-btn-link:hover::after {
-      width: 60%;
+    @keyframes ctaPulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(188, 0, 12, 0.4); }
+      50% { box-shadow: 0 0 0 7px rgba(188, 0, 12, 0); }
     }
-
-    /* Botón CTA con micro-movimiento vivo, oscilación de campana y hover con elevación */
-    @keyframes ctaAutonomousMove {
-      0%, 88%, 100% { transform: translateY(0); }
-      92% { transform: translateY(-3px); }
-      95% { transform: translateY(1px); }
-      97% { transform: translateY(0); }
-    }
-    @keyframes iconRing {
+    @keyframes phoneRing {
       0%, 100% { transform: rotate(0deg); }
       20% { transform: rotate(-15deg); }
       40% { transform: rotate(15deg); }
       60% { transform: rotate(-10deg); }
       80% { transform: rotate(5deg); }
     }
-    .cta-moving-btn {
-      animation: ctaAutonomousMove 6s ease-in-out infinite;
+    .p1-cta {
+      animation: ctaPulseGlow 3.5s infinite;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       font-family: 'Space Grotesk', sans-serif;
     }
-    .cta-moving-btn:hover {
-      animation: none;
+    .p1-cta:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 20px -3px rgba(188, 0, 12, 0.35);
+      box-shadow: 0 8px 20px -3px rgba(188, 0, 12, 0.45);
     }
-    .cta-moving-btn:hover .phone-icon {
-      animation: iconRing 0.6s ease;
+    .group:hover .phone-icon-animate {
+      animation: phoneRing 0.6s ease;
     }
-    .cta-moving-btn:active {
-      transform: translateY(0) scale(0.97);
+
+    /* =========================================================================
+       FOOTER PROPUESTA 2: TOOLTIP Y HOVER NAV
+       ========================================================================= */
+    .tooltip-bubble {
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, 6px) scale(0.92);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .group:hover .tooltip-bubble,
+    .group:focus-within .tooltip-bubble {
+      opacity: 1;
+      transform: translate(-50%, -8px) scale(1);
+    }
+    .footer-nav-link {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    .footer-nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 1.5px;
+      background-color: #bc000c;
+      transition: width 0.25s ease;
+    }
+    .footer-nav-link:hover::after {
+      width: 100%;
     }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -352,28 +368,28 @@
             <img alt="Thermair Logo" class="h-10 sm:h-12 w-auto object-contain" src="assets/thermair-logo.png" />
           </a>
         </div>
-        <nav class="hidden xl:flex items-center gap-2">
-          <a class="menu-interactive-item nav-btn-link"
+        <nav class="hidden xl:flex items-center p1-nav-container">
+          <a class="menu-btn-base p1-item"
             href="alianzas.html">Profesionales</a>
           <a aria-current="page"
-            class="menu-interactive-item nav-btn-active"
+            class="menu-btn-base p1-item active"
             href="electricidad.html">Electricidad</a>
-          <a class="menu-interactive-item nav-btn-link"
+          <a class="menu-btn-base p1-item"
             href="climatizacion.html">Climatización</a>
-          <a class="menu-interactive-item nav-btn-link"
+          <a class="menu-btn-base p1-item"
             href="mantenimiento.html">Mantenimiento</a>
         </nav>
-        <div class="flex items-center gap-space-sm">
-          <a class="cta-moving-btn hidden sm:inline-flex items-center gap-1.5 bg-secondary text-on-secondary px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider shadow-sm group"
+        <div class="flex items-center gap-2.5">
+          <a class="p1-cta hidden sm:inline-flex items-center gap-1 bg-secondary text-white px-2.5 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider shadow-sm group"
             data-path="contacto" href="index.html#contacto-tecnico">
-            <span class="material-symbols-outlined text-[15px] phone-icon transition-transform duration-300">call</span>
+            <span class="material-symbols-outlined text-[13px] phone-icon-animate transition-transform duration-300">call</span>
             <span>Solicitar Asesoramiento</span>
           </a>
           <button id="mobile-menu-btn" type="button"
-            class="xl:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition-colors focus:outline-none"
+            class="xl:hidden p-1.5 rounded-lg text-primary hover:bg-surface-container transition-colors focus:outline-none"
             aria-label="Abrir menú"
             onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden'); var icon=this.querySelector('.material-symbols-outlined'); if(m.classList.contains('hidden')){icon.innerText='menu';}else{icon.innerText='close';}">
-            <span class="material-symbols-outlined text-[26px]">menu</span>
+            <span class="material-symbols-outlined text-[24px]">menu</span>
           </button>
         </div>
       </div>
@@ -382,18 +398,18 @@
       class="hidden xl:hidden bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 space-y-2 shadow-lg transition-all">
       <div class="space-y-1">
         <a href="alianzas.html"
-          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Profesionales</a>
+          class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Profesionales</a>
         <a href="electricidad.html"
-          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs bg-surface-container text-primary transition-all">Electricidad</a>
+          class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] bg-surface-container text-primary transition-all">Electricidad</a>
         <a href="climatizacion.html"
-          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Climatización</a>
+          class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Climatización</a>
         <a href="mantenimiento.html"
-          class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Mantenimiento</a>
+          class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Mantenimiento</a>
       </div>
-      <div class="pt-3 border-t border-outline-variant/15">
+      <div class="pt-2 border-t border-outline-variant/15">
         <a href="index.html#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-          class="cta-moving-btn flex items-center justify-center gap-1.5 w-full bg-secondary text-on-secondary px-3.5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider shadow-sm">
-          <span class="material-symbols-outlined text-[15px] phone-icon">call</span>
+          class="flex items-center justify-center gap-1 w-full bg-secondary text-white px-3 py-2 rounded-lg text-[11px] font-semibold uppercase tracking-wider shadow-sm">
+          <span class="material-symbols-outlined text-[13px] phone-icon-animate">call</span>
           <span>Solicitar Asesoramiento</span>
         </a>
       </div>
@@ -401,20 +417,16 @@
   </header>
 
   <main class="w-full relative min-h-[calc(100vh-420px)]">
-    <!-- Video de Fondo Fijo en Ping-Pong Loop (Adelante y Atrás) -->
-    <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      <img id="electricidad-poster" src="assets/alianzas-poster.jpg" alt="Infraestructura Eléctrica Thermair"
-        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
-      <video id="electricidad-video" playsinline webkit-playsinline muted autoplay loop preload="auto"
-        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
-        poster="assets/alianzas-poster.jpg">
-        <source src="assets/alianzas-bg.mp4" type="video/mp4">
-      </video>
+    <!-- Fondo Fijo de Imagen con Desplazamiento Parallax Suave: fabrica4.webp -->
+    <div id="electricidad-bg-wrapper" class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <img id="electricidad-bg" src="assets/fabrica4.webp" alt="Infraestructura Eléctrica Thermair"
+        class="absolute top-0 left-1/2 object-cover will-change-transform"
+        style="width: max(100vw, 80vh); height: max(125vh, calc(100vw * 5 / 4)); min-width: 100vw; min-height: 100vh; transform: translate3d(-50%, 0, 0);" />
     </div>
 
     <div class="flex flex-col w-full relative z-10">
       <!-- SECCIÓN 1: HERO INDUSTRIAL -->
-      <section class="relative w-full overflow-hidden bg-surface/80 backdrop-blur-sm py-12 lg:py-20 pt-28">
+      <section class="relative w-full overflow-hidden bg-white/85 py-12 lg:py-20 pt-28">
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
             <!-- Columna Izquierda: Información Principal -->
@@ -434,13 +446,13 @@
                 </span>
               </h1>
               <!-- Texto Introductorio -->
-              <p class="hero-stagger-item font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+              <p class="hero-stagger-item font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed bg-surface-container-lowest/50 backdrop-blur-sm p-4 rounded-xl border border-white/40 shadow-sm">
                 Desarrollamos y ejecutamos proyectos de infraestructura eléctrica para plantas industriales y grandes superficies. Todo nuestro trabajo se realiza bajo estrictas normativas vigentes, garantizando la seguridad, el rendimiento y la continuidad operativa de su empresa.
               </p>
               <!-- Acciones CTA -->
               <div class="hero-stagger-item flex flex-wrap items-center gap-space-md pt-2">
                 <a class="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary px-6 py-3.5 rounded-xl font-label-lg text-label-lg shadow-sm transition-all"
-                  href="#cotizacion-industrial">
+                  href="index.html#contacto-tecnico">
                   <span class="material-symbols-outlined text-[20px]">engineering</span>
                   <span>Solicitar relevamiento técnico</span>
                 </a>
@@ -525,7 +537,7 @@
       </section>
 
       <!-- SECCIÓN 2: CIFRAS Y CERTIFICACIONES ELÉCTRICAS (3 TARJETAS KPI TÉCNICAS) -->
-      <section class="w-full bg-surface-container-low/70 backdrop-blur-md py-16" id="certificaciones">
+      <section class="w-full bg-white/90 backdrop-blur-sm py-16" id="certificaciones">
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger-group data-stagger-delay="130">
             <!-- KPI 1 -->
@@ -581,7 +593,7 @@
       </section>
 
       <!-- SECCIÓN 3: ESPECIALIDADES Y SERVICIOS DE POTENCIA (4 TARJETAS NUMERADAS 01 A 04) -->
-      <section class="w-full bg-surface/80 backdrop-blur-md py-20">
+      <section class="w-full bg-white/85 py-20">
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
           <!-- Encabezado de Sección -->
           <div class="max-w-3xl space-y-3">
@@ -740,7 +752,7 @@
       </section>
 
       <!-- SECCIÓN 4: OBRAS DE POTENCIA EJECUTADAS -->
-      <section class="w-full bg-surface-container-low/75 backdrop-blur-md py-20">
+      <section class="w-full bg-white/85 backdrop-blur-sm py-20">
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
             <div class="space-y-3">
@@ -844,7 +856,7 @@
       </section>
 
       <!-- SECCIÓN 5: GARANTÍA DE NO INTERRUPCIÓN (BLOQUE DESTACADO EN AZUL MARINO) -->
-      <section class="w-full bg-surface/80 backdrop-blur-md py-16">
+      <section class="w-full bg-white/85 backdrop-blur-md py-16">
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
           <div class="bg-primary-container/95 backdrop-blur-md text-on-primary rounded-xl p-8 lg:p-14 shadow-xl relative overflow-hidden border border-white/10">
             <!-- Fondo sutil de gradiente arquitectónico -->
@@ -902,224 +914,67 @@
           </div>
         </div>
       </section>
-
-      <!-- SECCIÓN 6: FORMULARIO DE RELEVAMIENTO TÉCNICO Y COTIZACIÓN -->
-      <section class="w-full bg-surface-container-low/80 backdrop-blur-md py-20" id="cotizacion-industrial">
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-            <!-- Columna Izquierda: Acompañamiento y Canales -->
-            <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
-              <div class="space-y-4">
-                <div class="inline-flex items-center gap-2 bg-surface-container/90 px-3 py-1 rounded-xl border border-white/50">
-                  <span class="material-symbols-outlined text-secondary text-[16px]">contact_support</span>
-                  <span class="font-label-sm text-label-sm text-primary uppercase">Presupuestos Corporativos</span>
-                </div>
-                <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight typewriter-title" data-typewrite="Relevamiento en planta y cotización">
-                  <span class="typewriter-box relative block w-full">
-                    <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Relevamiento en planta y cotización</span>
-                    <span class="typewriter-overlay absolute inset-0 block w-full">
-                      <span class="type-text"></span><span class="type-cursor">|</span>
-                    </span>
-                  </span>
-                </h2>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Complete los datos del predio industrial o proyecto para que uno de nuestros ingenieros especialistas coordine una visita técnica de inspección sin cargo.
-                </p>
-              </div>
-              <div class="space-y-4 bg-surface-container-lowest/90 backdrop-blur-md p-6 rounded-xl shadow-sm border border-white/60">
-                <h4 class="font-title-md text-title-md text-primary font-bold flex items-center gap-2">
-                  <span class="material-symbols-outlined text-secondary">verified_user</span>
-                  Protocolo de Visita Técnica
-                </h4>
-                <ul class="space-y-2.5 font-body-sm text-body-sm text-on-surface-variant">
-                  <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
-                    <span>Ingeniero matriculado COPITEC con seguro ART e indumentaria ignífuga categoría 2.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
-                    <span>Inspección visual de acometidas, tableros y relevamiento de cargas en punta.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
-                    <span>Entrega de informe preliminar de estado y propuesta presupuestaria en 48 hs.</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="space-y-2 pt-2">
-                <div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Mesa de Entrada de Ingeniería</div>
-                <div class="flex items-center gap-3 text-primary font-bold">
-                  <span class="material-symbols-outlined text-secondary text-[22px]">mail</span>
-                  <span class="font-title-md text-title-md">electricidad@thermair.com.ar</span>
-                </div>
-                <div class="flex items-center gap-3 text-primary font-bold">
-                  <span class="material-symbols-outlined text-secondary text-[22px]">call</span>
-                  <span class="font-title-md text-title-md">0810-888-THERM (Opción 2)</span>
-                </div>
-              </div>
-            </div>
-            <!-- Columna Derecha: Formulario Relevamiento -->
-            <div class="lg:col-span-7">
-              <div class="bg-surface-container-lowest/90 backdrop-blur-md p-8 lg:p-10 rounded-xl shadow-sm space-y-6 border border-white/60">
-                <form class="space-y-5" id="industrialQuoteForm"
-                  onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); this.reset();">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Nombre del Solicitante -->
-                    <div class="space-y-1.5">
-                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="solicitanteNombre">Nombre del Solicitante *</label>
-                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
-                        id="solicitanteNombre" placeholder="Ing. Juan Pérez" required="" type="text" />
-                    </div>
-                    <!-- Empresa / Planta Industrial -->
-                    <div class="space-y-1.5">
-                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="empresaNombre">Empresa / Planta Industrial *</label>
-                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
-                        id="empresaNombre" placeholder="Logística Austral S.A." required="" type="text" />
-                    </div>
-                  </div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Correo Corporativo -->
-                    <div class="space-y-1.5">
-                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="correoCorp">Correo Corporativo *</label>
-                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
-                        id="correoCorp" placeholder="jperez@empresa.com.ar" required="" type="email" />
-                    </div>
-                    <!-- Teléfono / Celular -->
-                    <div class="space-y-1.5">
-                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="telefonoContacto">Teléfono de Contacto *</label>
-                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
-                        id="telefonoContacto" placeholder="+54 11 5432-8765" required="" type="tel" />
-                    </div>
-                  </div>
-                  <!-- Potencia Estimada (kVA / kW) y Tipo de Requerimiento -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="space-y-1.5">
-                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="potenciaEstimada">Potencia Estimada (kVA / kW)</label>
-                      <select class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
-                        id="potenciaEstimada">
-                        <option value="baja">Hasta 50 kVA (Comercial / PyME)</option>
-                        <option selected="" value="media-baja">50 kVA a 250 kVA (Nave / Taller)</option>
-                        <option value="media">250 kVA a 630 kVA (Centro Logístico)</option>
-                        <option value="alta">630 kVA a 2000 kVA (Planta Industrial)</option>
-                        <option value="muy-alta">&gt; 2000 kVA (Media Tensión 13.2 kV)</option>
-                      </select>
-                    </div>
-                    <div class="space-y-1.5">
-                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="tipoServicio">Especialidad Principal</label>
-                      <select class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
-                        id="tipoServicio">
-                        <option value="tableros">Tableros de Potencia TGBT / TTA</option>
-                        <option value="tendidos">Tendidos y Bandejas Portacables</option>
-                        <option value="tierra">Puesta a Tierra y Medición SRT 900/15</option>
-                        <option value="integral">Reforma Eléctrica Integral de Planta</option>
-                        <option value="normalizacion">Auditoría y Certificación AEA</option>
-                      </select>
-                    </div>
-                  </div>
-                  <!-- Alcance y Detalles del Proyecto -->
-                  <div class="space-y-1.5">
-                    <label class="block font-label-sm text-label-sm text-primary uppercase" for="detallesProyecto">Alcance de Detalles y Especificaciones</label>
-                    <textarea class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all resize-none border border-outline-variant/15"
-                      id="detallesProyecto" placeholder="Indique ubicación de la planta, plazos estimados de obra, si posee planos unifilares o requiere proyecto llave en mano..." rows="4"></textarea>
-                  </div>
-                  <!-- Checkbox de Políticas y Confidencialidad -->
-                  <div class="flex items-center gap-2 pt-1">
-                    <input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" id="ndaCheck" type="checkbox" />
-                    <label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="ndaCheck">
-                      Acepto el tratamiento técnico confidencial de la información de planta (NDA disponible).
-                    </label>
-                  </div>
-                  <!-- Botón Primario de Envío -->
-                  <div class="pt-2">
-                    <button class="cta-moving-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary px-8 py-4 rounded-xl font-label-lg text-label-lg shadow-sm"
-                      type="submit">
-                      <span class="material-symbols-outlined text-[20px] phone-icon">send</span>
-                      <span>Solicitar asesoramiento técnico</span>
-                    </button>
-                  </div>
-                  <!-- Mensaje de Éxito Oculto por Defecto -->
-                  <div class="hidden bg-surface-container p-4 rounded-xl flex items-center gap-3 text-primary border border-outline-variant/20" id="formSuccess">
-                    <span class="material-symbols-outlined text-secondary text-[24px]">task_alt</span>
-                    <span class="font-body-sm text-body-sm font-medium">Solicitud recibida. Un ingeniero de la división corporativa se contactará en menos de 2 horas hábiles.</span>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- Script de Video Ping-Pong Loop y Reproducción Segura iOS/Safari -->
+    <!-- Script de Desplazamiento Parallax Suave (Lerp) para el fondo vertical -->
     <script>
       (function () {
-        const video = document.getElementById('electricidad-video');
-        const poster = document.getElementById('electricidad-poster');
-        if (!video) return;
+        const bgImg = document.getElementById('electricidad-bg');
+        if (!bgImg) return;
 
-        let direction = 1;
-        let isReversing = false;
-        let lastFrameTime = performance.now();
+        let currentProgress = 0;
+        let targetProgress = 0;
+        let isRunning = false;
 
-        function stepPingPong(now) {
-          const dt = (now - lastFrameTime) / 1000;
-          lastFrameTime = now;
-
-          if (isReversing && !video.paused) {
-            const newTime = video.currentTime - dt * 0.95;
-            if (newTime <= 0.1) {
-              video.currentTime = 0;
-              isReversing = false;
-              video.playbackRate = 1.0;
-              video.play().catch(() => {});
-            } else {
-              video.currentTime = newTime;
-            }
-          }
-          requestAnimationFrame(stepPingPong);
-        }
-
-        video.addEventListener('timeupdate', function () {
-          if (!isReversing && video.duration && (video.duration - video.currentTime) < 0.25) {
-            isReversing = true;
-            video.pause();
-          }
-        });
-
-        video.addEventListener('ended', function () {
-          isReversing = true;
-          video.pause();
-        });
-
-        function markVideoReady() {
-          video.classList.remove('opacity-0');
-          video.classList.add('opacity-100');
-          if (poster) {
-            poster.classList.remove('opacity-100');
-            poster.classList.add('opacity-0');
+        function calculateTarget() {
+          const windowH = window.innerHeight;
+          const docH = document.documentElement.scrollHeight;
+          const maxScroll = docH - windowH;
+          if (maxScroll > 0) {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            targetProgress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
           }
         }
 
-        video.addEventListener('playing', markVideoReady, { once: true });
-        video.addEventListener('canplaythrough', markVideoReady, { once: true });
+        function updateParallax() {
+          const diff = targetProgress - currentProgress;
+          if (Math.abs(diff) > 0.0004) {
+            currentProgress += diff * 0.085;
+          } else {
+            currentProgress = targetProgress;
+            isRunning = false;
+          }
 
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            const unlockHandler = function () {
-              video.play().then(() => {
-                markVideoReady();
-                ['click', 'touchstart', 'scroll'].forEach(evt => window.removeEventListener(evt, unlockHandler));
-              }).catch(() => {});
-            };
-            ['click', 'touchstart', 'scroll'].forEach(evt => window.addEventListener(evt, unlockHandler, { passive: true, once: true }));
-          });
+          const imgH = bgImg.offsetHeight;
+          const windowH = window.innerHeight;
+          const maxTranslate = Math.max(imgH - windowH, 0);
+          const translateY = -currentProgress * maxTranslate;
+
+          bgImg.style.transform = `translate3d(-50%, ${translateY.toFixed(2)}px, 0)`;
+
+          if (isRunning) {
+            requestAnimationFrame(updateParallax);
+          }
         }
 
-        requestAnimationFrame((now) => {
-          lastFrameTime = now;
-          stepPingPong(now);
-        });
+        function onScrollActivity() {
+          calculateTarget();
+          if (!isRunning) {
+            isRunning = true;
+            requestAnimationFrame(updateParallax);
+          }
+        }
+
+        window.addEventListener('scroll', onScrollActivity, { passive: true });
+        window.addEventListener('resize', onScrollActivity, { passive: true });
+
+        // Inicialización inmediata sincronizada
+        calculateTarget();
+        currentProgress = targetProgress;
+        const imgH = bgImg.offsetHeight;
+        const windowH = window.innerHeight;
+        const maxTranslate = Math.max(imgH - windowH, 0);
+        bgImg.style.transform = `translate3d(-50%, ${(-currentProgress * maxTranslate).toFixed(2)}px, 0)`;
       })();
     </script>
 
@@ -1253,19 +1108,105 @@
   </main>
 
   <!-- =========================================================================
-       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante, azul pleno #00234b)
+       FOOTER INSTITUCIONAL - PROPUESTA 2: MINIMALISTA EJECUTIVO
        ========================================================================= -->
-  <footer class="relative z-30 bg-[#00234b] text-white/80 py-12 border-t border-white/10 text-xs">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center">
-        <img alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" src="assets/thermair-logo.png" />
+  <footer class="relative z-30 bg-gradient-to-b from-[#00234b] to-[#001730] text-white/80 border-t border-white/10 font-body">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10 space-y-8">
+      
+      <!-- Fila Superior: Logo, Links y Redes Sociales -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
+        
+        <!-- Logo en Blanco -->
+        <a href="index.html" class="flex items-center focus:outline-none transition-transform hover:scale-[1.02]">
+          <img src="assets/thermair-logo.png" alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" />
+        </a>
+
+        <!-- Links de Páginas en Horizontal -->
+        <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-headline font-medium text-white/70">
+          <a href="index.html" class="footer-nav-link hover:text-white transition-colors">Inicio</a>
+          <a href="alianzas.html" class="footer-nav-link hover:text-white transition-colors">Profesionales</a>
+          <a href="electricidad.html" class="footer-nav-link hover:text-white transition-colors">Electricidad</a>
+          <a href="climatizacion.html" class="footer-nav-link hover:text-white transition-colors">Climatización</a>
+          <a href="mantenimiento.html" class="footer-nav-link hover:text-white transition-colors">Mantenimiento</a>
+          <a href="index.html#contacto-tecnico" class="footer-nav-link hover:text-white transition-colors">Contacto</a>
+        </nav>
+
+        <!-- Seguinos en + 3 Iconos con Rollover "Próximamente" -->
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-headline font-semibold text-white/70 uppercase tracking-wider">
+            Seguinos en
+          </span>
+          
+          <div class="flex items-center gap-2">
+            <!-- LinkedIn -->
+            <div class="relative group">
+              <button type="button" aria-label="LinkedIn"
+                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all border border-white/10 hover:border-white/30 focus:outline-none">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+                </svg>
+              </button>
+              <div class="tooltip-bubble absolute left-1/2 bottom-full mb-1 z-50">
+                <div class="bg-secondary text-white text-[10px] font-headline font-semibold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  Próximamente
+                </div>
+                <div class="w-1.5 h-1.5 bg-secondary rotate-45 mx-auto -mt-1"></div>
+              </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="relative group">
+              <button type="button" aria-label="Instagram"
+                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all border border-white/10 hover:border-white/30 focus:outline-none">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+              </button>
+              <div class="tooltip-bubble absolute left-1/2 bottom-full mb-1 z-50">
+                <div class="bg-secondary text-white text-[10px] font-headline font-semibold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  Próximamente
+                </div>
+                <div class="w-1.5 h-1.5 bg-secondary rotate-45 mx-auto -mt-1"></div>
+              </div>
+            </div>
+
+            <!-- YouTube -->
+            <div class="relative group">
+              <button type="button" aria-label="YouTube"
+                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all border border-white/10 hover:border-white/30 focus:outline-none">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </button>
+              <div class="tooltip-bubble absolute left-1/2 bottom-full mb-1 z-50">
+                <div class="bg-secondary text-white text-[10px] font-headline font-semibold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  Próximamente
+                </div>
+                <div class="w-1.5 h-1.5 bg-secondary rotate-45 mx-auto -mt-1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="flex flex-wrap items-center justify-center gap-6 text-white/60">
-        <span>Normativa IRAM 2444</span>
-        <span>Normativa AEA 90364</span>
-        <span>Matrícula COPITEC</span>
-        <span>© 2026 Thermair. Todos los derechos reservados.</span>
+
+      <!-- Fila Inferior: Nomenclatura ISO y Copyright -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <!-- Nomenclatura ISO / IRAM en pastillas compactas -->
+        <div class="flex flex-wrap items-center justify-center gap-2 text-[11px] text-white/70">
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-cyan-300">ISO 9001:2015</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-emerald-400">ISO 14001:2015</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-white/80">IRAM 2444</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-white/80">AEA 90364</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-white/80">COPITEC</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-white/60 text-center md:text-right">
+          © 2026 Thermair. Todos los derechos reservados.
+        </p>
       </div>
+
     </div>
   </footer>
 </body>

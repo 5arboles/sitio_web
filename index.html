@@ -125,89 +125,105 @@
       transform: translateY(0) scale(0.97);
     }
 
-    /* Tipografía y estilos unificados para los botones del menú (Idéntica tipografía activo/inactivo) */
-    .nav-btn-link,
-    .nav-btn-active {
+    /* =========================================================================
+       NAVBAR PROPUESTA 1: LIQUID SLIDING CAPSULE & CTA PULSE
+       ========================================================================= */
+    .p1-nav-container {
+      position: relative;
+      background: rgba(240, 243, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 4px;
+      border-radius: 1rem;
+      border: 1px solid rgba(195, 198, 208, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .menu-btn-base {
       font-family: 'Space Grotesk', sans-serif !important;
       font-size: 13.5px !important;
       line-height: 20px !important;
       font-weight: 600 !important;
       letter-spacing: 0.05em !important;
       text-transform: uppercase !important;
-      padding: 0.5rem 0.95rem !important;
+      padding: 0.45rem 0.95rem !important;
       border-radius: 0.75rem !important;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
     }
-
-    .nav-btn-active {
-      animation: activePulse 3.5s ease-in-out infinite;
-      box-shadow: 0 2px 8px rgba(0, 35, 75, 0.08);
-      background-color: #e7eeff !important;
-      color: #00234b !important;
-    }
-    .nav-btn-active:hover {
-      animation: none;
-      transform: translateY(-3px) scale(1.02);
-    }
-
-    .nav-btn-link {
-      color: #43474f !important;
-      background-color: transparent;
+    .p1-item {
       position: relative;
+      z-index: 2;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      color: #43474f !important;
     }
-    .nav-btn-link:hover {
-      color: #111c2d !important;
-      background-color: #f0f3ff !important;
+    .p1-item:hover {
+      color: #00234b !important;
+      transform: translateY(-1px);
     }
-    .nav-btn-link::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: currentColor;
-      opacity: 0.7;
-      border-radius: 99px;
-      transform: translateX(-50%);
-      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    .p1-item.active {
+      color: #00234b !important;
+      background: #ffffff !important;
+      box-shadow: 0 3px 12px rgba(0, 35, 75, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
     }
-    .nav-btn-link:hover::after {
-      width: 60%;
+    @keyframes ctaPulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(188, 0, 12, 0.4); }
+      50% { box-shadow: 0 0 0 7px rgba(188, 0, 12, 0); }
     }
-
-    /* Botón CTA con micro-movimiento vivo, oscilación de campana y hover con elevación */
-    @keyframes ctaAutonomousMove {
-      0%, 88%, 100% { transform: translateY(0); }
-      92% { transform: translateY(-3px); }
-      95% { transform: translateY(1px); }
-      97% { transform: translateY(0); }
-    }
-    @keyframes iconRing {
+    @keyframes phoneRing {
       0%, 100% { transform: rotate(0deg); }
       20% { transform: rotate(-15deg); }
       40% { transform: rotate(15deg); }
       60% { transform: rotate(-10deg); }
       80% { transform: rotate(5deg); }
     }
-    .cta-moving-btn {
-      animation: ctaAutonomousMove 6s ease-in-out infinite;
+    .p1-cta {
+      animation: ctaPulseGlow 3.5s infinite;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       font-family: 'Space Grotesk', sans-serif;
     }
-    .cta-moving-btn:hover {
-      animation: none;
+    .p1-cta:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 20px -3px rgba(188, 0, 12, 0.35);
+      box-shadow: 0 8px 20px -3px rgba(188, 0, 12, 0.45);
     }
-    .cta-moving-btn:hover .phone-icon {
-      animation: iconRing 0.6s ease;
+    .group:hover .phone-icon-animate {
+      animation: phoneRing 0.6s ease;
     }
-    .cta-moving-btn:active {
-      transform: translateY(0) scale(0.97);
+
+    /* =========================================================================
+       FOOTER PROPUESTA 2: TOOLTIP Y HOVER NAV
+       ========================================================================= */
+    .tooltip-bubble {
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, 6px) scale(0.92);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .group:hover .tooltip-bubble,
+    .group:focus-within .tooltip-bubble {
+      opacity: 1;
+      transform: translate(-50%, -8px) scale(1);
+    }
+    .footer-nav-link {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    .footer-nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 1.5px;
+      background-color: #bc000c;
+      transition: width 0.25s ease;
+    }
+    .footer-nav-link:hover::after {
+      width: 100%;
     }
   </style>
 </head>
@@ -226,21 +242,21 @@
         </a>
 
         <!-- Menú desktop -->
-        <nav class="hidden xl:flex items-center gap-2">
-          <a href="alianzas.html" class="menu-interactive-item nav-btn-link">Profesionales</a>
-          <a href="electricidad.html" class="menu-interactive-item nav-btn-link">Electricidad</a>
-          <a href="climatizacion.html" class="menu-interactive-item nav-btn-link">Climatización</a>
-          <a href="mantenimiento.html" class="menu-interactive-item nav-btn-link">Mantenimiento</a>
+        <nav class="hidden xl:flex items-center p1-nav-container">
+          <a href="alianzas.html" class="menu-btn-base p1-item">Profesionales</a>
+          <a href="electricidad.html" class="menu-btn-base p1-item">Electricidad</a>
+          <a href="climatizacion.html" class="menu-btn-base p1-item">Climatización</a>
+          <a href="mantenimiento.html" class="menu-btn-base p1-item">Mantenimiento</a>
         </nav>
 
         <!-- Botón CTA y Menú Móvil -->
-        <div class="flex items-center gap-3">
-          <a href="#contacto-tecnico" class="cta-moving-btn hidden sm:inline-flex items-center gap-1.5 bg-secondary hover:bg-secondary-hover text-white px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider shadow-sm group">
-            <span class="material-symbols-outlined text-[15px] phone-icon transition-transform duration-300">call</span>
+        <div class="flex items-center gap-2.5">
+          <a href="#contacto-tecnico" class="p1-cta hidden sm:inline-flex items-center gap-1 bg-secondary text-white px-2.5 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider shadow-sm group">
+            <span class="material-symbols-outlined text-[13px] phone-icon-animate transition-transform duration-300">call</span>
             <span>Solicitar Asesoramiento</span>
           </a>
-          <button id="mobile-menu-btn" type="button" class="xl:hidden p-2 rounded-xl text-primary hover:bg-surface-subtle transition-colors focus:outline-none" aria-label="Abrir menú" onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden'); var icon=this.querySelector('.material-symbols-outlined'); if(m.classList.contains('hidden')){icon.innerText='menu';}else{icon.innerText='close';}">
-            <span class="material-symbols-outlined text-[26px]">menu</span>
+          <button id="mobile-menu-btn" type="button" class="xl:hidden p-1.5 rounded-lg text-primary hover:bg-surface-subtle transition-colors focus:outline-none" aria-label="Abrir menú" onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden'); var icon=this.querySelector('.material-symbols-outlined'); if(m.classList.contains('hidden')){icon.innerText='menu';}else{icon.innerText='close';}">
+            <span class="material-symbols-outlined text-[24px]">menu</span>
           </button>
         </div>
       </div>
@@ -249,19 +265,26 @@
     <!-- Menú desplegable para móviles -->
     <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-primary/10 px-6 py-4 space-y-2 shadow-lg transition-all font-headline">
       <div class="space-y-1">
-        <a href="alianzas.html" class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Profesionales</a>
-        <a href="electricidad.html" class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Electricidad</a>
-        <a href="climatizacion.html" class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Climatización</a>
-        <a href="mantenimiento.html" class="block px-4 py-2.5 rounded-xl font-semibold uppercase tracking-wider text-xs text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
+        <a href="alianzas.html" class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Profesionales</a>
+        <a href="electricidad.html" class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Electricidad</a>
+        <a href="climatizacion.html" class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Climatización</a>
+        <a href="mantenimiento.html" class="block px-3 py-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
       </div>
-      <div class="pt-3 border-t border-primary/10">
-        <a href="#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="cta-moving-btn flex items-center justify-center gap-1.5 w-full bg-secondary text-white px-3.5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-secondary-hover transition-all shadow-sm">
-          <span class="material-symbols-outlined text-[15px] phone-icon">call</span>
+      <div class="pt-2 border-t border-primary/10">
+        <a href="#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="flex items-center justify-center gap-1 w-full bg-secondary text-white px-3 py-2 rounded-lg text-[11px] font-semibold uppercase tracking-wider hover:bg-secondary-hover transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[13px] phone-icon-animate">call</span>
           <span>Solicitar Asesoramiento</span>
         </a>
       </div>
     </div>
   </header>
+
+  <!-- Fondo Fijo de Imagen con Desplazamiento Parallax Suave: edificios.avif -->
+  <div id="mantenimiento-bg-wrapper" class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <img id="mantenimiento-bg" src="assets/edificios.avif" alt="Mantenimiento Edilicio Thermair"
+      class="absolute top-0 left-1/2 object-cover will-change-transform"
+      style="width: max(100vw, 75vh); height: max(130vh, calc(100vw * 4 / 3)); min-width: 100vw; min-height: 100vh; transform: translate3d(-50%, 0, 0);" />
+  </div>
 
   <!-- =========================================================================
        ACTO 1: SCROLL-DRIVEN HERO SECTION (Despiece 3D Split YORK Inverter)
@@ -527,7 +550,7 @@
     <!-- =========================================================================
          SECCIÓN 2: PILARES Y SERVICIOS INTEGRALES THERMAIR
          ========================================================================= -->
-    <section id="servicios" class="py-24 bg-surface-subtle border-t border-primary/5">
+    <section id="servicios" class="relative z-10 py-24 bg-white/85 border-t border-primary/5">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
         <div class="max-w-3xl mb-16">
           <div class="york-badge mb-3">
@@ -608,7 +631,7 @@
     <!-- =========================================================================
          SECCIÓN 3: CIFRAS TÉCNICAS CLAVE (KPIs & Trayectoria)
          ========================================================================= -->
-    <section id="trayectoria" class="py-20 bg-primary text-white">
+    <section id="trayectoria" class="relative z-10 py-20 bg-primary/85 text-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-stagger-group data-stagger-delay="110">
           
@@ -643,7 +666,7 @@
     <!-- =========================================================================
          SECCIÓN 4: ASESORAMIENTO Y CONTACTO TÉCNICO
          ========================================================================= -->
-    <section id="contacto-tecnico" class="py-24 bg-white">
+    <section id="contacto-tecnico" class="relative z-10 py-24 bg-white/85">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -666,7 +689,7 @@
             </p>
 
             <div class="mt-8 space-y-4">
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-subtle border border-primary/5">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/85 border border-primary/5">
                 <div class="w-10 h-10 rounded-lg bg-red-100 text-secondary flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-xl">phone_in_talk</span>
                 </div>
@@ -676,7 +699,7 @@
                 </div>
               </div>
 
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-subtle border border-primary/5">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/85 border border-primary/5">
                 <div class="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-xl">domain</span>
                 </div>
@@ -690,7 +713,7 @@
 
           <!-- Columna Formulario -->
           <div class="lg:col-span-7">
-            <div class="stagger-card bg-surface-subtle p-8 sm:p-10 rounded-2xl border border-primary/10 shadow-sm">
+            <div class="stagger-card bg-white/85 p-8 sm:p-10 rounded-2xl border border-primary/10 shadow-sm">
               <h3 class="font-headline font-bold text-xl text-primary mb-6">Solicitud de Contacto Técnico</h3>
               
               <form id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-success').classList.remove('hidden'); this.reset();" class="space-y-4">
@@ -745,19 +768,105 @@
   </main>
 
   <!-- =========================================================================
-       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante, azul pleno #00234b)
+       FOOTER INSTITUCIONAL - PROPUESTA 2: MINIMALISTA EJECUTIVO
        ========================================================================= -->
-  <footer class="relative z-30 bg-[#00234b] text-white/80 py-12 border-t border-white/10 text-xs">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center">
-        <img alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" src="assets/thermair-logo.png" />
+  <footer class="relative z-30 bg-gradient-to-b from-[#00234b] to-[#001730] text-white/80 border-t border-white/10 font-body">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10 space-y-8">
+      
+      <!-- Fila Superior: Logo, Links y Redes Sociales -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
+        
+        <!-- Logo en Blanco -->
+        <a href="index.html" class="flex items-center focus:outline-none transition-transform hover:scale-[1.02]">
+          <img src="assets/thermair-logo.png" alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" />
+        </a>
+
+        <!-- Links de Páginas en Horizontal -->
+        <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-headline font-medium text-white/70">
+          <a href="index.html" class="footer-nav-link hover:text-white transition-colors">Inicio</a>
+          <a href="alianzas.html" class="footer-nav-link hover:text-white transition-colors">Profesionales</a>
+          <a href="electricidad.html" class="footer-nav-link hover:text-white transition-colors">Electricidad</a>
+          <a href="climatizacion.html" class="footer-nav-link hover:text-white transition-colors">Climatización</a>
+          <a href="mantenimiento.html" class="footer-nav-link hover:text-white transition-colors">Mantenimiento</a>
+          <a href="#contacto-tecnico" class="footer-nav-link hover:text-white transition-colors">Contacto</a>
+        </nav>
+
+        <!-- Seguinos en + 3 Iconos con Rollover "Próximamente" -->
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-headline font-semibold text-white/70 uppercase tracking-wider">
+            Seguinos en
+          </span>
+          
+          <div class="flex items-center gap-2">
+            <!-- LinkedIn -->
+            <div class="relative group">
+              <button type="button" aria-label="LinkedIn"
+                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all border border-white/10 hover:border-white/30 focus:outline-none">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+                </svg>
+              </button>
+              <div class="tooltip-bubble absolute left-1/2 bottom-full mb-1 z-50">
+                <div class="bg-secondary text-white text-[10px] font-headline font-semibold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  Próximamente
+                </div>
+                <div class="w-1.5 h-1.5 bg-secondary rotate-45 mx-auto -mt-1"></div>
+              </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="relative group">
+              <button type="button" aria-label="Instagram"
+                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all border border-white/10 hover:border-white/30 focus:outline-none">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+              </button>
+              <div class="tooltip-bubble absolute left-1/2 bottom-full mb-1 z-50">
+                <div class="bg-secondary text-white text-[10px] font-headline font-semibold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  Próximamente
+                </div>
+                <div class="w-1.5 h-1.5 bg-secondary rotate-45 mx-auto -mt-1"></div>
+              </div>
+            </div>
+
+            <!-- YouTube -->
+            <div class="relative group">
+              <button type="button" aria-label="YouTube"
+                class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all border border-white/10 hover:border-white/30 focus:outline-none">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </button>
+              <div class="tooltip-bubble absolute left-1/2 bottom-full mb-1 z-50">
+                <div class="bg-secondary text-white text-[10px] font-headline font-semibold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  Próximamente
+                </div>
+                <div class="w-1.5 h-1.5 bg-secondary rotate-45 mx-auto -mt-1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="flex flex-wrap items-center justify-center gap-6 text-white/60">
-        <span>Normativa IRAM 2444</span>
-        <span>Normativa AEA 90364</span>
-        <span>Matrícula COPITEC</span>
-        <span>© 2026 Thermair. Todos los derechos reservados.</span>
+
+      <!-- Fila Inferior: Nomenclatura ISO y Copyright -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <!-- Nomenclatura ISO / IRAM en pastillas compactas -->
+        <div class="flex flex-wrap items-center justify-center gap-2 text-[11px] text-white/70">
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-cyan-300">ISO 9001:2015</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-emerald-400">ISO 14001:2015</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-white/80">IRAM 2444</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-white/80">AEA 90364</span>
+          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-white/80">COPITEC</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-white/60 text-center md:text-right">
+          © 2026 Thermair. Todos los derechos reservados.
+        </p>
       </div>
+
     </div>
   </footer>
 
@@ -1074,6 +1183,78 @@
         initStaggerCards();
         initSmoothScroll();
       }
+    })();
+  </script>
+
+  <!-- Script de Desplazamiento Parallax Suave (Lerp) para el fondo vertical -->
+  <script>
+    (function () {
+      const bgImg = document.getElementById('mantenimiento-bg');
+      if (!bgImg) return;
+
+      let currentProgress = 0;
+      let targetProgress = 0;
+      let isRunning = false;
+
+      function calculateTarget() {
+        const windowH = window.innerHeight;
+        const docH = document.documentElement.scrollHeight;
+        const maxScroll = docH - windowH;
+        if (maxScroll <= 0) return;
+
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // El contenido debajo del video comienza al desanclarse el video hero (aprox 300vh)
+        const heroSec = document.getElementById('tecnologia-inverter');
+        const heroEnd = heroSec ? Math.max(heroSec.offsetHeight - windowH, 0) : 0;
+
+        if (scrollY <= heroEnd) {
+          targetProgress = 0;
+        } else {
+          const scrollRange = maxScroll - heroEnd;
+          targetProgress = scrollRange > 0 ? Math.min(Math.max((scrollY - heroEnd) / scrollRange, 0), 1) : 0;
+        }
+      }
+
+      function updateParallax() {
+        const diff = targetProgress - currentProgress;
+        if (Math.abs(diff) > 0.0004) {
+          currentProgress += diff * 0.085;
+        } else {
+          currentProgress = targetProgress;
+          isRunning = false;
+        }
+
+        const imgH = bgImg.offsetHeight;
+        const windowH = window.innerHeight;
+        const maxTranslate = Math.max(imgH - windowH, 0);
+        const translateY = -currentProgress * maxTranslate;
+
+        bgImg.style.transform = `translate3d(-50%, ${translateY.toFixed(2)}px, 0)`;
+
+        if (isRunning) {
+          requestAnimationFrame(updateParallax);
+        }
+      }
+
+      function onScrollActivity() {
+        calculateTarget();
+        if (!isRunning) {
+          isRunning = true;
+          requestAnimationFrame(updateParallax);
+        }
+      }
+
+      window.addEventListener('scroll', onScrollActivity, { passive: true });
+      window.addEventListener('resize', onScrollActivity, { passive: true });
+
+      // Inicialización inmediata sincronizada
+      calculateTarget();
+      currentProgress = targetProgress;
+      const imgH = bgImg.offsetHeight;
+      const windowH = window.innerHeight;
+      const maxTranslate = Math.max(imgH - windowH, 0);
+      bgImg.style.transform = `translate3d(-50%, ${(-currentProgress * maxTranslate).toFixed(2)}px, 0)`;
     })();
   </script>
 </body>
