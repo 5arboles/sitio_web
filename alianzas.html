@@ -92,10 +92,30 @@
       transform: translateY(0);
     }
 
-    /* Animación de Tipeado (Typewriter) */
+    /* Animación de Tipeado (Typewriter) con altura fija en 2 líneas sin salto de layout */
     .typewriter-title {
-      display: inline-block;
-      min-height: 1.1em;
+      display: block;
+      position: relative;
+      min-height: 2.2em; /* Altura garantizada para dos líneas exactas */
+    }
+    .typewriter-box {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .typewriter-ghost {
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
+      display: block;
+    }
+    .typewriter-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
     }
     .type-cursor {
       display: inline-block;
@@ -995,7 +1015,14 @@
           titles.forEach(el => {
             const rawText = el.getAttribute('data-typewrite') || el.innerText.trim();
             el.setAttribute('data-typewrite', rawText);
-            el.innerHTML = '<span class="type-text"></span><span class="type-cursor">|</span>';
+            // Estructura de texto fantasma: el texto invisible reserva exactamente el alto en dos líneas
+            // para que no haya absolutamente ningún movimiento ni salto de layout mientras se escribe
+            el.innerHTML = `
+              <span class="typewriter-box">
+                <span class="typewriter-ghost" aria-hidden="true">${rawText}</span>
+                <span class="typewriter-overlay"><span class="type-text"></span><span class="type-cursor">|</span></span>
+              </span>
+            `;
             observer.observe(el);
           });
 
