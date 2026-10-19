@@ -42,66 +42,172 @@
 
   <!-- Custom Layout CSS -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* Animación global suave al cargar la página */
+    @keyframes pageFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body {
+      animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Placas y Tarjetas Animadas Escalonadas */
+    .stagger-card {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s ease;
+      will-change: opacity, transform;
+    }
+    .stagger-card.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .stagger-card:hover {
+      transform: translateY(-4px) scale(1.006);
+    }
+
+    /* Animación de Tipeado (Typewriter) con altura fija en 2 líneas sin salto de layout */
+    .typewriter-title {
+      display: block;
+      position: relative;
+      min-height: 2.2em;
+    }
+    .typewriter-box {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .typewriter-ghost {
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
+      display: block;
+    }
+    .typewriter-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .type-cursor {
+      display: inline-block;
+      color: #bc000c;
+      font-weight: 300;
+      margin-left: 2px;
+      vertical-align: baseline;
+      animation: cursorBlink 0.75s step-start infinite;
+      transition: opacity 0.4s ease;
+    }
+    .type-cursor.finished {
+      opacity: 0;
+    }
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Animaciones Interactivas para Botones del Menú */
+    .menu-interactive-item {
+      position: relative;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+    .menu-interactive-item:hover {
+      transform: translateY(-2.5px);
+    }
+    .menu-interactive-item:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    .nav-btn-link {
+      position: relative;
+    }
+    .nav-btn-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      opacity: 0.7;
+      border-radius: 99px;
+      transform: translateX(-50%);
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-btn-link:hover::after {
+      width: 60%;
+    }
+
+    /* Botón CTA con micro-movimiento vivo, oscilación de campana y hover con elevación */
+    @keyframes ctaAutonomousMove {
+      0%, 88%, 100% { transform: translateY(0); }
+      92% { transform: translateY(-3px); }
+      95% { transform: translateY(1px); }
+      97% { transform: translateY(0); }
+    }
+    @keyframes iconRing {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-15deg); }
+      40% { transform: rotate(15deg); }
+      60% { transform: rotate(-10deg); }
+      80% { transform: rotate(5deg); }
+    }
+    .cta-moving-btn {
+      animation: ctaAutonomousMove 6s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .cta-moving-btn:hover {
+      animation: none;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 24px -4px rgba(188, 0, 12, 0.4);
+    }
+    .cta-moving-btn:hover .phone-icon {
+      animation: iconRing 0.6s ease;
+    }
+    .cta-moving-btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+  </style>
 </head>
 
 <body class="bg-white font-body text-ink antialiased">
 
   <!-- =========================================================================
-       HEADER INSTITUCIONAL
+       HEADER INSTITUCIONAL LIMPIO (Sin franja azul superior)
        ========================================================================= -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-primary/10 transition-all">
-    <!-- Top banner de normativas técnicas -->
-    <div class="bg-primary text-white py-1.5 px-4 sm:px-8 border-b border-white/10 text-xs">
-      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-1 font-headline">
-        <div class="flex items-center gap-4">
-          <span class="flex items-center gap-1.5 opacity-90">
-            <span class="material-symbols-outlined text-[15px] text-blue-300">verified</span>
-            IRAM 2444 / AEA 90364
-          </span>
-          <span class="hidden sm:inline-block opacity-40">|</span>
-          <span class="hidden sm:flex items-center gap-1.5 opacity-90">
-            <span class="material-symbols-outlined text-[15px] text-blue-300">engineering</span>
-            COPITEC MATRICULADO
-          </span>
-        </div>
-        <div class="flex items-center gap-4">
-          <a href="tel:08108888437" class="flex items-center gap-1.5 hover:text-red-300 transition-colors font-medium">
-            <span class="material-symbols-outlined text-[15px] text-red-400">support_agent</span>
-            Atención 24/7: 0810-888-THERM
-          </a>
-          <span class="hidden md:inline-block opacity-40">|</span>
-          <span class="hidden md:flex items-center gap-1 opacity-80">
-            <span class="material-symbols-outlined text-[15px] text-blue-300">location_on</span>
-            Pilar &amp; CABA
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Navegación principal -->
-    <div class="max-w-7xl mx-auto h-20 px-4 sm:px-8 flex items-center justify-between gap-4">
-      <!-- Marca Thermair (Solo Logo Oficial sin texto repetido) -->
-      <a href="index.html" class="flex items-center focus:outline-none">
-        <img alt="Thermair Logo" class="h-10 sm:h-12 w-auto object-contain" src="assets/thermair-logo.png" />
-      </a>
-
-      <!-- Menú desktop -->
-      <nav class="hidden lg:flex items-center gap-1 font-headline text-sm font-semibold text-ink-muted">
-        <a href="alianzas.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Profesionales</a>
-        <a href="electricidad.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Electricidad</a>
-        <a href="climatizacion.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Climatización</a>
-        <a href="mantenimiento.html" class="px-4 py-2 rounded-lg hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
-      </nav>
-
-      <!-- Botón CTA y Menú Móvil -->
-      <div class="flex items-center gap-3">
-        <a href="#contacto-tecnico" class="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-hover text-white px-5 py-2.5 rounded-xl font-headline text-sm font-semibold shadow-sm hover:shadow transition-all">
-          <span class="material-symbols-outlined text-[18px]">call</span>
-          <span>Asesoramiento Técnico</span>
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-primary/10 transition-all">
+    <div class="h-20 w-full px-4 sm:px-8">
+      <div class="max-w-7xl mx-auto h-full flex items-center justify-between gap-4">
+        <!-- Marca Thermair (Solo Logo Oficial sin texto repetido) -->
+        <a href="index.html" class="flex items-center focus:outline-none transition-transform duration-300 hover:scale-[1.02]">
+          <img alt="Thermair Logo" class="h-10 sm:h-12 w-auto object-contain" src="assets/thermair-logo.png" />
         </a>
-        <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-subtle transition-colors focus:outline-none" aria-label="Abrir menú" onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden');">
-          <span class="material-symbols-outlined text-[26px]">menu</span>
-        </button>
+
+        <!-- Menú desktop -->
+        <nav class="hidden lg:flex items-center gap-2 font-headline text-sm font-semibold text-ink-muted">
+          <a href="alianzas.html" class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl hover:text-primary hover:bg-surface-subtle transition-all">Profesionales</a>
+          <a href="electricidad.html" class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl hover:text-primary hover:bg-surface-subtle transition-all">Electricidad</a>
+          <a href="climatizacion.html" class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl hover:text-primary hover:bg-surface-subtle transition-all">Climatización</a>
+          <a href="mantenimiento.html" class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
+        </nav>
+
+        <!-- Botón CTA y Menú Móvil -->
+        <div class="flex items-center gap-3">
+          <a href="#contacto-tecnico" class="cta-moving-btn hidden sm:inline-flex items-center gap-2 bg-secondary hover:bg-secondary-hover text-white px-5 py-2.5 rounded-xl font-headline text-sm font-semibold shadow-sm group">
+            <span class="material-symbols-outlined text-[18px] phone-icon transition-transform duration-300">call</span>
+            <span>Asesoramiento Técnico</span>
+          </a>
+          <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-subtle transition-colors focus:outline-none" aria-label="Abrir menú" onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden'); var icon=this.querySelector('.material-symbols-outlined'); if(m.classList.contains('hidden')){icon.innerText='menu';}else{icon.innerText='close';}">
+            <span class="material-symbols-outlined text-[26px]">menu</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -114,8 +220,8 @@
         <a href="mantenimiento.html" class="block px-4 py-2.5 rounded-xl font-medium text-ink-muted hover:text-primary hover:bg-surface-subtle transition-all">Mantenimiento</a>
       </div>
       <div class="pt-3 border-t border-primary/10">
-        <a href="#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="flex items-center justify-center gap-2 w-full bg-secondary text-white px-4 py-3 rounded-xl font-semibold hover:bg-secondary-hover transition-all shadow-sm">
-          <span class="material-symbols-outlined text-[18px]">call</span>
+        <a href="#contacto-tecnico" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="cta-moving-btn flex items-center justify-center gap-2 w-full bg-secondary text-white px-4 py-3 rounded-xl font-semibold hover:bg-secondary-hover transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[18px] phone-icon">call</span>
           <span>Asesoramiento Técnico</span>
         </a>
       </div>
@@ -388,8 +494,13 @@
             <span class="york-badge-dot"></span>
             <span>Servicios de Ingeniería</span>
           </div>
-          <h2 class="font-headline font-bold text-3xl sm:text-5xl text-primary leading-tight">
-            Infraestructura Termomecánica y Eléctrica Corporativa
+          <h2 class="font-headline font-bold text-3xl sm:text-5xl text-primary leading-tight typewriter-title" data-typewrite="Infraestructura Termomecánica y Eléctrica Corporativa">
+            <span class="typewriter-box relative block w-full">
+              <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Infraestructura Termomecánica y Eléctrica Corporativa</span>
+              <span class="typewriter-overlay absolute inset-0 block w-full">
+                <span class="type-text"></span><span class="type-cursor">|</span>
+              </span>
+            </span>
           </h2>
           <p class="text-ink-muted text-base mt-4 leading-relaxed">
             Brindamos acompañamiento técnico completo desde el anteproyecto de cálculo y planos CAD/BIM hasta el montaje, puesta en marcha y mantenimiento homologado.
@@ -397,10 +508,10 @@
         </div>
 
         <!-- Grid de 3 Pilares -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-stagger-group data-stagger-delay="130">
           
           <!-- Pilar 1: Climatización -->
-          <div class="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div class="stagger-card bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">ac_unit</span>
@@ -417,7 +528,7 @@
           </div>
 
           <!-- Pilar 2: Electricidad -->
-          <div class="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div class="stagger-card bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">bolt</span>
@@ -434,7 +545,7 @@
           </div>
 
           <!-- Pilar 3: Mantenimiento -->
-          <div class="bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div class="stagger-card bg-white p-8 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div class="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">home_repair_service</span>
@@ -459,27 +570,27 @@
          ========================================================================= -->
     <section id="trayectoria" class="py-20 bg-primary text-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-stagger-group data-stagger-delay="110">
           
-          <div class="border-l border-white/20 pl-6">
+          <div class="stagger-card border-l border-white/20 pl-6">
             <span class="font-headline font-bold text-5xl text-blue-200 tracking-tight block">+20</span>
             <span class="font-headline font-semibold text-lg text-white mt-2 block">Años de Trayectoria</span>
             <p class="text-white/70 text-xs mt-1 leading-relaxed">Liderazgo continuo en climatización termomecánica e ingeniería eléctrica en Argentina.</p>
           </div>
 
-          <div class="border-l border-white/20 pl-6">
+          <div class="stagger-card border-l border-white/20 pl-6">
             <span class="font-headline font-bold text-5xl text-red-400 tracking-tight block">+1500</span>
             <span class="font-headline font-semibold text-lg text-white mt-2 block">Proyectos Completados</span>
             <p class="text-white/70 text-xs mt-1 leading-relaxed">Obras industriales, plantas logísticas y desarrollos corporativos ejecutados con éxito.</p>
           </div>
 
-          <div class="border-l border-white/20 pl-6">
+          <div class="stagger-card border-l border-white/20 pl-6">
             <span class="font-headline font-bold text-5xl text-emerald-300 tracking-tight block">99.8%</span>
             <span class="font-headline font-semibold text-lg text-white mt-2 block">Disponibilidad Operativa</span>
             <p class="text-white/70 text-xs mt-1 leading-relaxed">Continuidad operativa y confiabilidad en instalaciones críticas con atención técnica 24/7.</p>
           </div>
 
-          <div class="border-l border-white/20 pl-6">
+          <div class="stagger-card border-l border-white/20 pl-6">
             <span class="font-headline font-bold text-5xl text-blue-200 tracking-tight block">100%</span>
             <span class="font-headline font-semibold text-lg text-white mt-2 block">Matriculados Oficiales</span>
             <p class="text-white/70 text-xs mt-1 leading-relaxed">Ingenieros y técnicos certificados bajo colegios profesionales COPITEC y COPIME.</p>
@@ -502,8 +613,13 @@
               <span class="york-badge-dot"></span>
               <span>Atención Técnica Corporativa</span>
             </div>
-            <h2 class="font-headline font-bold text-3xl sm:text-4xl text-primary leading-tight">
-              Diseñemos la solución térmica de su próximo proyecto
+            <h2 class="font-headline font-bold text-3xl sm:text-4xl text-primary leading-tight typewriter-title" data-typewrite="Diseñemos la solución térmica de su próximo proyecto">
+              <span class="typewriter-box relative block w-full">
+                <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Diseñemos la solución térmica de su próximo proyecto</span>
+                <span class="typewriter-overlay absolute inset-0 block w-full">
+                  <span class="type-text"></span><span class="type-cursor">|</span>
+                </span>
+              </span>
             </h2>
             <p class="text-ink-muted text-sm sm:text-base mt-4 leading-relaxed">
               Comuníquese directamente con nuestro equipo de ingenieros para recibir asesoramiento técnico personalizado, cálculo térmico inicial o cotización de equipamiento.
@@ -534,7 +650,7 @@
 
           <!-- Columna Formulario -->
           <div class="lg:col-span-7">
-            <div class="bg-surface-subtle p-8 sm:p-10 rounded-2xl border border-primary/10 shadow-sm">
+            <div class="stagger-card bg-surface-subtle p-8 sm:p-10 rounded-2xl border border-primary/10 shadow-sm">
               <h3 class="font-headline font-bold text-xl text-primary mb-6">Solicitud de Contacto Técnico</h3>
               
               <form id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-success').classList.remove('hidden'); this.reset();" class="space-y-4">
@@ -567,11 +683,11 @@
 
                 <div>
                   <label class="block font-headline text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">Mensaje o Detalle del Proyecto</label>
-                  <textarea rows="3" placeholder="Indique metros cuadrados, capacidad estimada o requerimiento..." class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"></textarea>
+                  <textarea rows="3" placeholder="Indique metros cuadrados, capacidad estimada o requerimiento..." class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-secondary hover:bg-secondary-hover text-white py-3.5 px-6 rounded-xl font-headline font-semibold text-sm transition-all shadow-sm hover:shadow flex items-center justify-center gap-2">
-                  <span class="material-symbols-outlined text-lg">send</span>
+                <button type="submit" class="cta-moving-btn w-full bg-secondary hover:bg-secondary-hover text-white py-3.5 px-6 rounded-xl font-headline font-semibold text-sm transition-all shadow-sm flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-lg phone-icon">send</span>
                   <span>Enviar Consulta a Ingeniería</span>
                 </button>
               </form>
@@ -589,9 +705,9 @@
   </main>
 
   <!-- =========================================================================
-       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante)
+       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante, azul pleno #00234b)
        ========================================================================= -->
-  <footer class="bg-primary text-white/80 py-12 border-t border-white/10 text-xs">
+  <footer class="relative z-30 bg-[#00234b] text-white/80 py-12 border-t border-white/10 text-xs">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center">
         <img alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" src="assets/thermair-logo.png" />
@@ -800,6 +916,115 @@
 
       // Verificación inicial inmediata
       update();
+    })();
+  </script>
+
+  <!-- Script de Animaciones Interactivas Globales: Typewriter y Stagger -->
+  <script>
+    (function () {
+      function initTypewriter() {
+        const typeElements = document.querySelectorAll('.typewriter-title[data-typewrite]');
+        
+        typeElements.forEach(el => {
+          const rawText = el.getAttribute('data-typewrite').trim();
+          el.innerHTML = `
+            <span class="typewriter-box relative block w-full">
+              <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">${rawText}</span>
+              <span class="typewriter-overlay absolute inset-0 block w-full">
+                <span class="type-text"></span><span class="type-cursor">|</span>
+              </span>
+            </span>
+          `;
+        });
+
+        const typeObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              obs.unobserve(entry.target);
+              startTyping(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+
+        typeElements.forEach(el => typeObserver.observe(el));
+
+        function startTyping(container) {
+          const fullText = container.getAttribute('data-typewrite').trim();
+          const textTarget = container.querySelector('.type-text');
+          const cursor = container.querySelector('.type-cursor');
+          if (!textTarget) return;
+
+          let charIndex = 0;
+          const minSpeed = 22;
+          const maxSpeed = 48;
+
+          function nextChar() {
+            if (charIndex <= fullText.length) {
+              textTarget.textContent = fullText.slice(0, charIndex);
+              charIndex++;
+              const delay = Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed;
+              setTimeout(nextChar, delay);
+            } else {
+              setTimeout(() => {
+                if (cursor) cursor.classList.add('finished');
+              }, 2200);
+            }
+          }
+
+          setTimeout(nextChar, 160);
+        }
+      }
+
+      function initStaggerCards() {
+        const groups = document.querySelectorAll('[data-stagger-group]');
+        const groupObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              obs.unobserve(entry.target);
+              const cards = entry.target.querySelectorAll('.stagger-card');
+              const delay = parseInt(entry.target.getAttribute('data-stagger-delay') || '120', 10);
+              cards.forEach((card, idx) => {
+                setTimeout(() => {
+                  card.classList.add('is-visible');
+                }, idx * delay);
+              });
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        groups.forEach(group => groupObserver.observe(group));
+      }
+
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              const navHeight = 85;
+              const topPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+              window.scrollTo({
+                top: topPos,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          initTypewriter();
+          initStaggerCards();
+          initSmoothScroll();
+        });
+      } else {
+        initTypewriter();
+        initStaggerCards();
+        initSmoothScroll();
+      }
     })();
   </script>
 </body>

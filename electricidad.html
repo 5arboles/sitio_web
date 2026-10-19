@@ -1,607 +1,1232 @@
 <!DOCTYPE html>
 
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Thermair | Electricidad Corporativa - Media y Baja Tensión</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}html{scroll-behavior:smooth;}[id]{scroll-margin-top:6rem;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-error-container":"#93000a","outline":"#737780","secondary":"#bc000c","error":"#ba1a1a","surface-container-low":"#f0f3ff","error-container":"#ffdad6","on-tertiary-fixed":"#001c3b","surface-dim":"#cfdaf2","secondary-fixed":"#ffdad5","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#930007","tertiary":"#002449","on-secondary-fixed":"#410001","outline-variant":"#c3c6d0","on-surface-variant":"#43474f","on-primary":"#ffffff","inverse-on-surface":"#ecf1ff","primary-container":"#10396b","on-tertiary-container":"#73a4ec","on-surface":"#111c2d","surface-container":"#e7eeff","surface-container-highest":"#d8e3fb","background":"#f9f9ff","on-primary-fixed":"#001b3d","on-secondary":"#ffffff","surface":"#f9f9ff","on-secondary-container":"#fffbff","surface-bright":"#f9f9ff","on-error":"#ffffff","tertiary-fixed-dim":"#a7c8ff","inverse-primary":"#a8c8ff","tertiary-fixed":"#d5e3ff","surface-variant":"#d8e3fb","surface-container-high":"#dee8ff","on-primary-fixed-variant":"#22477a","primary":"#00234b","primary-fixed-dim":"#a8c8ff","tertiary-container":"#00396f","surface-container-lowest":"#ffffff","on-primary-container":"#83a4dc","inverse-surface":"#263143","secondary-fixed-dim":"#ffb4aa","on-background":"#111c2d","primary-fixed":"#d6e3ff","on-tertiary-fixed-variant":"#004787","surface-tint":"#3d5f93","secondary-container":"#e3211f"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1.5rem","gutter-mobile":"1rem","space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","margin":"3rem","space-xs":"0.25rem","space-lg":"1.5rem","space-sm":"0.5rem"},"fontFamily":{"body-md":["Montserrat"],"headline-md":["Space Grotesk"],"label-sm":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"headline-lg":["Space Grotesk"],"display":["Space Grotesk"],"label-lg":["Space Grotesk"],"body-lg":["Montserrat"],"title-md":["Space Grotesk"],"display-mobile":["Space Grotesk"],"body-sm":["Montserrat"],"headline-sm":["Space Grotesk"]},"fontSize":{"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"display":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-container text-on-primary py-space-xs px-margin-mobile md:px-margin border-b border-outline-variant/20"><div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-1 text-label-sm font-label-sm"><div class="flex flex-wrap items-center gap-x-space-md gap-y-1"><span class="flex items-center gap-1.5 opacity-90"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">verified</span>NORMATIVAS: IRAM 2444 / AEA 90364</span><span class="hidden lg:inline-block opacity-40">|</span><span class="hidden sm:flex items-center gap-1.5 opacity-90"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">engineering</span>INGENIERÍA MATRICULADA COPITEC</span></div><div class="flex items-center gap-x-space-md"><a class="flex items-center gap-1.5 hover:text-secondary-fixed transition-colors" href="tel:08108888437"><span class="material-symbols-outlined text-[14px] text-secondary-fixed-dim">support_agent</span>Atención Técnica 24/7: 0810-888-THERM</a><span class="hidden md:inline-block opacity-40">|</span><span class="hidden md:flex items-center gap-1.5 opacity-80"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">location_on</span>Pilar &amp; CABA</span></div></div></div><div class="h-20 w-full px-margin-mobile md:px-margin"><div class="max-w-7xl mx-auto h-full flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center focus:outline-none" href="index.html"><img alt="Thermair Logo" class="h-10 sm:h-12 w-auto object-contain" src="assets/thermair-logo.png"/></a></div><nav class="hidden xl:flex items-center gap-1"><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" href="alianzas.html">Profesionales</a><a aria-current="page" class="px-space-md py-space-sm rounded-xl transition-all bg-surface-container text-primary font-semibold" href="electricidad.html">Electricidad</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" href="climatizacion.html">Climatización</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" href="mantenimiento.html">Mantenimiento</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center gap-2 bg-secondary text-on-secondary px-space-md py-space-sm rounded-xl font-label-lg text-label-lg hover:bg-secondary-container transition-all shadow-sm hover:shadow" data-path="contacto" href="index.html#contacto-tecnico"><span class="material-symbols-outlined text-[18px]">call</span><span>Solicitar Asesoramiento</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button id="mobile-menu-btn" type="button" class="xl:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition-colors focus:outline-none" aria-label="Abrir menú" onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden'); var icon=this.querySelector('.material-symbols-outlined'); if(m.classList.contains('hidden')){icon.innerText='menu';}else{icon.innerText='close';}"><span class="material-symbols-outlined text-[26px]">menu</span></button></div></div></div><div id="mobile-menu" class="hidden xl:hidden bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 space-y-2 shadow-lg transition-all">
-  <div class="space-y-1">
-    <a href="alianzas.html" class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Profesionales</a><a href="electricidad.html" class="block px-4 py-2.5 rounded-xl font-semibold bg-surface-container text-primary transition-all">Electricidad</a><a href="climatizacion.html" class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Climatización</a><a href="mantenimiento.html" class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Mantenimiento</a>
-  </div>
-  <div class="pt-3 border-t border-outline-variant/15">
-    <a href="index.html#contacto-tecnico" class="flex items-center justify-center gap-2 w-full bg-secondary text-on-secondary px-4 py-3 rounded-xl font-semibold hover:bg-secondary-container transition-all shadow-sm">
-      <span class="material-symbols-outlined text-[18px]">call</span>
-      <span>Solicitar Asesoramiento</span>
-    </a>
-  </div>
-</div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-420px)]"><div class="flex flex-col w-full">
-<!-- SECCIÓN 1: HERO INDUSTRIAL -->
-<section class="relative w-full overflow-hidden bg-surface py-12 lg:py-20">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-<!-- Columna Izquierda: Información Principal -->
-<div class="lg:col-span-7 flex flex-col space-y-space-lg">
-<!-- Badge Técnico -->
-<div class="inline-flex items-center gap-2 self-start bg-surface-container px-3.5 py-1.5 rounded-xl">
-<span class="material-symbols-outlined text-secondary text-[16px]">bolt</span>
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">División Técnica // Seguridad &amp; Potencia Industrial</span>
-</div>
-<!-- Titular Display -->
-<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight leading-tight">
-            Infraestructura eléctrica de alta exigencia
-          </h1>
-<!-- Texto Introductorio Exacto -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-            Desarrollamos y ejecutamos proyectos de infraestructura eléctrica para plantas industriales y grandes superficies. Todo nuestro trabajo se realiza bajo estrictas normativas vigentes, garantizando la seguridad, el rendimiento y la continuidad operativa de su empresa.
-          </p>
-<!-- Acciones CTA -->
-<div class="flex flex-wrap items-center gap-space-md pt-2">
-<a class="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary px-6 py-3.5 rounded-xl font-label-lg text-label-lg shadow-sm transition-all" href="#cotizacion-industrial">
-<span class="material-symbols-outlined text-[20px]">engineering</span>
-<span>Solicitar relevamiento técnico</span>
-</a>
-<a class="inline-flex items-center justify-center gap-2 bg-surface-container text-primary hover:bg-surface-container-high px-6 py-3.5 rounded-xl font-label-lg text-label-lg transition-all" href="#certificaciones">
-<span class="material-symbols-outlined text-[20px]">verified</span>
-<span>Ver protocolos y certificaciones</span>
-</a>
-</div>
-<!-- Sellos Normativos -->
-<div class="pt-4 flex flex-wrap items-center gap-2">
-<div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-xl shadow-sm text-on-surface-variant text-label-sm font-label-sm">
-<span class="material-symbols-outlined text-secondary text-[16px]">thermostat</span>
-<span>Auditoría Termográfica Fluke</span>
-</div>
-<div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-xl shadow-sm text-on-surface-variant text-label-sm font-label-sm">
-<span class="material-symbols-outlined text-primary text-[16px]">file_download_done</span>
-<span>Protocolos Puesta a Tierra SRT 900/15</span>
-</div>
-<div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-xl shadow-sm text-on-surface-variant text-label-sm font-label-sm">
-<span class="material-symbols-outlined text-primary text-[16px]">policy</span>
-<span>Homologación AEA 90364-7-718</span>
-</div>
-</div>
-</div>
-<!-- Columna Derecha: Tarjeta Visual TGBT & Telemetría en Vivo -->
-<div class="lg:col-span-5 relative mt-6 lg:mt-0">
-<div class="relative bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
-<!-- Imagen Técnica TGBT -->
-<div class="relative w-full h-[360px] sm:h-[400px]">
-<img class="w-full h-full object-cover" data-alt="Modern high-power industrial electrical distribution switchboard cabinet TGBT in clean manufacturing plant, copper busbars visible behind safety acrylic panels, neat wire looms with technical color coding, Fluke testing probes, soft blue and architectural lighting, industrial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC93QQnRo6TNq81A51c8eKwObVsgbyS7s3xM-B4zGtSanI7coOzbhhSesGDfMZF85WN-jmY9MsystkJccY_1qRHp6OKZiMRnivtGWVm-hDYHM-ut2-Zas6sr0h3Y8D7Liq7Q8L8fb5kghOCZ5AuQIfNuqr8g62c375Z6WjoIxo9rbsUF_keCbHh01lWhyfxYL_bh2K_WQJqX1HRtx4yEI4KuTTmVtq-9buwrzG7KIErV3lNDebwic4k"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
-<!-- Badge flotante en esquina superior -->
-<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-xl shadow-sm flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-primary uppercase">Monitoreo TGBT en Vivo</span>
-</div>
-</div>
-<!-- Panel Técnico en Vivo Inferior -->
-<div class="p-6 bg-surface-container-lowest flex flex-col space-y-4">
-<div class="flex items-center justify-between">
-<div>
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Parámetros Operativos Nominales</span>
-<span class="font-headline-sm text-headline-sm text-primary font-bold">400V / 2400A</span>
-</div>
-<div class="text-right">
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Confiabilidad</span>
-<span class="font-headline-sm text-headline-sm text-secondary font-bold">99.8%</span>
-</div>
-</div>
-<!-- Mini gráfico SVG interactivo de balance de cargas por fase -->
-<div class="bg-surface-container-low p-3.5 rounded-xl space-y-2">
-<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
-<span>Balance Simétrico Trifásico (R - S - T)</span>
-<span class="text-primary font-bold">Equilibrio &lt; 1.2%</span>
-</div>
-<div class="grid grid-cols-3 gap-2 h-2">
-<div class="bg-primary rounded-xl h-full w-full"></div>
-<div class="bg-primary rounded-xl h-full w-full"></div>
-<div class="bg-primary rounded-xl h-full w-full"></div>
-</div>
-<div class="flex justify-between text-body-sm font-body-sm text-outline">
-<span>L1: 798 A</span>
-<span>L2: 802 A</span>
-<span>L3: 800 A</span>
-</div>
-</div>
-<div class="flex items-center justify-between pt-1 text-body-sm font-body-sm text-on-surface-variant">
-<span class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
-                  Termografía Certificada
-                </span>
-<span class="font-label-sm text-label-sm text-secondary font-bold">ΔT &lt; 3.5 °C (Óptimo)</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SECCIÓN 2: CIFRAS Y CERTIFICACIONES ELÉCTRICAS (3 TARJETAS KPI TÉCNICAS) -->
-<section class="w-full bg-surface-container-low py-16" id="certificaciones">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- KPI 1 -->
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div class="flex items-center justify-between pb-6">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">electric_meter</span>
-</div>
-<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase font-bold">Clase Industrial</span>
-</div>
-<div>
-<div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">13.2 kV</div>
-<h3 class="font-title-md text-title-md text-primary mt-2">Media y Baja Tensión</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
-              Celdas de seccionamiento, transformadores secos encapsulados y distribución industrial de gran porte con selectividad cronométrica.
-            </p>
-</div>
-</div>
-<!-- KPI 2 -->
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div class="flex items-center justify-between pb-6">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined text-[28px]">speed</span>
-</div>
-<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold">Continuidad Total</span>
-</div>
-<div>
-<div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">99.8%</div>
-<h3 class="font-title-md text-title-md text-primary mt-2">Confiabilidad Operativa</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
-              Sistemas de redundancia N+1, conmutación TTA sincronizada sin cortes transitorios y mantenimiento preventivo con analítica de armónicos.
-            </p>
-</div>
-</div>
-<!-- KPI 3 -->
-<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div class="flex items-center justify-between pb-6">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">workspace_premium</span>
-</div>
-<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase font-bold">Matrícula Nacional</span>
-</div>
-<div>
-<div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">AEA &amp; COPITEC</div>
-<h3 class="font-title-md text-title-md text-primary mt-2">Cumplimiento Reglamentario</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
-              Protocolos IRAM &amp; AEA 90364 certificados por ingenieros matriculados habilitantes con pólizas de caución y responsabilidad civil.
-            </p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SECCIÓN 3: ESPECIALIDADES Y SERVICIOS DE POTENCIA (4 TARJETAS NUMERADAS 01 A 04) -->
-<section class="w-full bg-surface py-20">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
-<!-- Encabezado de Sección -->
-<div class="max-w-3xl space-y-3">
-<div class="inline-flex items-center gap-2 bg-surface-container px-3 py-1 rounded-xl">
-<span class="material-symbols-outlined text-secondary text-[16px]">build_circle</span>
-<span class="font-label-sm text-label-sm text-primary uppercase">Áreas de Ingeniería Especializada</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
-          Especialidades y servicios de potencia
-        </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-          Abordaje integral desde el diseño computarizado de esquemas unifilares hasta el comisionamiento final en sitio con instrumental de precisión contrastado.
-        </p>
-</div>
-<!-- Grid 4 Tarjetas 01 a 04 -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<!-- Tarjeta 01 -->
-<div class="group bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between pb-6">
-<span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">01</span>
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
-<span class="material-symbols-outlined text-[24px]">developer_board</span>
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Tableros de potencia</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-              Diseño, armado y montaje de tableros eléctricos a medida, con un nivel de prolijidad y seguridad inmejorables.
-            </p>
-<div class="mt-6 space-y-2.5">
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Barras de cobre electrolítico 99.9% con tratamiento electrolítico de estaño</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Protección térmica regulable e interruptores seccionadores bajo carga</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Envolventes estancas certificadas grado IP54 / IP65 según locación</span>
-</div>
-</div>
-</div>
-<div class="pt-6 mt-6 bg-surface-container-low -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-outline uppercase">Norma IRAM 2187-1</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">Fabricación Homologada</span>
-</div>
-</div>
-<!-- Tarjeta 02 -->
-<div class="group bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between pb-6">
-<span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">02</span>
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
-<span class="material-symbols-outlined text-[24px]">cable</span>
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Tendidos de alta exigencia</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-              Instalaciones industriales preparadas para soportar el trabajo continuo bajo regímenes térmicos y mecánicos severos.
-            </p>
-<div class="mt-6 space-y-2.5">
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Bandejas portacables galvanizadas por inmersión en caliente tipo escalera</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Electroductos pesados antiexplosivos (AP) para zonas de riesgo</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Balanceo milimétrico de fases con verificación de caída de tensión &lt; 2%</span>
-</div>
-</div>
-</div>
-<div class="pt-6 mt-6 bg-surface-container-low -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-outline uppercase">Resistencia Térmica XLPE</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">Cables Retardantes al Fuego</span>
-</div>
-</div>
-<!-- Tarjeta 03 -->
-<div class="group bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between pb-6">
-<span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">03</span>
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
-<span class="material-symbols-outlined text-[24px]">file_download_done</span>
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Puestas a tierra</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-              Medición, ejecución y certificación de puestas a tierra según las exigencias más estrictas de higiene y seguridad laboral.
-            </p>
-<div class="mt-6 space-y-2.5">
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Protocolo de telurimetría reglamentaria según Resolución SRT 900/15</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Jabalinas de acero-cobre certificadas IRAM 2309 y mallas equipotenciales</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Soldaduras cuproaluminotérmicas para uniones indivisibles anticorrosivas</span>
-</div>
-</div>
-</div>
-<div class="pt-6 mt-6 bg-surface-container-low -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-outline uppercase">Resistencia Objetivo &lt; 2Ω</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">Certificado Homologado</span>
-</div>
-</div>
-<!-- Tarjeta 04 -->
-<div class="group bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between pb-6">
-<span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">04</span>
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
-<span class="material-symbols-outlined text-[24px]">wb_incandescent</span>
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Iluminación y normalización</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-              Proyectos de iluminación LED corporativa y adecuación de instalaciones a las normativas actuales para habilitación integral.
-            </p>
-<div class="mt-6 space-y-2.5">
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Estudios fotométricos en Dialux para confort visual y eficiencia lumen/watt</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Sistemas de control inteligente DALI, sensores de presencia y dimmerizado</span>
-</div>
-<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
-<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
-<span>Memorias técnicas y planos conformes a obra para habilitaciones municipales</span>
-</div>
-</div>
-</div>
-<div class="pt-6 mt-6 bg-surface-container-low -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-outline uppercase">Eficiencia Energética</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">Ahorro hasta 65%</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SECCIÓN 4: OBRAS DE POTENCIA EJECUTADAS -->
-<section class="w-full bg-surface-container-low py-20">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="space-y-3">
-<div class="inline-flex items-center gap-2 bg-surface-container px-3 py-1 rounded-xl">
-<span class="material-symbols-outlined text-secondary text-[16px]">domain</span>
-<span class="font-label-sm text-label-sm text-primary uppercase">Casos Testigos de Ingeniería</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
-            Obras de potencia ejecutadas
-          </h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
-            Ejecución de envergadura en polos logísticos, centros de datos y complejos corporativos de primera línea.
-          </p>
-</div>
-<div class="text-right flex items-center gap-2 self-start md:self-end text-label-sm font-label-sm text-primary">
-<span class="material-symbols-outlined text-[18px]">check_circle</span>
-<span>100% Entregas Conformes a Obra</span>
-</div>
-</div>
-<!-- Grilla de Obras -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Obra 1 -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-all">
-<div class="relative h-60 w-full overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Industrial electrical switchboard TGBT installation inside corporate complex at Parque Austral Pilar Argentina, high capacity busbars, shiny copper, tidy cable trays, professional engineering setting with technical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI6ax7yRckI2GRk8ZEblbxx2VXV6sfAdnDH2OhoWtRf5dMW4Due1CQdN6of8mcZYMRQWon0k3hQfAGJwprTUryQS_TDOce4pa7alIOYVWAgQgvJG-rDQscjXlK1noG8Iyt0QJgZ55uJrg8f8EionSXrUFS4vNU4xGwvoFXsBEXxRrbW2DGso1yDR_hiiMF3OgG2ZiqFzSQh4V5Wp5aah_2UV3WR97A1ybmPV3Ck85-qm3qGwtlj8Bk"/>
-<div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-xl text-label-sm font-label-sm">
-              Parque Austral, Pilar
-            </div>
-</div>
-<div class="p-6 flex flex-col flex-1 justify-between space-y-4">
-<div>
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Centro de Cómputos &amp; Oficinas</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Montaje Integral TGBT 3200A</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
-                Subestación transformadora con doble acometida independiente y conmutación en vacío motorizada para carga crítica ininterrumpida.
-              </p>
-</div>
-<div class="pt-4 flex items-center justify-between text-label-sm font-label-sm text-primary bg-surface-container-low p-3 rounded-xl">
-<span>Potencia: 1800 kVA</span>
-<span class="text-secondary font-bold">Status: En Operación</span>
-</div>
-</div>
-</div>
-<!-- Obra 2 -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-all">
-<div class="relative h-60 w-full overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Long perspective of heavy-duty galvanized cable trays suspended from high warehouse ceiling with bundled thick power cables, architectural perspective, pristine industrial logistics facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfvPQpame-aSSoFx4qgokehbpOLS6Wp92S8cuEmBldrOYsQJQ-pmvtD2QGVKy4F-eHS6FwmXo8pPPy3m8Lij-thSDe06rd6d9vHPhwm7dvrWYppDoXn_q3pzavHc_cdSsmm7eB2cmNH41AmJAyVvRWuwAqCh_Xa9oyJAegsGwp09obefOc0CvPrn51aH9_Uh6wU2WHnllSSM-GCH9OdIqwoaOq4qFXB38Na0VakGyNVC7lBz2v-sjI"/>
-<div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-xl text-label-sm font-label-sm">
-              Polo Logístico Norte
-            </div>
-</div>
-<div class="p-6 flex flex-col flex-1 justify-between space-y-4">
-<div>
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Centro de Distribución 24.000 m²</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Tendidos Aéreos en Bandejas</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
-                Más de 4.200 metros lineales de bandejas galvanizadas, alimentación a racks robotizados y compensación de factor de potencia a cos φ 0.98.
-              </p>
-</div>
-<div class="pt-4 flex items-center justify-between text-label-sm font-label-sm text-primary bg-surface-container-low p-3 rounded-xl">
-<span>Longitud: 4.200 m</span>
-<span class="text-secondary font-bold">Status: En Operación</span>
-</div>
-</div>
-</div>
-<!-- Obra 3 -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-all">
-<div class="relative h-60 w-full overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Electrical engineer in safety gear holding a high-precision Fluke thermal imaging camera pointing at a high voltage breaker cabinet showing thermal heat distribution gradient on screen, clean tech atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoaiUt2wGk8mIIHNC5hQCrWAJ35F73t54H7rsaQn6IbWS3ADXgd0atrfi0alDzGpGSAyx2Pm98W3OX0nTg9BVra4phi_ste3cTa-9ifqp6pB7yawuvJun09ewDXC84Ch9KdVlNI8_pXx7HbeiPAldXfanfmUJsJABL5_r8vxL6yE80DJHKOv0Y-SCwyrhDgbDtXmFK0imfXnIE8-ZJtXfRao-reHSgABnLVp6-3Pvxv2cCi-hcKXlK"/>
-<div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-xl text-label-sm font-label-sm">
-              Planta Farmacéutica CABA
-            </div>
-</div>
-<div class="p-6 flex flex-col flex-1 justify-between space-y-4">
-<div>
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Auditoría &amp; Seguridad de Planta</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Termografías &amp; Puesta a Tierra</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
-                Relevamiento predictivo infrarrojo en 14 tableros seccionales y medición de bucle de falla con certificación oficial ante ART y bomberos.
-              </p>
-</div>
-<div class="pt-4 flex items-center justify-between text-label-sm font-label-sm text-primary bg-surface-container-low p-3 rounded-xl">
-<span>Resolución: SRT 900/15</span>
-<span class="text-secondary font-bold">Status: Certificado</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SECCIÓN 5: GARANTÍA DE NO INTERRUPCIÓN (BLOQUE DESTACADO EN AZUL MARINO #10396b) -->
-<section class="w-full bg-surface py-16">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-<div class="bg-primary-container text-on-primary rounded-xl p-8 lg:p-14 shadow-xl relative overflow-hidden">
-<!-- Fondo sutil de gradiente arquitectónico -->
-<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-tertiary-container/30 rounded-full blur-3xl pointer-events-none"></div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-<div class="lg:col-span-8 space-y-6">
-<div class="inline-flex items-center gap-2 bg-on-primary/10 px-3.5 py-1.5 rounded-xl backdrop-blur-md">
-<span class="material-symbols-outlined text-secondary-fixed text-[18px]">verified</span>
-<span class="font-label-sm text-label-sm text-tertiary-fixed tracking-wider uppercase font-bold">Misión Crítica // Cero Downtime</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-primary tracking-tight leading-tight">
-              Garantía de continuidad operativa y no interrupción
-            </h2>
-<p class="font-body-lg text-body-lg text-on-primary-container leading-relaxed">
-              Los procesos productivos y centros de transacciones no pueden tolerar microcortes. Diseñamos e implementamos arquitecturas redundantes con conmutación automática sincronizada (TTA), bancos de capacitores automáticos para filtrado de armónicos y generadores de respaldo de arranque inmediato.
-            </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-<div class="flex items-start gap-3 bg-surface-container-lowest/10 p-4 rounded-xl backdrop-blur-sm">
-<span class="material-symbols-outlined text-secondary-fixed text-[24px]">sync_alt</span>
-<div>
-<h4 class="font-title-md text-title-md text-on-primary font-bold">Tableros de Transferencia (TTA)</h4>
-<p class="font-body-sm text-body-sm text-on-primary-container mt-1">Conmutación segura de red a grupo en menos de 8 segundos sin solapamiento de fases.</p>
-</div>
-</div>
-<div class="flex items-start gap-3 bg-surface-container-lowest/10 p-4 rounded-xl backdrop-blur-sm">
-<span class="material-symbols-outlined text-secondary-fixed text-[24px]">power</span>
-<div>
-<h4 class="font-title-md text-title-md text-on-primary font-bold">Bancos de Capacitores</h4>
-<p class="font-body-sm text-body-sm text-on-primary-container mt-1">Corrección automática del factor de potencia eliminando recargos por energía reactiva.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="lg:col-span-4 flex flex-col space-y-4">
-<div class="bg-surface-container-lowest/15 p-6 rounded-xl backdrop-blur-md text-center space-y-2">
-<span class="font-label-sm text-label-sm text-tertiary-fixed uppercase tracking-wider">Respaldo Técnico Directo</span>
-<div class="font-headline-md text-headline-md text-on-primary font-bold">Respuesta 24/7/365</div>
-<p class="font-body-sm text-body-sm text-on-primary-container">
-                Cuadrilla técnica pesada con equipamiento de diagnóstico rápido y repuestos de potencia en stock.
-              </p>
-<div class="pt-2">
-<a class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-5 py-2.5 rounded-xl font-label-lg text-label-lg hover:bg-secondary-container transition-all" href="tel:08108888437">
-<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
-<span>Línea Exclusiva Clientes</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SECCIÓN 6: FORMULARIO DE RELEVAMIENTO TÉCNICO Y COTIZACIÓN -->
-<section class="w-full bg-surface-container-low py-20" id="cotizacion-industrial">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Columna Izquierda: Acompañamiento y Canales -->
-<div class="lg:col-span-5 flex flex-col justify-between space-y-8">
-<div class="space-y-4">
-<div class="inline-flex items-center gap-2 bg-surface-container px-3 py-1 rounded-xl">
-<span class="material-symbols-outlined text-secondary text-[16px]">contact_support</span>
-<span class="font-label-sm text-label-sm text-primary uppercase">Presupuestos Corporativos</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
-              Relevamiento en planta y cotización
-            </h2>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Complete los datos del predio industrial o proyecto para que uno de nuestros ingenieros especialistas coordine una visita técnica de inspección sin cargo.
-            </p>
-</div>
-<div class="space-y-4 bg-surface-container-lowest p-6 rounded-xl shadow-sm">
-<h4 class="font-title-md text-title-md text-primary font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary">verified_user</span>
-              Protocolo de Visita Técnica
-            </h4>
-<ul class="space-y-2.5 font-body-sm text-body-sm text-on-surface-variant">
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
-<span>Ingeniero matriculado COPITEC con seguro ART e indumentaria ignífuga categoría 2.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
-<span>Inspección visual de acometidas, tableros y relevamiento de cargas en punta.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
-<span>Entrega de informe preliminar de estado y propuesta presupuestaria en 48 hs.</span>
-</li>
-</ul>
-</div>
-<div class="space-y-2 pt-2">
-<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Mesa de Entrada de Ingeniería</div>
-<div class="flex items-center gap-3 text-primary font-bold">
-<span class="material-symbols-outlined text-secondary text-[22px]">mail</span>
-<span class="font-title-md text-title-md">electricidad@thermair.com.ar</span>
-</div>
-<div class="flex items-center gap-3 text-primary font-bold">
-<span class="material-symbols-outlined text-secondary text-[22px]">call</span>
-<span class="font-title-md text-title-md">0810-888-THERM (Opción 2)</span>
-</div>
-</div>
-</div>
-<!-- Columna Derecha: Formulario Relevamiento -->
-<div class="lg:col-span-7">
-<div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl shadow-sm space-y-6">
-<form class="space-y-5" id="industrialQuoteForm" onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); this.reset();">
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<!-- Nombre del Solicitante -->
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="solicitanteNombre">Nombre del Solicitante *</label>
-<input class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" id="solicitanteNombre" placeholder="Ing. Juan Pérez" required="" type="text"/>
-</div>
-<!-- Empresa / Planta Industrial -->
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="empresaNombre">Empresa / Planta Industrial *</label>
-<input class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" id="empresaNombre" placeholder="Logística Austral S.A." required="" type="text"/>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<!-- Correo Corporativo -->
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="correoCorp">Correo Corporativo *</label>
-<input class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" id="correoCorp" placeholder="jperez@empresa.com.ar" required="" type="email"/>
-</div>
-<!-- Teléfono / Celular -->
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="telefonoContacto">Teléfono de Contacto *</label>
-<input class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" id="telefonoContacto" placeholder="+54 11 5432-8765" required="" type="tel"/>
-</div>
-</div>
-<!-- Potencia Estimada (kVA / kW) y Tipo de Requerimiento -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="potenciaEstimada">Potencia Estimada (kVA / kW)</label>
-<select class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" id="potenciaEstimada">
-<option value="baja">Hasta 50 kVA (Comercial / PyME)</option>
-<option selected="" value="media-baja">50 kVA a 250 kVA (Nave / Taller)</option>
-<option value="media">250 kVA a 630 kVA (Centro Logístico)</option>
-<option value="alta">630 kVA a 2000 kVA (Planta Industrial)</option>
-<option value="muy-alta">&gt; 2000 kVA (Media Tensión 13.2 kV)</option>
-</select>
-</div>
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="tipoServicio">Especialidad Principal</label>
-<select class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" id="tipoServicio">
-<option value="tableros">Tableros de Potencia TGBT / TTA</option>
-<option value="tendidos">Tendidos y Bandejas Portacables</option>
-<option value="tierra">Puesta a Tierra y Medición SRT 900/15</option>
-<option value="integral">Reforma Eléctrica Integral de Planta</option>
-<option value="normalizacion">Auditoría y Certificación AEA</option>
-</select>
-</div>
-</div>
-<!-- Alcance y Detalles del Proyecto -->
-<div class="space-y-1.5">
-<label class="block font-label-sm text-label-sm text-primary uppercase" for="detallesProyecto">Alcance de Detalles y Especificaciones</label>
-<textarea class="w-full bg-surface-container-low px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all resize-none" id="detallesProyecto" placeholder="Indique ubicación de la planta, plazos estimados de obra, si posee planos unifilares o requiere proyecto llave en mano..." rows="4"></textarea>
-</div>
-<!-- Checkbox de Políticas y Confidencialidad -->
-<div class="flex items-center gap-2 pt-1">
-<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" id="ndaCheck" type="checkbox"/>
-<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="ndaCheck">
-                  Acepto el tratamiento técnico confidencial de la información de planta (NDA disponible).
-                </label>
-</div>
-<!-- Botón Primario de Envío -->
-<div class="pt-2">
-<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary px-8 py-4 rounded-xl font-label-lg text-label-lg shadow-sm transition-all" type="submit">
-<span class="material-symbols-outlined text-[20px]">send</span>
-<span>Solicitar asesoramiento técnico</span>
-</button>
-</div>
-<!-- Mensaje de Éxito Oculto por Defecto -->
-<div class="hidden bg-surface-container p-4 rounded-xl flex items-center gap-3 text-primary" id="formSuccess">
-<span class="material-symbols-outlined text-secondary text-[24px]">task_alt</span>
-<span class="font-body-sm text-body-sm font-medium">Solicitud recibida. Un ingeniero de la división corporativa se contactará en menos de 2 horas hábiles.</span>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div></main>  <!-- =========================================================================
-       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante)
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <title>Thermair | Electricidad Corporativa - Media y Baja Tensión</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+    }
+
+    [id] {
+      scroll-margin-top: 5.5rem;
+    }
+
+    /* Animación global suave al cargar la página */
+    @keyframes pageFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body {
+      animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Placas y Tarjetas Animadas Escalonadas */
+    .stagger-card {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s ease;
+      will-change: opacity, transform;
+    }
+    .stagger-card.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .stagger-card:hover {
+      transform: translateY(-4px) scale(1.006);
+    }
+
+    /* Placas y Cápsulas del Hero */
+    .hero-stagger-item {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .hero-stagger-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animación de Tipeado (Typewriter) con altura fija en 2 líneas sin salto de layout */
+    .typewriter-title {
+      display: block;
+      position: relative;
+      min-height: 2.2em;
+    }
+    .typewriter-box {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .typewriter-ghost {
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
+      display: block;
+    }
+    .typewriter-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .type-cursor {
+      display: inline-block;
+      color: #bc000c;
+      font-weight: 300;
+      margin-left: 2px;
+      vertical-align: baseline;
+      animation: cursorBlink 0.75s step-start infinite;
+      transition: opacity 0.4s ease;
+    }
+    .type-cursor.finished {
+      opacity: 0;
+    }
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Animaciones Interactivas para Botones del Menú */
+    .menu-interactive-item {
+      position: relative;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+    .menu-interactive-item:hover {
+      transform: translateY(-2.5px);
+    }
+    .menu-interactive-item:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    /* Indicador animado y flotación suave del botón activo */
+    @keyframes activePulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    .nav-btn-active {
+      animation: activePulse 3.5s ease-in-out infinite;
+      box-shadow: 0 2px 8px rgba(0, 35, 75, 0.08);
+    }
+    .nav-btn-active:hover {
+      animation: none;
+      transform: translateY(-3px) scale(1.02);
+    }
+
+    /* Efecto de desplazamiento y sublineado sutil para links del menú */
+    .nav-btn-link {
+      position: relative;
+    }
+    .nav-btn-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      opacity: 0.7;
+      border-radius: 99px;
+      transform: translateX(-50%);
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-btn-link:hover::after {
+      width: 60%;
+    }
+
+    /* Botón CTA con micro-movimiento vivo, oscilación de campana y hover con elevación */
+    @keyframes ctaAutonomousMove {
+      0%, 88%, 100% { transform: translateY(0); }
+      92% { transform: translateY(-3px); }
+      95% { transform: translateY(1px); }
+      97% { transform: translateY(0); }
+    }
+    @keyframes iconRing {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-15deg); }
+      40% { transform: rotate(15deg); }
+      60% { transform: rotate(-10deg); }
+      80% { transform: rotate(5deg); }
+    }
+    .cta-moving-btn {
+      animation: ctaAutonomousMove 6s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .cta-moving-btn:hover {
+      animation: none;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 24px -4px rgba(188, 0, 12, 0.4);
+    }
+    .cta-moving-btn:hover .phone-icon {
+      animation: iconRing 0.6s ease;
+    }
+    .cta-moving-btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "outline": "#737780",
+            "secondary": "#bc000c",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f0f3ff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#001c3b",
+            "surface-dim": "#cfdaf2",
+            "secondary-fixed": "#ffdad5",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#930007",
+            "tertiary": "#002449",
+            "on-secondary-fixed": "#410001",
+            "outline-variant": "#c3c6d0",
+            "on-surface-variant": "#43474f",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#ecf1ff",
+            "primary-container": "#10396b",
+            "on-tertiary-container": "#73a4ec",
+            "on-surface": "#111c2d",
+            "surface-container": "#e7eeff",
+            "surface-container-highest": "#d8e3fb",
+            "background": "#f9f9ff",
+            "on-primary-fixed": "#001b3d",
+            "on-secondary": "#ffffff",
+            "surface": "#f9f9ff",
+            "on-secondary-container": "#fffbff",
+            "surface-bright": "#f9f9ff",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#a7c8ff",
+            "inverse-primary": "#a8c8ff",
+            "tertiary-fixed": "#d5e3ff",
+            "surface-variant": "#d8e3fb",
+            "surface-container-high": "#dee8ff",
+            "on-primary-fixed-variant": "#22477a",
+            "primary": "#00234b",
+            "primary-fixed-dim": "#a8c8ff",
+            "tertiary-container": "#00396f",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#83a4dc",
+            "inverse-surface": "#263143",
+            "secondary-fixed-dim": "#ffb4aa",
+            "on-background": "#111c2d",
+            "primary-fixed": "#d6e3ff",
+            "on-tertiary-fixed-variant": "#004787",
+            "surface-tint": "#3d5f93",
+            "secondary-container": "#e3211f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-xl": "2.5rem",
+            "margin": "3rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Montserrat"],
+            "headline-md": ["Space Grotesk"],
+            "label-sm": ["Space Grotesk"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "display": ["Space Grotesk"],
+            "label-lg": ["Space Grotesk"],
+            "body-lg": ["Montserrat"],
+            "title-md": ["Space Grotesk"],
+            "display-mobile": ["Space Grotesk"],
+            "body-sm": ["Montserrat"],
+            "headline-sm": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+  <!-- =========================================================================
+       HEADER INSTITUCIONAL LIMPIO (Sin franja azul superior)
        ========================================================================= -->
-  <footer class="bg-primary text-white/80 py-12 border-t border-white/10 text-xs">
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline-variant/15">
+    <div class="h-20 w-full px-margin-mobile md:px-margin">
+      <div class="max-w-7xl mx-auto h-full flex items-center justify-between gap-space-md">
+        <div class="flex items-center gap-space-md">
+          <a class="flex items-center focus:outline-none transition-transform duration-300 hover:scale-[1.02]"
+            href="index.html">
+            <img alt="Thermair Logo" class="h-10 sm:h-12 w-auto object-contain" src="assets/thermair-logo.png" />
+          </a>
+        </div>
+        <nav class="hidden xl:flex items-center gap-2">
+          <a class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            href="alianzas.html">Profesionales</a>
+          <a aria-current="page"
+            class="menu-interactive-item nav-btn-active px-4 py-2.5 rounded-xl bg-surface-container text-primary font-semibold"
+            href="electricidad.html">Electricidad</a>
+          <a class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            href="climatizacion.html">Climatización</a>
+          <a class="menu-interactive-item nav-btn-link px-4 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all"
+            href="mantenimiento.html">Mantenimiento</a>
+        </nav>
+        <div class="flex items-center gap-space-sm">
+          <a class="cta-moving-btn hidden sm:inline-flex items-center gap-2 bg-secondary text-on-secondary px-5 py-3 rounded-xl font-label-lg text-label-lg shadow-sm group"
+            data-path="contacto" href="index.html#contacto-tecnico">
+            <span class="material-symbols-outlined text-[18px] phone-icon transition-transform duration-300">call</span>
+            <span>Solicitar Asesoramiento</span>
+          </a>
+          <button id="mobile-menu-btn" type="button"
+            class="xl:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition-colors focus:outline-none"
+            aria-label="Abrir menú"
+            onclick="var m=document.getElementById('mobile-menu'); m.classList.toggle('hidden'); var icon=this.querySelector('.material-symbols-outlined'); if(m.classList.contains('hidden')){icon.innerText='menu';}else{icon.innerText='close';}">
+            <span class="material-symbols-outlined text-[26px]">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu"
+      class="hidden xl:hidden bg-surface-container-lowest border-b border-outline-variant/20 px-6 py-4 space-y-2 shadow-lg transition-all">
+      <div class="space-y-1">
+        <a href="alianzas.html"
+          class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Profesionales</a>
+        <a href="electricidad.html"
+          class="block px-4 py-2.5 rounded-xl font-semibold bg-surface-container text-primary transition-all">Electricidad</a>
+        <a href="climatizacion.html"
+          class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Climatización</a>
+        <a href="mantenimiento.html"
+          class="block px-4 py-2.5 rounded-xl font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all">Mantenimiento</a>
+      </div>
+      <div class="pt-3 border-t border-outline-variant/15">
+        <a href="index.html#contacto-tecnico"
+          class="cta-moving-btn flex items-center justify-center gap-2 w-full bg-secondary text-on-secondary px-4 py-3 rounded-xl font-semibold shadow-sm">
+          <span class="material-symbols-outlined text-[18px] phone-icon">call</span>
+          <span>Solicitar Asesoramiento</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full relative min-h-[calc(100vh-420px)]">
+    <!-- Video de Fondo Fijo en Ping-Pong Loop (Adelante y Atrás) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <img id="electricidad-poster" src="assets/alianzas-poster.jpg" alt="Infraestructura Eléctrica Thermair"
+        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
+      <video id="electricidad-video" playsinline webkit-playsinline muted autoplay loop preload="auto"
+        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+        poster="assets/alianzas-poster.jpg">
+        <source src="assets/alianzas-bg.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="flex flex-col w-full relative z-10">
+      <!-- SECCIÓN 1: HERO INDUSTRIAL -->
+      <section class="relative w-full overflow-hidden bg-surface/80 backdrop-blur-sm py-12 lg:py-20 pt-28">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <!-- Columna Izquierda: Información Principal -->
+            <div class="lg:col-span-7 flex flex-col space-y-space-lg">
+              <!-- Badge Técnico -->
+              <div class="hero-stagger-item inline-flex items-center gap-2 self-start bg-surface-container/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/40">
+                <span class="material-symbols-outlined text-secondary text-[16px]">bolt</span>
+                <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">División Técnica // Seguridad &amp; Potencia Industrial</span>
+              </div>
+              <!-- Titular Display con Typewriter de 2 líneas exactas -->
+              <h1 class="font-headline-lg text-headline-lg text-primary tracking-tight leading-tight typewriter-title" data-typewrite="Infraestructura eléctrica de alta exigencia">
+                <span class="typewriter-box relative block w-full">
+                  <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Infraestructura eléctrica de alta exigencia</span>
+                  <span class="typewriter-overlay absolute inset-0 block w-full">
+                    <span class="type-text"></span><span class="type-cursor">|</span>
+                  </span>
+                </span>
+              </h1>
+              <!-- Texto Introductorio -->
+              <p class="hero-stagger-item font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                Desarrollamos y ejecutamos proyectos de infraestructura eléctrica para plantas industriales y grandes superficies. Todo nuestro trabajo se realiza bajo estrictas normativas vigentes, garantizando la seguridad, el rendimiento y la continuidad operativa de su empresa.
+              </p>
+              <!-- Acciones CTA -->
+              <div class="hero-stagger-item flex flex-wrap items-center gap-space-md pt-2">
+                <a class="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary px-6 py-3.5 rounded-xl font-label-lg text-label-lg shadow-sm transition-all"
+                  href="#cotizacion-industrial">
+                  <span class="material-symbols-outlined text-[20px]">engineering</span>
+                  <span>Solicitar relevamiento técnico</span>
+                </a>
+                <a class="inline-flex items-center justify-center gap-2 bg-surface-container/90 hover:bg-surface-container-high text-primary px-6 py-3.5 rounded-xl font-label-lg text-label-lg transition-all border border-white/60"
+                  href="#certificaciones">
+                  <span class="material-symbols-outlined text-[20px]">verified</span>
+                  <span>Ver protocolos y certificaciones</span>
+                </a>
+              </div>
+              <!-- Sellos Normativos -->
+              <div class="hero-stagger-item pt-4 flex flex-wrap items-center gap-2">
+                <div class="flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-sm text-on-surface-variant text-label-sm font-label-sm border border-white/60">
+                  <span class="material-symbols-outlined text-secondary text-[16px]">thermostat</span>
+                  <span>Auditoría Termográfica Fluke</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-sm text-on-surface-variant text-label-sm font-label-sm border border-white/60">
+                  <span class="material-symbols-outlined text-primary text-[16px]">file_download_done</span>
+                  <span>Protocolos Puesta a Tierra SRT 900/15</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-sm text-on-surface-variant text-label-sm font-label-sm border border-white/60">
+                  <span class="material-symbols-outlined text-primary text-[16px]">policy</span>
+                  <span>Homologación AEA 90364-7-718</span>
+                </div>
+              </div>
+            </div>
+            <!-- Columna Derecha: Tarjeta Visual TGBT & Telemetría en Vivo -->
+            <div class="lg:col-span-5 relative mt-6 lg:mt-0 hero-stagger-item">
+              <div class="relative bg-surface-container-lowest/90 backdrop-blur-md rounded-xl shadow-md border border-white/60 overflow-hidden">
+                <!-- Imagen Técnica TGBT -->
+                <div class="relative w-full h-[360px] sm:h-[400px]">
+                  <img class="w-full h-full object-cover"
+                    alt="Tablero general de baja tensión TGBT para industria"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC93QQnRo6TNq81A51c8eKwObVsgbyS7s3xM-B4zGtSanI7coOzbhhSesGDfMZF85WN-jmY9MsystkJccY_1qRHp6OKZiMRnivtGWVm-hDYHM-ut2-Zas6sr0h3Y8D7Liq7Q8L8fb5kghOCZ5AuQIfNuqr8g62c375Z6WjoIxo9rbsUF_keCbHh01lWhyfxYL_bh2K_WQJqX1HRtx4yEI4KuTTmVtq-9buwrzG7KIErV3lNDebwic4k" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
+                  <!-- Badge flotante en esquina superior -->
+                  <div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-xl shadow-sm flex items-center gap-2 border border-white/40">
+                    <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+                    <span class="font-label-sm text-label-sm text-primary uppercase">Monitoreo TGBT en Vivo</span>
+                  </div>
+                </div>
+                <!-- Panel Técnico en Vivo Inferior -->
+                <div class="p-6 bg-surface-container-lowest/80 backdrop-blur-md flex flex-col space-y-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Parámetros Operativos Nominales</span>
+                      <span class="font-headline-sm text-headline-sm text-primary font-bold">400V / 2400A</span>
+                    </div>
+                    <div class="text-right">
+                      <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Confiabilidad</span>
+                      <span class="font-headline-sm text-headline-sm text-secondary font-bold">99.8%</span>
+                    </div>
+                  </div>
+                  <!-- Mini gráfico SVG interactivo de balance de cargas por fase -->
+                  <div class="bg-surface-container-low/90 p-3.5 rounded-xl space-y-2 border border-outline-variant/15">
+                    <div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+                      <span>Balance Simétrico Trifásico (R - S - T)</span>
+                      <span class="text-primary font-bold">Equilibrio &lt; 1.2%</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 h-2">
+                      <div class="bg-primary rounded-xl h-full w-full"></div>
+                      <div class="bg-primary rounded-xl h-full w-full"></div>
+                      <div class="bg-primary rounded-xl h-full w-full"></div>
+                    </div>
+                    <div class="flex justify-between text-body-sm font-body-sm text-outline">
+                      <span>L1: 798 A</span>
+                      <span>L2: 802 A</span>
+                      <span>L3: 800 A</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between pt-1 text-body-sm font-body-sm text-on-surface-variant">
+                    <span class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+                      Termografía Certificada
+                    </span>
+                    <span class="font-label-sm text-label-sm text-secondary font-bold">ΔT &lt; 3.5 °C (Óptimo)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: CIFRAS Y CERTIFICACIONES ELÉCTRICAS (3 TARJETAS KPI TÉCNICAS) -->
+      <section class="w-full bg-surface-container-low/70 backdrop-blur-md py-16" id="certificaciones">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger-group data-stagger-delay="130">
+            <!-- KPI 1 -->
+            <div class="stagger-card bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div class="flex items-center justify-between pb-6">
+                <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[28px]">electric_meter</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase font-bold">Clase Industrial</span>
+              </div>
+              <div>
+                <div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">13.2 kV</div>
+                <h3 class="font-title-md text-title-md text-primary mt-2">Media y Baja Tensión</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+                  Celdas de seccionamiento, transformadores secos encapsulados y distribución industrial de gran porte con selectividad cronométrica.
+                </p>
+              </div>
+            </div>
+            <!-- KPI 2 -->
+            <div class="stagger-card bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div class="flex items-center justify-between pb-6">
+                <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+                  <span class="material-symbols-outlined text-[28px]">speed</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold">Continuidad Total</span>
+              </div>
+              <div>
+                <div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">99.8%</div>
+                <h3 class="font-title-md text-title-md text-primary mt-2">Confiabilidad Operativa</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+                  Sistemas de redundancia N+1, conmutación TTA sincronizada sin cortes transitorios y mantenimiento preventivo con analítica de armónicos.
+                </p>
+              </div>
+            </div>
+            <!-- KPI 3 -->
+            <div class="stagger-card bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div class="flex items-center justify-between pb-6">
+                <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[28px]">workspace_premium</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-outline tracking-widest uppercase font-bold">Matrícula Nacional</span>
+              </div>
+              <div>
+                <div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">AEA &amp; COPITEC</div>
+                <h3 class="font-title-md text-title-md text-primary mt-2">Cumplimiento Reglamentario</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+                  Protocolos IRAM &amp; AEA 90364 certificados por ingenieros matriculados habilitantes con pólizas de caución y responsabilidad civil.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3: ESPECIALIDADES Y SERVICIOS DE POTENCIA (4 TARJETAS NUMERADAS 01 A 04) -->
+      <section class="w-full bg-surface/80 backdrop-blur-md py-20">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
+          <!-- Encabezado de Sección -->
+          <div class="max-w-3xl space-y-3">
+            <div class="inline-flex items-center gap-2 bg-surface-container/90 px-3 py-1 rounded-xl border border-white/50">
+              <span class="material-symbols-outlined text-secondary text-[16px]">build_circle</span>
+              <span class="font-label-sm text-label-sm text-primary uppercase">Áreas de Ingeniería Especializada</span>
+            </div>
+            <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight typewriter-title" data-typewrite="Especialidades y servicios de potencia">
+              <span class="typewriter-box relative block w-full">
+                <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Especialidades y servicios de potencia</span>
+                <span class="typewriter-overlay absolute inset-0 block w-full">
+                  <span class="type-text"></span><span class="type-cursor">|</span>
+                </span>
+              </span>
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+              Abordaje integral desde el diseño computarizado de esquemas unifilares hasta el comisionamiento final en sitio con instrumental de precisión contrastado.
+            </p>
+          </div>
+          <!-- Grid 4 Tarjetas 01 a 04 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter" data-stagger-group data-stagger-delay="120">
+            <!-- Tarjeta 01 -->
+            <div class="stagger-card group bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-6">
+                  <span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">01</span>
+                  <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-[24px]">developer_board</span>
+                  </div>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold">Tableros de potencia</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                  Diseño, armado y montaje de tableros eléctricos a medida, con un nivel de prolijidad y seguridad inmejorables.
+                </p>
+                <div class="mt-6 space-y-2.5">
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Barras de cobre electrolítico 99.9% con tratamiento electrolítico de estaño</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Protección térmica regulable e interruptores seccionadores bajo carga</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Envolventes estancas certificadas grado IP54 / IP65 según locación</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-6 mt-6 bg-surface-container-low/80 -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between border-t border-outline-variant/10">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Norma IRAM 2187-1</span>
+                <span class="font-label-sm text-label-sm text-primary font-bold">Fabricación Homologada</span>
+              </div>
+            </div>
+            <!-- Tarjeta 02 -->
+            <div class="stagger-card group bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-6">
+                  <span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">02</span>
+                  <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-[24px]">cable</span>
+                  </div>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold">Tendidos de alta exigencia</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                  Instalaciones industriales preparadas para soportar el trabajo continuo bajo regímenes térmicos y mecánicos severos.
+                </p>
+                <div class="mt-6 space-y-2.5">
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Bandejas portacables galvanizadas por inmersión en caliente tipo escalera</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Electroductos pesados antiexplosivos (AP) para zonas de riesgo</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Balanceo milimétrico de fases con verificación de caída de tensión &lt; 2%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-6 mt-6 bg-surface-container-low/80 -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between border-t border-outline-variant/10">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Resistencia Térmica XLPE</span>
+                <span class="font-label-sm text-label-sm text-primary font-bold">Cables Retardantes al Fuego</span>
+              </div>
+            </div>
+            <!-- Tarjeta 03 -->
+            <div class="stagger-card group bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-6">
+                  <span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">03</span>
+                  <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-[24px]">file_download_done</span>
+                  </div>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold">Puestas a tierra</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                  Medición, ejecución y certificación de puestas a tierra según las exigencias más estrictas de higiene y seguridad laboral.
+                </p>
+                <div class="mt-6 space-y-2.5">
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Protocolo de telurimetría reglamentaria según Resolución SRT 900/15</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Jabalinas de acero-cobre certificadas IRAM 2309 y mallas equipotenciales</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Soldaduras cuproaluminotérmicas para uniones indivisibles anticorrosivas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-6 mt-6 bg-surface-container-low/80 -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between border-t border-outline-variant/10">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Resistencia Objetivo &lt; 2Ω</span>
+                <span class="font-label-sm text-label-sm text-primary font-bold">Certificado Homologado</span>
+              </div>
+            </div>
+            <!-- Tarjeta 04 -->
+            <div class="stagger-card group bg-surface-container-lowest/90 backdrop-blur-md p-8 rounded-xl shadow-sm hover:shadow-md border border-white/60 transition-all flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-6">
+                  <span class="font-headline-lg text-headline-lg text-primary/30 group-hover:text-secondary transition-colors font-bold font-headline-lg">04</span>
+                  <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-[24px]">wb_incandescent</span>
+                  </div>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold">Iluminación y normalización</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                  Proyectos de iluminación LED corporativa y adecuación de instalaciones a las normativas actuales para habilitación integral.
+                </p>
+                <div class="mt-6 space-y-2.5">
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Estudios fotométricos en Dialux para confort visual y eficiencia lumen/watt</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Sistemas de control inteligente DALI, sensores de presencia y dimmerizado</span>
+                  </div>
+                  <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                    <span>Memorias técnicas y planos conformes a obra para habilitaciones municipales</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-6 mt-6 bg-surface-container-low/80 -mx-8 -mb-8 px-8 py-4 rounded-b-xl flex items-center justify-between border-t border-outline-variant/10">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Eficiencia Energética</span>
+                <span class="font-label-sm text-label-sm text-primary font-bold">Ahorro hasta 65%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 4: OBRAS DE POTENCIA EJECUTADAS -->
+      <section class="w-full bg-surface-container-low/75 backdrop-blur-md py-20">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+            <div class="space-y-3">
+              <div class="inline-flex items-center gap-2 bg-surface-container/90 px-3 py-1 rounded-xl border border-white/50">
+                <span class="material-symbols-outlined text-secondary text-[16px]">domain</span>
+                <span class="font-label-sm text-label-sm text-primary uppercase">Casos Testigos de Ingeniería</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight typewriter-title" data-typewrite="Obras de potencia ejecutadas">
+                <span class="typewriter-box relative block w-full">
+                  <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Obras de potencia ejecutadas</span>
+                  <span class="typewriter-overlay absolute inset-0 block w-full">
+                    <span class="type-text"></span><span class="type-cursor">|</span>
+                  </span>
+                </span>
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                Ejecución de envergadura en polos logísticos, centros de datos y complejos corporativos de primera línea.
+              </p>
+            </div>
+            <div class="text-right flex items-center gap-2 self-start md:self-end text-label-sm font-label-sm text-primary">
+              <span class="material-symbols-outlined text-[18px]">check_circle</span>
+              <span>100% Entregas Conformes a Obra</span>
+            </div>
+          </div>
+          <!-- Grilla de Obras -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger-group data-stagger-delay="140">
+            <!-- Obra 1 -->
+            <div class="stagger-card bg-surface-container-lowest/90 backdrop-blur-md rounded-xl shadow-sm overflow-hidden flex flex-col group hover:shadow-md border border-white/60 transition-all">
+              <div class="relative h-60 w-full overflow-hidden">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Instalación de tablero general TGBT en complejo Parque Austral Pilar"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI6ax7yRckI2GRk8ZEblbxx2VXV6sfAdnDH2OhoWtRf5dMW4Due1CQdN6of8mcZYMRQWon0k3hQfAGJwprTUryQS_TDOce4pa7alIOYVWAgQgvJG-rDQscjXlK1noG8Iyt0QJgZ55uJrg8f8EionSXrUFS4vNU4xGwvoFXsBEXxRrbW2DGso1yDR_hiiMF3OgG2ZiqFzSQh4V5Wp5aah_2UV3WR97A1ybmPV3Ck85-qm3qGwtlj8Bk" />
+                <div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-xl text-label-sm font-label-sm">
+                  Parque Austral, Pilar
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+                <div>
+                  <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Centro de Cómputos &amp; Oficinas</span>
+                  <h3 class="font-headline-sm text-headline-sm text-primary mt-1">Montaje Integral TGBT 3200A</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                    Subestación transformadora con doble acometida independiente y conmutación en vacío motorizada para carga crítica ininterrumpida.
+                  </p>
+                </div>
+                <div class="pt-4 flex items-center justify-between text-label-sm font-label-sm text-primary bg-surface-container-low/90 p-3 rounded-xl border border-outline-variant/15">
+                  <span>Potencia: 1800 kVA</span>
+                  <span class="text-secondary font-bold">Status: En Operación</span>
+                </div>
+              </div>
+            </div>
+            <!-- Obra 2 -->
+            <div class="stagger-card bg-surface-container-lowest/90 backdrop-blur-md rounded-xl shadow-sm overflow-hidden flex flex-col group hover:shadow-md border border-white/60 transition-all">
+              <div class="relative h-60 w-full overflow-hidden">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Tendido de bandejas galvanizadas en polo logístico norte"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfvPQpame-aSSoFx4qgokehbpOLS6Wp92S8cuEmBldrOYsQJQ-pmvtD2QGVKy4F-eHS6FwmXo8pPPy3m8Lij-thSDe06rd6d9vHPhwm7dvrWYppDoXn_q3pzavHc_cdSsmm7eB2cmNH41AmJAyVvRWuwAqCh_Xa9oyJAegsGwp09obefOc0CvPrn51aH9_Uh6wU2WHnllSSM-GCH9OdIqwoaOq4qFXB38Na0VakGyNVC7lBz2v-sjI" />
+                <div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-xl text-label-sm font-label-sm">
+                  Polo Logístico Norte
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+                <div>
+                  <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Centro de Distribución 24.000 m²</span>
+                  <h3 class="font-headline-sm text-headline-sm text-primary mt-1">Tendidos Aéreos en Bandejas</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                    Más de 4.200 metros lineales de bandejas galvanizadas, alimentación a racks robotizados y compensación de factor de potencia a cos φ 0.98.
+                  </p>
+                </div>
+                <div class="pt-4 flex items-center justify-between text-label-sm font-label-sm text-primary bg-surface-container-low/90 p-3 rounded-xl border border-outline-variant/15">
+                  <span>Longitud: 4.200 m</span>
+                  <span class="text-secondary font-bold">Status: En Operación</span>
+                </div>
+              </div>
+            </div>
+            <!-- Obra 3 -->
+            <div class="stagger-card bg-surface-container-lowest/90 backdrop-blur-md rounded-xl shadow-sm overflow-hidden flex flex-col group hover:shadow-md border border-white/60 transition-all">
+              <div class="relative h-60 w-full overflow-hidden">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Auditoría técnica termográfica y puesta a tierra en planta farmacéutica"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoaiUt2wGk8mIIHNC5hQCrWAJ35F73t54H7rsaQn6IbWS3ADXgd0atrfi0alDzGpGSAyx2Pm98W3OX0nTg9BVra4phi_ste3cTa-9ifqp6pB7yawuvJun09ewDXC84Ch9KdVlNI8_pXx7HbeiPAldXfanfmUJsJABL5_r8vxL6yE80DJHKOv0Y-SCwyrhDgbDtXmFK0imfXnIE8-ZJtXfRao-reHSgABnLVp6-3Pvxv2cCi-hcKXlK" />
+                <div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-xl text-label-sm font-label-sm">
+                  Planta Farmacéutica CABA
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+                <div>
+                  <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Auditoría &amp; Seguridad de Planta</span>
+                  <h3 class="font-headline-sm text-headline-sm text-primary mt-1">Termografías &amp; Puesta a Tierra</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                    Relevamiento predictivo infrarrojo en 14 tableros seccionales y medición de bucle de falla con certificación oficial ante ART y bomberos.
+                  </p>
+                </div>
+                <div class="pt-4 flex items-center justify-between text-label-sm font-label-sm text-primary bg-surface-container-low/90 p-3 rounded-xl border border-outline-variant/15">
+                  <span>Resolución: SRT 900/15</span>
+                  <span class="text-secondary font-bold">Status: Certificado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 5: GARANTÍA DE NO INTERRUPCIÓN (BLOQUE DESTACADO EN AZUL MARINO) -->
+      <section class="w-full bg-surface/80 backdrop-blur-md py-16">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+          <div class="bg-primary-container/95 backdrop-blur-md text-on-primary rounded-xl p-8 lg:p-14 shadow-xl relative overflow-hidden border border-white/10">
+            <!-- Fondo sutil de gradiente arquitectónico -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-tertiary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+              <div class="lg:col-span-8 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-on-primary/10 px-3.5 py-1.5 rounded-xl backdrop-blur-md border border-white/10">
+                  <span class="material-symbols-outlined text-secondary-fixed text-[18px]">verified</span>
+                  <span class="font-label-sm text-label-sm text-tertiary-fixed tracking-wider uppercase font-bold">Misión Crítica // Cero Downtime</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-lg text-on-primary tracking-tight leading-tight typewriter-title" data-typewrite="Garantía de continuidad operativa y no interrupción">
+                  <span class="typewriter-box relative block w-full">
+                    <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Garantía de continuidad operativa y no interrupción</span>
+                    <span class="typewriter-overlay absolute inset-0 block w-full">
+                      <span class="type-text"></span><span class="type-cursor">|</span>
+                    </span>
+                  </span>
+                </h2>
+                <p class="font-body-lg text-body-lg text-on-primary-container leading-relaxed">
+                  Los procesos productivos y centros de transacciones no pueden tolerar microcortes. Diseñamos e implementamos arquitecturas redundantes con conmutación automática sincronizada (TTA), bancos de capacitores automáticos para filtrado de armónicos y generadores de respaldo de arranque inmediato.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                  <div class="flex items-start gap-3 bg-surface-container-lowest/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                    <span class="material-symbols-outlined text-secondary-fixed text-[24px]">sync_alt</span>
+                    <div>
+                      <h4 class="font-title-md text-title-md text-on-primary font-bold">Tableros de Transferencia (TTA)</h4>
+                      <p class="font-body-sm text-body-sm text-on-primary-container mt-1">Conmutación segura de red a grupo en menos de 8 segundos sin solapamiento de fases.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3 bg-surface-container-lowest/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                    <span class="material-symbols-outlined text-secondary-fixed text-[24px]">power</span>
+                    <div>
+                      <h4 class="font-title-md text-title-md text-on-primary font-bold">Bancos de Capacitores</h4>
+                      <p class="font-body-sm text-body-sm text-on-primary-container mt-1">Corrección automática del factor de potencia eliminando recargos por energía reactiva.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-4 flex flex-col space-y-4">
+                <div class="bg-surface-container-lowest/15 p-6 rounded-xl backdrop-blur-md text-center space-y-2 border border-white/10">
+                  <span class="font-label-sm text-label-sm text-tertiary-fixed uppercase tracking-wider">Respaldo Técnico Directo</span>
+                  <div class="font-headline-md text-headline-md text-on-primary font-bold">Respuesta 24/7/365</div>
+                  <p class="font-body-sm text-body-sm text-on-primary-container">
+                    Cuadrilla técnica pesada con equipamiento de diagnóstico rápido y repuestos de potencia en stock.
+                  </p>
+                  <div class="pt-2">
+                    <a class="cta-moving-btn inline-flex items-center gap-2 bg-secondary text-on-secondary px-5 py-2.5 rounded-xl font-label-lg text-label-lg shadow-sm" href="tel:08108888437">
+                      <span class="material-symbols-outlined text-[18px] phone-icon">phone_in_talk</span>
+                      <span>Línea Exclusiva Clientes</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 6: FORMULARIO DE RELEVAMIENTO TÉCNICO Y COTIZACIÓN -->
+      <section class="w-full bg-surface-container-low/80 backdrop-blur-md py-20" id="cotizacion-industrial">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <!-- Columna Izquierda: Acompañamiento y Canales -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+              <div class="space-y-4">
+                <div class="inline-flex items-center gap-2 bg-surface-container/90 px-3 py-1 rounded-xl border border-white/50">
+                  <span class="material-symbols-outlined text-secondary text-[16px]">contact_support</span>
+                  <span class="font-label-sm text-label-sm text-primary uppercase">Presupuestos Corporativos</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight typewriter-title" data-typewrite="Relevamiento en planta y cotización">
+                  <span class="typewriter-box relative block w-full">
+                    <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">Relevamiento en planta y cotización</span>
+                    <span class="typewriter-overlay absolute inset-0 block w-full">
+                      <span class="type-text"></span><span class="type-cursor">|</span>
+                    </span>
+                  </span>
+                </h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Complete los datos del predio industrial o proyecto para que uno de nuestros ingenieros especialistas coordine una visita técnica de inspección sin cargo.
+                </p>
+              </div>
+              <div class="space-y-4 bg-surface-container-lowest/90 backdrop-blur-md p-6 rounded-xl shadow-sm border border-white/60">
+                <h4 class="font-title-md text-title-md text-primary font-bold flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary">verified_user</span>
+                  Protocolo de Visita Técnica
+                </h4>
+                <ul class="space-y-2.5 font-body-sm text-body-sm text-on-surface-variant">
+                  <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+                    <span>Ingeniero matriculado COPITEC con seguro ART e indumentaria ignífuga categoría 2.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+                    <span>Inspección visual de acometidas, tableros y relevamiento de cargas en punta.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+                    <span>Entrega de informe preliminar de estado y propuesta presupuestaria en 48 hs.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-2 pt-2">
+                <div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Mesa de Entrada de Ingeniería</div>
+                <div class="flex items-center gap-3 text-primary font-bold">
+                  <span class="material-symbols-outlined text-secondary text-[22px]">mail</span>
+                  <span class="font-title-md text-title-md">electricidad@thermair.com.ar</span>
+                </div>
+                <div class="flex items-center gap-3 text-primary font-bold">
+                  <span class="material-symbols-outlined text-secondary text-[22px]">call</span>
+                  <span class="font-title-md text-title-md">0810-888-THERM (Opción 2)</span>
+                </div>
+              </div>
+            </div>
+            <!-- Columna Derecha: Formulario Relevamiento -->
+            <div class="lg:col-span-7">
+              <div class="bg-surface-container-lowest/90 backdrop-blur-md p-8 lg:p-10 rounded-xl shadow-sm space-y-6 border border-white/60">
+                <form class="space-y-5" id="industrialQuoteForm"
+                  onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); this.reset();">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Nombre del Solicitante -->
+                    <div class="space-y-1.5">
+                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="solicitanteNombre">Nombre del Solicitante *</label>
+                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
+                        id="solicitanteNombre" placeholder="Ing. Juan Pérez" required="" type="text" />
+                    </div>
+                    <!-- Empresa / Planta Industrial -->
+                    <div class="space-y-1.5">
+                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="empresaNombre">Empresa / Planta Industrial *</label>
+                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
+                        id="empresaNombre" placeholder="Logística Austral S.A." required="" type="text" />
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Correo Corporativo -->
+                    <div class="space-y-1.5">
+                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="correoCorp">Correo Corporativo *</label>
+                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
+                        id="correoCorp" placeholder="jperez@empresa.com.ar" required="" type="email" />
+                    </div>
+                    <!-- Teléfono / Celular -->
+                    <div class="space-y-1.5">
+                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="telefonoContacto">Teléfono de Contacto *</label>
+                      <input class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
+                        id="telefonoContacto" placeholder="+54 11 5432-8765" required="" type="tel" />
+                    </div>
+                  </div>
+                  <!-- Potencia Estimada (kVA / kW) y Tipo de Requerimiento -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="potenciaEstimada">Potencia Estimada (kVA / kW)</label>
+                      <select class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
+                        id="potenciaEstimada">
+                        <option value="baja">Hasta 50 kVA (Comercial / PyME)</option>
+                        <option selected="" value="media-baja">50 kVA a 250 kVA (Nave / Taller)</option>
+                        <option value="media">250 kVA a 630 kVA (Centro Logístico)</option>
+                        <option value="alta">630 kVA a 2000 kVA (Planta Industrial)</option>
+                        <option value="muy-alta">&gt; 2000 kVA (Media Tensión 13.2 kV)</option>
+                      </select>
+                    </div>
+                    <div class="space-y-1.5">
+                      <label class="block font-label-sm text-label-sm text-primary uppercase" for="tipoServicio">Especialidad Principal</label>
+                      <select class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all border border-outline-variant/15"
+                        id="tipoServicio">
+                        <option value="tableros">Tableros de Potencia TGBT / TTA</option>
+                        <option value="tendidos">Tendidos y Bandejas Portacables</option>
+                        <option value="tierra">Puesta a Tierra y Medición SRT 900/15</option>
+                        <option value="integral">Reforma Eléctrica Integral de Planta</option>
+                        <option value="normalizacion">Auditoría y Certificación AEA</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Alcance y Detalles del Proyecto -->
+                  <div class="space-y-1.5">
+                    <label class="block font-label-sm text-label-sm text-primary uppercase" for="detallesProyecto">Alcance de Detalles y Especificaciones</label>
+                    <textarea class="w-full bg-surface-container-low/90 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all resize-none border border-outline-variant/15"
+                      id="detallesProyecto" placeholder="Indique ubicación de la planta, plazos estimados de obra, si posee planos unifilares o requiere proyecto llave en mano..." rows="4"></textarea>
+                  </div>
+                  <!-- Checkbox de Políticas y Confidencialidad -->
+                  <div class="flex items-center gap-2 pt-1">
+                    <input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" id="ndaCheck" type="checkbox" />
+                    <label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="ndaCheck">
+                      Acepto el tratamiento técnico confidencial de la información de planta (NDA disponible).
+                    </label>
+                  </div>
+                  <!-- Botón Primario de Envío -->
+                  <div class="pt-2">
+                    <button class="cta-moving-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary px-8 py-4 rounded-xl font-label-lg text-label-lg shadow-sm"
+                      type="submit">
+                      <span class="material-symbols-outlined text-[20px] phone-icon">send</span>
+                      <span>Solicitar asesoramiento técnico</span>
+                    </button>
+                  </div>
+                  <!-- Mensaje de Éxito Oculto por Defecto -->
+                  <div class="hidden bg-surface-container p-4 rounded-xl flex items-center gap-3 text-primary border border-outline-variant/20" id="formSuccess">
+                    <span class="material-symbols-outlined text-secondary text-[24px]">task_alt</span>
+                    <span class="font-body-sm text-body-sm font-medium">Solicitud recibida. Un ingeniero de la división corporativa se contactará en menos de 2 horas hábiles.</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Script de Video Ping-Pong Loop y Reproducción Segura iOS/Safari -->
+    <script>
+      (function () {
+        const video = document.getElementById('electricidad-video');
+        const poster = document.getElementById('electricidad-poster');
+        if (!video) return;
+
+        let direction = 1;
+        let isReversing = false;
+        let lastFrameTime = performance.now();
+
+        function stepPingPong(now) {
+          const dt = (now - lastFrameTime) / 1000;
+          lastFrameTime = now;
+
+          if (isReversing && !video.paused) {
+            const newTime = video.currentTime - dt * 0.95;
+            if (newTime <= 0.1) {
+              video.currentTime = 0;
+              isReversing = false;
+              video.playbackRate = 1.0;
+              video.play().catch(() => {});
+            } else {
+              video.currentTime = newTime;
+            }
+          }
+          requestAnimationFrame(stepPingPong);
+        }
+
+        video.addEventListener('timeupdate', function () {
+          if (!isReversing && video.duration && (video.duration - video.currentTime) < 0.25) {
+            isReversing = true;
+            video.pause();
+          }
+        });
+
+        video.addEventListener('ended', function () {
+          isReversing = true;
+          video.pause();
+        });
+
+        function markVideoReady() {
+          video.classList.remove('opacity-0');
+          video.classList.add('opacity-100');
+          if (poster) {
+            poster.classList.remove('opacity-100');
+            poster.classList.add('opacity-0');
+          }
+        }
+
+        video.addEventListener('playing', markVideoReady, { once: true });
+        video.addEventListener('canplaythrough', markVideoReady, { once: true });
+
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            const unlockHandler = function () {
+              video.play().then(() => {
+                markVideoReady();
+                ['click', 'touchstart', 'scroll'].forEach(evt => window.removeEventListener(evt, unlockHandler));
+              }).catch(() => {});
+            };
+            ['click', 'touchstart', 'scroll'].forEach(evt => window.addEventListener(evt, unlockHandler, { passive: true, once: true }));
+          });
+        }
+
+        requestAnimationFrame((now) => {
+          lastFrameTime = now;
+          stepPingPong(now);
+        });
+      })();
+    </script>
+
+    <!-- Script de Animaciones Interactivas Globales: Typewriter y Stagger -->
+    <script>
+      (function () {
+        // 1. ANIMACIÓN DE TIPEADO (TYPEWRITER) CON ALTURA PRESERVADA (CERO SALTOS)
+        function initTypewriter() {
+          const typeElements = document.querySelectorAll('.typewriter-title[data-typewrite]');
+          
+          typeElements.forEach(el => {
+            const rawText = el.getAttribute('data-typewrite').trim();
+            el.innerHTML = `
+              <span class="typewriter-box relative block w-full">
+                <span class="typewriter-ghost invisible select-none pointer-events-none block" aria-hidden="true">${rawText}</span>
+                <span class="typewriter-overlay absolute inset-0 block w-full">
+                  <span class="type-text"></span><span class="type-cursor">|</span>
+                </span>
+              </span>
+            `;
+          });
+
+          const typeObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                obs.unobserve(entry.target);
+                startTyping(entry.target);
+              }
+            });
+          }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+
+          typeElements.forEach(el => typeObserver.observe(el));
+
+          function startTyping(container) {
+            const fullText = container.getAttribute('data-typewrite').trim();
+            const textTarget = container.querySelector('.type-text');
+            const cursor = container.querySelector('.type-cursor');
+            if (!textTarget) return;
+
+            let charIndex = 0;
+            const minSpeed = 22;
+            const maxSpeed = 48;
+
+            function nextChar() {
+              if (charIndex <= fullText.length) {
+                textTarget.textContent = fullText.slice(0, charIndex);
+                charIndex++;
+                const delay = Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed;
+                setTimeout(nextChar, delay);
+              } else {
+                setTimeout(() => {
+                  if (cursor) cursor.classList.add('finished');
+                }, 2200);
+              }
+            }
+
+            setTimeout(nextChar, 160);
+          }
+        }
+
+        // 2. REVELACIÓN ESCALONADA DE PLACAS Y CÁPSULAS
+        function initStaggerCards() {
+          const heroItems = document.querySelectorAll('.hero-stagger-item');
+          heroItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('is-visible');
+            }, 120 + index * 130);
+          });
+
+          const groups = document.querySelectorAll('[data-stagger-group]');
+          const groupObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                obs.unobserve(entry.target);
+                const cards = entry.target.querySelectorAll('.stagger-card');
+                const delay = parseInt(entry.target.getAttribute('data-stagger-delay') || '120', 10);
+                cards.forEach((card, idx) => {
+                  setTimeout(() => {
+                    card.classList.add('is-visible');
+                  }, idx * delay);
+                });
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+          groups.forEach(group => groupObserver.observe(group));
+        }
+
+        // 3. SCROLL SUAVE OPTIMIZADO CON COMPENSACIÓN DE NAVBAR
+        function initSmoothScroll() {
+          document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+              const href = this.getAttribute('href');
+              if (!href || href === '#') return;
+              const target = document.querySelector(href);
+              if (target) {
+                e.preventDefault();
+                const navHeight = 85;
+                const topPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({
+                  top: topPos,
+                  behavior: 'smooth'
+                });
+              }
+            });
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            initTypewriter();
+            initStaggerCards();
+            initSmoothScroll();
+          });
+        } else {
+          initTypewriter();
+          initStaggerCards();
+          initSmoothScroll();
+        }
+      })();
+    </script>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER INSTITUCIONAL (Solo Logo sin texto redundante, azul pleno #00234b)
+       ========================================================================= -->
+  <footer class="relative z-30 bg-[#00234b] text-white/80 py-12 border-t border-white/10 text-xs">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center">
         <img alt="Thermair Logo" class="h-8 w-auto brightness-0 invert" src="assets/thermair-logo.png" />
@@ -614,4 +1239,6 @@
       </div>
     </div>
   </footer>
-</body></html>
+</body>
+
+</html>
